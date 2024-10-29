@@ -28,7 +28,7 @@ const Register = () => {
           }}
         ></div>{" "}
         <div className="w-full py-2 lg:w-1/2 h-full flex flex-col content-start">
-          <div className="flex-grow  mx-20">
+          <div className="flex-grow md:mx-20 mx-6">
             <h1 className="text-start font-bold text-4xl py-2">Register</h1>
             {inputs.map((input, id) => (
               <Input
