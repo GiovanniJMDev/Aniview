@@ -1,4 +1,5 @@
 import { useState } from "react";
+import NavbarButton from "../button/navbarButton";
 
 const Navbar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -15,27 +16,17 @@ const Navbar = () => {
 
   return (
     <aside
-      className={`${
-        isExpanded ? "w-1/4" : "w-1/5"
-      }   bg-gray-900 text-white h-dvh flex flex-col p-4 transition-all duration-500 `}
+      className={`w-auto bg-gray-900 text-white h-screen flex flex-col p-4 transition-all duration-500`}
     >
       <h1
-        className="hover:bg-cyan-500 text-xl font-bold mb-4 select-none cursor-pointer p-2 box-content rounded-md"
+        className="hover:bg-cyan-500 w-auto text-xl font-bold mb-4 select-none cursor-pointer p-2 box-content rounded-md"
         onClick={toggleNavbarSize}
       >
-        My Home
+        {/* My Home */}H
       </h1>
 
       <nav className="flex flex-col space-y-2">
-        {navItems.map((item, index) => (
-          <button
-            key={index}
-            href={item.href}
-            className="p-2 rounded text-left hover:bg-red-400 transition-all"
-          >
-            {item.label}
-          </button>
-        ))}
+        <NavbarButton isExpanded={isExpanded} />
       </nav>
     </aside>
   );
