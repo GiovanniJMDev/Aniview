@@ -1,13 +1,8 @@
 // src/Home.js
-import Navbar from "../../components/Navbar/Navbar";
 import CardTitle from "../../components/title/cardTitle";
 function Home() {
   return (
     <div className="flex min-h-screen bg-gray-100">
-      {/* Sidebar */}
-      <Navbar />
-
-      {/* Main content */}
       <main className="flex-1 p-8">
         <header className="bg-white shadow p-4 rounded mb-4">
           <h2 className="text-xl font-semibold">Dashboard</h2>

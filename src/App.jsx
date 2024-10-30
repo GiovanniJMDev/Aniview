@@ -8,14 +8,21 @@ import {
 import Home from "./pages/home/home";
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
+import PrivateLayout from "./layout/PrivateLayout";
+import Anipon from "./pages/anipon/anipon";
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<Home />} />
+        {/* <Route path="/home" element={<Home />} /> */}
         <Route path="*" element={<Navigate to="/login" />} />
+
+        <Route element={<PrivateLayout />}>
+          <Route path="/home" element={<Home />} />
+          <Route path="/anipon" element={<Anipon />} />
+        </Route>
         {/* <Route path="/login" element={<Login />} /> */}
         {/* <Route
           element={
@@ -25,12 +32,7 @@ function App() {
             />
           }
         >
-          <Route element={<PrivateLayout />}>
-            <Route path="/home" element={<Home />} />
-            <Route path="/inventory" element={<Inventory />} />
-            <Route path="/user-setting" element={<UserSetting />} />
-            <Route path="/requests" element={<Request />} />
-          </Route>
+
         </Route> */}
       </Routes>
     </Router>

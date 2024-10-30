@@ -1,12 +1,20 @@
+import { useNavigate } from "react-router-dom";
+
 const NavbarButton = ({
   isExpanded,
   title,
   IconComponent,
   iconType = "fill",
+  to = "/", // Nueva propiedad para la ruta
 }) => {
+  const navigate = useNavigate(); // Hook de navegación
+
   return (
-    <button className="bg-medium-purple hover:bg-dark-purple hover:border-white border-4 border-transparent rounded-xl p-2 text-start w-fit transition-all duration-500 ease-in-out">
-      {IconComponent && ( // Verifica que IconComponent no sea undefined
+    <button
+      onClick={() => navigate(to)} // Redirige a la ruta especificada
+      className="bg-medium-purple hover:bg-dark-purple hover:border-white border-4 border-transparent rounded-xl p-2 text-start w-fit transition-all duration-500 ease-in-out"
+    >
+      {IconComponent && (
         <IconComponent
           height="2em"
           width="2em"

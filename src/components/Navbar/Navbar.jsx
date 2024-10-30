@@ -15,31 +15,35 @@ const Navbar = () => {
       href: "#home",
       icon: icons.homeIcon,
       iconType: "stoke",
+      link: "/home",
     },
     {
       label: "MyList",
       href: "#mylist",
       icon: icons.myListIcon,
       iconType: "stroke",
+      link: "/mylist",
     },
-
     {
       label: "TierList",
       href: "#tierlist",
       icon: icons.tierListIcon,
-      iconType: "stoke",
+      iconType: "stroke",
+      link: "/tierlist",
     },
     {
       label: "Anipon",
-      href: "#profile",
+      href: "#anipon",
       icon: icons.aniponIcon,
       iconType: "fill",
+      link: "/anipon",
     },
     {
       label: "Profile",
       href: "#profile",
       icon: icons.profileIcon,
       iconType: "fill",
+      link: "/profile",
     },
   ];
 
@@ -60,6 +64,7 @@ const Navbar = () => {
             title={item.label}
             IconComponent={item.icon} // Pasa el icono como prop
             iconType={item.iconType}
+            to={item.link}
           />
         ))}
       </nav>
@@ -68,6 +73,7 @@ const Navbar = () => {
         title={"LogOut"}
         IconComponent={icons.logOutIcon} // Pasa el icono como prop
         iconType={"fill"}
+        to="/login"
       />
     </aside>
   );
