@@ -1,7 +1,7 @@
 import { useState } from "react";
 import NavbarButton from "../button/navbarButton";
 import icons from "../../assets/icon/index"; // Importa tus iconos
-
+import LogOutButton from "../button/logOutButton";
 const Navbar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -49,10 +49,10 @@ const Navbar = () => {
         className="hover:bg-cyan-500 w-auto mb-4 select-none cursor-pointer p-2 box-content rounded-md"
         onClick={toggleNavbarSize}
       >
-        Aniview
+        {/* Aniview */}A
       </h2>
 
-      <nav className="flex flex-col space-y-4">
+      <nav className="flex flex-col space-y-4 h-5/6">
         {navItems.map((item) => (
           <NavbarButton
             key={item.label}
@@ -63,6 +63,12 @@ const Navbar = () => {
           />
         ))}
       </nav>
+      <LogOutButton
+        isExpanded={isExpanded}
+        title={"LogOut"}
+        IconComponent={icons.logOutIcon} // Pasa el icono como prop
+        iconType={"fill"}
+      />
     </aside>
   );
 };
