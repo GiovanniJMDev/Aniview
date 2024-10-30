@@ -8,8 +8,8 @@ const Input = ({ name, placeholder, error }) => {
         placeholder={placeholder}
         className={`w-full focus:outline-none border-2 ${
           error
-            ? "border-red-500 text-red-500"
-            : "border-gray-300 text-gray-500"
+            ? "border-red-500 text-red-500 placeholder:text-red-300"
+            : "border-gray-300 text-gray-500 placeholder:text-gray-400"
         } rounded-md px-2 py-1`}
       />
       {error && <span className="text-red-500 text-sm mt-1">{error}</span>}
