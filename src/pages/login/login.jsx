@@ -32,12 +32,12 @@ const Login = () => {
                 placeholder={input.placeholder}
               />
             ))}
-            <div className=" flex justify-between">
-              <label className=" text-gray-400 my-2 accent-gray-400">
+            <div className=" flex justify-between flex-wrap">
+              <label className="min-w-fit pe-4 text-gray-400 my-2 accent-gray-400">
                 <input type="checkbox" id="cbox1" value="first_checkbox" />{" "}
                 Remember user
               </label>{" "}
-              <label className="text-gray-400 my-2 accent-gray-400">
+              <label className="min-w-fit text-gray-400 my-2 accent-gray-400">
                 Forgor your password?
               </label>
             </div>
@@ -47,12 +47,12 @@ const Login = () => {
               </button>
             </Link>
           </div>
-          <div className=" px-2 h-auto text-end w-full">
-            <span className="font-medium text-gray-500">
+          <div className="px-2  h-auto text-end w-full flex-wrap">
+            <span className="font-medium text-gray-500 w-fit">
               Don’t have an account?{" "}
             </span>{" "}
             <Link to="/register">
-              <button className="w-fit bg-gray-700 py-2 px-6 rounded-xl text-white">
+              <button className="w-fit bg-gray-700 py-2 px-4 rounded-xl text-white ">
                 Sign Up
               </button>
             </Link>
