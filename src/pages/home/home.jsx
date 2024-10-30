@@ -1,6 +1,6 @@
 // src/Home.js
 import Navbar from "../../components/Navbar/Navbar";
-
+import CardTitle from "../../components/title/cardTitle";
 function Home() {
   return (
     <div className="flex min-h-screen bg-gray-100">
@@ -26,6 +26,7 @@ function Home() {
             <h3 className="text-lg font-bold">Messages</h3>
             <p className="text-gray-600">Recent notifications</p>
           </div>
+          <CardTitle />
         </section>
       </main>
     </div>
