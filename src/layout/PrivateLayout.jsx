@@ -1,17 +1,25 @@
 // PrivateLayout.js
-import React from "react";
 import { Outlet } from "react-router-dom";
-// import { Header } from "../../components/Header";
 import Navbar from "../components/Navbar/Navbar";
+import Header from "../components/header/header";
 const PrivateLayout = () => {
   return (
     <>
-      {/* <Header /> */}
+      {/* Header visible solo en dispositivos móviles */}
+      <div className="block h-14 sm:hidden">
+        <Header />
+      </div>
 
-      <div className="flex min-h-screen bg-gray-100">
-        <div>
+      <div
+        className="flex  bg-gray-100"
+        style={{ minHeight: "calc(100vh - 3.5rem)" }}
+      >
+        {/* Navbar oculto en móviles y visible en tabletas y pantallas grandes */}
+        <div className="hidden sm:block">
           <Navbar />
         </div>
+
+        {/* Contenido principal visible en todos los tamaños */}
         <div className="flex-grow">
           <Outlet />
         </div>

@@ -1,17 +1,21 @@
 import { useNavigate } from "react-router-dom";
 
 const LogOutButton = ({
-  isExpanded,
+  isExpanded = true,
   title,
   IconComponent,
   iconType = "fill",
   to = "/", // Nueva propiedad para la ruta
+  onClick, // Recibe onClick como prop, para que se cierre el modal
 }) => {
   const navigate = useNavigate(); // Hook de navegación
-
+  const handleClick = () => {
+    navigate(to); // Navega a la ruta
+    if (onClick) onClick(); // Llama a onClick si está definido
+  };
   return (
     <button
-      onClick={() => navigate(to)} // Redirige a la ruta especificada
+      onClick={handleClick} // Ejecuta la función handleClick
       className="bg-raspberry-red hover:bg-dark-raspberry-red hover:border-white border-4 border-transparent rounded-xl p-2 text-start w-fit transition-all duration-500 ease-in-out"
     >
       {IconComponent && ( // Verifica que IconComponent no sea undefined
