@@ -1,6 +1,25 @@
 // src/Home.js
 import CardTitle from "../../components/title/cardTitle";
 function Home() {
+  const cards = [
+    { title: "Sample News Headline 1" },
+    { title: "Another Interesting Headline 2" },
+    { title: "Breaking News: Something Big Happened" },
+    { title: "More Updates in the Tech World" },
+    { title: "Latest Sports News and Highlights" },
+    { title: "Sample News Headline 1" },
+    { title: "Another Interesting Headline 2" },
+    { title: "Breaking News: Something Big Happened" },
+    { title: "More Updates in the Tech World" },
+    { title: "Latest Sports News and Highlights" },
+    { title: "Sample News Headline 1" },
+    { title: "Another Interesting Headline 2" },
+    { title: "Breaking News: Something Big Happened" },
+    { title: "More Updates in the Tech World" },
+    { title: "Latest Sports News and Highlights" },
+    // Agrega más cartas según sea necesario
+  ];
+
   return (
     <div className="flex min-h-screen bg-gray-100">
       <main className="flex-1 p-8">
