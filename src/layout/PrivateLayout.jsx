@@ -12,7 +12,7 @@ const PrivateLayout = () => {
 
       <div
         className="flex  bg-gray-100"
-        style={{ minHeight: "calc(100vh - 3.5rem)" }}
+        style={{ minHeight: "calc(100dvh - 3.5rem)" }}
       >
         {/* Navbar oculto en móviles y visible en tabletas y pantallas grandes */}
         <div className="hidden sm:block">

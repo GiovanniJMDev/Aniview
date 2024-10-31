@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       colors: {
         // Define tu color personalizado aquí
-        "light-purple": "#BEA7DC",
+        "light-purple": "#bd82f8",
         "medium-purple": "#6200b3",
         "dark-purple": "#2a014c",
         "raspberry-red": "#ce2d4f",
