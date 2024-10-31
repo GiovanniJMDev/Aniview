@@ -21,7 +21,7 @@ function Home() {
   ];
 
   return (
-    <div className="flex h-full bg-gray-100">
+    <div className="flex h-full bg-light-purple">
       <main className="flex-1 p-8">
         <header className="text-center p-4 rounded mb-4">
           <h1 className="pb-3">Aniview</h1>
