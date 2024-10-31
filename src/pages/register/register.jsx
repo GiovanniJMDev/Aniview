@@ -19,7 +19,7 @@ const inputs = [
 
 const Register = () => {
   return (
-    <div className="h-dvh bg-purple-400 w-100 flex justify-center items-center">
+    <div className="h-dvh bg-light-purple w-100 flex justify-center items-center">
       <div className="h-4/5 w-4/5 bg-white flex flex-row rounded-md overflow-hidden">
         <div
           className="lg:w-1/2 h-full  bg-cover bg-center"
