@@ -5,6 +5,9 @@ import aniponIcon from "./aniponIcon";
 import myListIcon from "./myListIcon";
 import tierListIcon from "./tierListIcon";
 import homeIcon from "./homeIcon";
+import plusIcon from "./plusIcon";
+import lessIcon from "./lessIcon";
+import menuIcon from "./menuIcon";
 
 const icons = {
   animeIcon,
@@ -14,6 +17,9 @@ const icons = {
   myListIcon,
   tierListIcon,
   homeIcon,
+  plusIcon,
+  lessIcon,
+  menuIcon,
 };
 
 export default icons;
