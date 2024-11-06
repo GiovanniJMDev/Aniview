@@ -29,6 +29,9 @@ module.exports = {
           "100%": { transform: "translateX(-100%)" },
         },
       },
+      translate: {
+        'banner': '150%',
+      }
     },
   },
   plugins: [],

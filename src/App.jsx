@@ -10,18 +10,24 @@ import Login from "./pages/login/login";
 import Register from "./pages/register/register";
 import PrivateLayout from "./layout/PrivateLayout";
 import Anipon from "./pages/anipon/anipon";
+import Profile from "./pages/profile/profile";
+import MyList from "./pages/myList/myList";
+import TierList from "./pages/tierList/tierList";
+
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        {/* <Route path="/home" element={<Home />} /> */}
         <Route path="*" element={<Navigate to="/login" />} />
 
         <Route element={<PrivateLayout />}>
           <Route path="/home" element={<Home />} />
-          <Route path="/anipon" element={<Anipon />} />
+          <Route path="/anipon" element={<Anipon />} />{" "}
+          <Route path="/myList" element={<MyList />} />
+          <Route path="/profile" element={<Profile />} />{" "}
+          <Route path="/tierList" element={<TierList />} />{" "}
         </Route>
         {/* <Route path="/login" element={<Login />} /> */}
         {/* <Route
