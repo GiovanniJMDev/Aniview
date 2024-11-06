@@ -1,5 +1,5 @@
 import React from "react";
-
+import SocialMedias from "../../components/socialMedias/socialMedias";
 const Profile = () => {
   return (
     <div className="bg-light-purple h-full w-full flex items-center justify-center flex-col">
@@ -10,17 +10,23 @@ const Profile = () => {
             backgroundImage: `url(https://t3.ftcdn.net/jpg/07/41/57/50/360_F_741575084_eLPzRBX4siOp3FbEsTOfkFNS0KO897HY.jpg)`, // Envolviendo LoginWallpaper con url()
           }}
         ></div>{" "}
-        <div
-          className="rounded-full absolute w-2/4 max-w-40 min-w-24 aspect-square -translate-y-3/4  translate-x-4 bg-white bg-cover bg-center"
-          style={{
-            backgroundImage: `url(https://i.pinimg.com/736x/49/d5/b2/49d5b215b12847a876d5e888a9c5b5c5.jpg)`, // Envolviendo LoginWallpaper con url()
-          }}
-        />
-        <div className="h-2/3 bg-light-gray w-full grid grid-cols-2">
-          <div className="border-2 w-full h-full"></div>
-          <div className="border-2 w-full h-full"></div>
-          <div className="border-2 w-full h-full"></div>
-          <div className="border-2 w-full h-full"></div>
+        <div className="h-2/3 bg-light-gray w-full grid grid-cols-1 md:grid-cols-2 overflow-y-auto ">
+          <div className=" w-full h-full min-h-[200px] bg-red-400">
+            <div className="flex flex-row  h-full box-border pt-6 justify-center">
+              <h2 className="text-3xl p-3">Giovanni_JM</h2>
+              <img
+                className="h-1/5 w-auto rounded-full aspect-square bg-cover bg-center"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4Hxu0WXM82rDbGGg-34h5mqvcTCQOCQcSBw&s"
+                alt=""
+              />
+            </div>
+          </div>
+          <div className=" w-full h-full min-h-[200px] bg-green-400">
+            <SocialMedias />
+          </div>
+          <div className="w-full h-full min-h-[200px] bg-cyan-400  md:col-span-2">
+            <SocialMedias />
+          </div>
         </div>
       </div>
     </div>
