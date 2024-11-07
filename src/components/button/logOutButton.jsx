@@ -16,7 +16,7 @@ const LogOutButton = ({
   return (
     <button
       onClick={handleClick} // Ejecuta la función handleClick
-      className="bg-raspberry-red hover:bg-dark-raspberry-red hover:border-white border-4 border-transparent rounded-xl p-2 text-start w-fit transition-all duration-500 ease-in-out"
+      className="bg-raspberry-red hover:bg-dark-raspberry-red hover:border-white border-4 border-transparent rounded-xl p-2 text-start w-fit transition-all duration-500 ease-in-out flex flex-nowrap"
     >
       {IconComponent && ( // Verifica que IconComponent no sea undefined
         <IconComponent
