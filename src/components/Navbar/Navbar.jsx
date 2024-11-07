@@ -48,7 +48,7 @@ const Navbar = () => {
   ];
 
   return (
-    <aside className="w-auto bg-onix text-white h-screen flex flex-col p-4 transition-all duration-500">
+    <aside className="w-auto bg-onix text-white h-dvh flex flex-col p-4 transition-all duration-500">
       <h2
         className="hover:bg-cyan-500 w-auto mb-4 select-none cursor-pointer p-2 box-content rounded-md"
         onClick={toggleNavbarSize}
