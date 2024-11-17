@@ -9,7 +9,7 @@ const Anipon = () => {
         <h1 className=" w-full  text-center py-6 ">Eighty Six</h1>
         <div className="w-full h-2/5 ">
           <img
-            className="bg-cover h-full aspect-video rounded-lg m-auto"
+            className="bg-cover bg-center h-full aspect-video rounded-lg m-auto"
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4faOK6TmSk_N9ZEs9uxwhIrNPKnDOijAT7A&s"
             alt=""
           />

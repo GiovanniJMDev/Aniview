@@ -8,8 +8,9 @@ import homeIcon from "./homeIcon";
 import plusIcon from "./plusIcon";
 import lessIcon from "./lessIcon";
 import menuIcon from "./menuIcon";
-
+import goArrowIcon from "./goArrowICon";
 const icons = {
+  goArrowIcon,
   animeIcon,
   profileIcon,
   logOutIcon,
