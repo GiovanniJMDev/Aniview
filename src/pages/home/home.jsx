@@ -1,5 +1,6 @@
 // src/Home.js
-import CardTitle from "../../components/title/cardTitle";
+import AnimeCard from "../../components/cards/AnimeCard";
+import animes from "../../data/AnimeList.json";
 function Home() {
   const cards = [
     { title: "Sample News Headline 1" },
@@ -21,26 +22,38 @@ function Home() {
   ];
 
   return (
-    <div className="flex h-full bg-light-purple">
-      <main className="flex-1 p-8">
-        <header className="text-center p-4 rounded mb-4">
+    <div className="flex justify-center items-start h-dvh w-full bg-light-purple overflow-y-auto">
+      <main className="w-5/6 flex flex-col items-center justify-center">
+        <header className="text-center w-full p-4 rounded mb-4">
           <h1 className="pb-3">Aniview</h1>
           <input
             type="text"
             name="input"
             id="home_input"
-            className="border-2 border-onix rounded-xl w-3/5"
+            className=" focus:outline-none text-onix placeholder:text-gray-400 rounded-xl w-4/5 px-4 py-2"
           />
         </header>
 
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="p-4 bg-white rounded shadow"></div>
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className=" bg-white rounded shadow max-h-[70vh] ">
+            <h1 className="font-bold text-center py-4 border-b-2 border-black text-2xl">
+              Top Anime
+            </h1>
+
+            <div className="space-y-4 p-4 overflow-auto max-h-[60vh]">
+              {/* Overflow en el contenedor interno */}{" "}
+              {animes.map((anime, index) => (
+                <AnimeCard key={index} anime={anime} />
+              ))}
+            </div>
+          </div>
+
           <div className="p-4 bg-white rounded shadow">
-            <h3 className="text-lg font-bold">Tasks</h3>
+            <h3 className="text-lg font-bold">Trending Anime</h3>
             <p className="text-gray-600">Tasks for today</p>
           </div>
           <div className="p-4 bg-white rounded shadow">
-            <h3 className="text-lg font-bold">Messages</h3>
+            <h3 className="text-lg font-bold">Seasonal Anime</h3>
             <p className="text-gray-600">Recent notifications</p>
           </div>
         </section>
