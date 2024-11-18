@@ -21,15 +21,13 @@ const Profile = () => {
       <div className="min-h-[20vh] bg-white border border-black w-full rounded-2xl lg:row-span-2">
         Profile
       </div>
-      <div className="min-h-[20vh] bg-white border border-black w-full rounded-2xl  lg:col-span-2">
+      <div className="min-h-[20vh]  bg-white border border-black w-full rounded-2xl  lg:col-span-2">
         <WatchingList />
       </div>{" "}
-      <div className="min-h-[20vh] bg-white border border-black w-full rounded-2xl  lg:row-span-2 flex flex-col items-center">
+      <div className="min-h-[20vh] overflow-hidden bg-white border border-black w-full rounded-2xl  lg:row-span-2 flex flex-col items-center">
         <BadgesContainer />
       </div>
-      <div className="min-h-[20vh] bg-white border border-black w-full rounded-2xl lg:col-span-2">
-        Plan to watch List
-      </div>{" "}
+      <div className="min-h-[20vh] bg-white border border-black w-full rounded-2xl lg:col-span-2"></div>{" "}
     </div>
   );
 };

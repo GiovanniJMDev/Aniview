@@ -2,6 +2,7 @@ import { useState } from "react";
 import NavbarButton from "../button/navbarButton";
 import icons from "../../assets/icon/index"; // Importa tus iconos
 import LogOutButton from "../button/logOutButton";
+import TitleNavbarButton from "../button/titleNavbarButton";
 const Navbar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -24,13 +25,13 @@ const Navbar = () => {
       iconType: "stroke",
       link: "/mylist",
     },
-    {
-      label: "TierList",
-      href: "#tierlist",
-      icon: icons.tierListIcon,
-      iconType: "stroke",
-      link: "/tierlist",
-    },
+    // {
+    //   label: "TierList",
+    //   href: "#tierlist",
+    //   icon: icons.tierListIcon,
+    //   iconType: "stroke",
+    //   link: "/tierlist",
+    // },
     {
       label: "Anipon",
       href: "#anipon",
@@ -49,14 +50,14 @@ const Navbar = () => {
 
   return (
     <aside className="w-auto bg-onix text-white h-dvh flex flex-col p-4 transition-all duration-500">
-      <h2
-        className="hover:bg-cyan-500 w-auto mb-4 select-none cursor-pointer p-2 box-content rounded-md"
-        onClick={toggleNavbarSize}
-      >
-        {/* Aniview */}A
-      </h2>
-
       <nav className="flex flex-col space-y-4 h-5/6">
+        <TitleNavbarButton
+          isExpanded={isExpanded}
+          onClick={toggleNavbarSize}
+          title="Aniview"
+          IconComponent={icons.animeIcon} // Pasa el icono como prop
+          iconType={"fill"}
+        />
         {navItems.map((item) => (
           <NavbarButton
             key={item.label}

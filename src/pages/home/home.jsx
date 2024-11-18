@@ -34,11 +34,11 @@ function Home() {
           />
         </header>
 
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className=" bg-white rounded shadow max-h-[70vh] ">
-            <h1 className="font-bold text-center py-4 border-b-2 border-black text-2xl">
-              Top Anime
-            </h1>
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-4">
+          <div className=" bg-white rounded shadow max-h-[70vh] overflow-hidden ">
+            <div className=" w-full z-10 h-fit bg-white drop-shadow-lg">
+              <h1 className="font-bold text-center py-4 text-2xl">Top Anime</h1>
+            </div>
 
             <div className="space-y-4 p-4 overflow-auto max-h-[60vh]">
               {/* Overflow en el contenedor interno */}{" "}
@@ -47,14 +47,29 @@ function Home() {
               ))}
             </div>
           </div>
+          <div className=" bg-white rounded shadow max-h-[70vh] overflow-hidden ">
+            <div className=" w-full z-10 h-fit bg-white drop-shadow-lg">
+              <h1 className="font-bold text-center py-4 text-2xl">Trending Anime</h1>
+            </div>
 
-          <div className="p-4 bg-white rounded shadow">
-            <h3 className="text-lg font-bold">Trending Anime</h3>
-            <p className="text-gray-600">Tasks for today</p>
-          </div>
-          <div className="p-4 bg-white rounded shadow">
-            <h3 className="text-lg font-bold">Seasonal Anime</h3>
-            <p className="text-gray-600">Recent notifications</p>
+            <div className="space-y-4 p-4 overflow-auto max-h-[60vh]">
+              {/* Overflow en el contenedor interno */}{" "}
+              {animes.map((anime, index) => (
+                <AnimeCard key={index} anime={anime} />
+              ))}
+            </div>
+          </div>{" "}
+          <div className=" bg-white rounded shadow max-h-[70vh] overflow-hidden ">
+            <div className=" w-full z-10 h-fit bg-white drop-shadow-lg">
+              <h1 className="font-bold text-center py-4 text-2xl">Seasonal Anime</h1>
+            </div>
+
+            <div className="space-y-4 p-4 overflow-auto max-h-[60vh]">
+              {/* Overflow en el contenedor interno */}{" "}
+              {animes.map((anime, index) => (
+                <AnimeCard key={index} anime={anime} />
+              ))}
+            </div>
           </div>
         </section>
       </main>
