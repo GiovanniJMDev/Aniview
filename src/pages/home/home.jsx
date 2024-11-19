@@ -22,10 +22,7 @@ function Home() {
   ];
 
   return (
-    <div
-      className="flex justify-center items-start h-dvh w-full bg-light-purple overflow-y-auto overflow-x-hidden"
-      style={{ maxHeight: "calc(100dvh - 3.5rem)" }}
-    >
+    <div className="flex justify-center items-start h-full w-full bg-light-purple overflow-y-auto overflow-x-hidden">
       <div className="w-5/6 flex flex-col items-center justify-center ">
         <header className="text-center w-full p-4 rounded mb-4">
           <h1 className="pb-3">Aniview</h1>
