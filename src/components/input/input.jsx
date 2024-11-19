@@ -1,6 +1,6 @@
 const Input = ({ name, placeholder, error }) => {
   return (
-    <div className="flex flex-col  py-1">
+    <div className="flex flex-col">
       <label className={`	 ${error ? " text-red-500" : " text-gray-500"}`}>
         {name}
       </label>
@@ -10,7 +10,7 @@ const Input = ({ name, placeholder, error }) => {
           error
             ? "border-red-500 text-red-500 placeholder:text-red-300"
             : "border-gray-300 text-gray-500 placeholder:text-gray-400"
-        } rounded-md px-2 py-1`}
+        } rounded-md px-4 py-2`}
       />
       {error && <span className="text-red-500 text-sm mt-1">{error}</span>}
     </div>

@@ -20,7 +20,7 @@ const PrivateLayout = () => {
         </div>
 
         {/* Contenido principal visible en todos los tamaños */}
-        <div className="flex-grow">
+        <div className="flex-grow overflow-hidden max-h-dvh">
           <Outlet />
         </div>
       </div>

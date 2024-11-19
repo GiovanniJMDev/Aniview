@@ -3,9 +3,9 @@ import icons from "../../assets/icon";
 const WatchingList = () => {
   return (
     <div className="h-full w-full">
-      <div className="h-fit p-2 flex justify-between border-b border-black">
+      <div className="h-2/6 p-2 flex justify-between border-b-2 border-black">
         <h1 className="w-fit">Completed List</h1>
-        <button className="bg-gray-500 p-2 rounded-full ">
+        <button className="bg-gray-500 p-1 rounded-full aspect-square ">
           <icons.goArrowIcon fill="white" className="m-auto" />
         </button>
       </div>
@@ -13,7 +13,7 @@ const WatchingList = () => {
         <img
           src="https://shop.selecta-vision.com/12221-large_default/yuyu-hakusho-monster-box-2023.jpg"
           alt=""
-          className=" aspect-square w-1/5 max-w-28 cursor-pointer"
+          className=" aspect-square h-5/6 max-w-28 cursor-pointer"
         />{" "}
       </div>
     </div>

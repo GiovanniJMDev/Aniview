@@ -9,7 +9,14 @@ import plusIcon from "./plusIcon";
 import lessIcon from "./lessIcon";
 import menuIcon from "./menuIcon";
 import goArrowIcon from "./goArrowICon";
+import appleIcon from "./appleIcon";
+import googleIcon from "./googleIcon";
+import microsoftIcon from "./microsoftIcon";
+import githubIcon from "./githubIcon";
 const icons = {
+  microsoftIcon,
+  githubIcon,
+  googleIcon,
   goArrowIcon,
   animeIcon,
   profileIcon,
@@ -21,6 +28,7 @@ const icons = {
   plusIcon,
   lessIcon,
   menuIcon,
+  appleIcon,
 };
 
 export default icons;

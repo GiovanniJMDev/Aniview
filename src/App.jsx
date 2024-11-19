@@ -12,7 +12,7 @@ import PrivateLayout from "./layout/PrivateLayout";
 import Anipon from "./pages/anipon/anipon";
 import Profile from "./pages/profile/profile";
 import MyList from "./pages/myList/myList";
-import TierList from "./pages/tierList/tierList";
+// import TierList from "./pages/tierList/tierList";
 import Anime from "./pages/anime/anime";
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
           <Route path="/anipon" element={<Anipon />} />{" "}
           <Route path="/myList" element={<MyList />} />
           <Route path="/profile" element={<Profile />} />{" "}
-          <Route path="/tierList" element={<TierList />} />{" "}
+          {/* <Route path="/tierList" element={<TierList />} />{" "} */}
           <Route path="/anime/:id" element={<Anime />} />
         </Route>
         {/* <Route path="/login" element={<Login />} /> */}

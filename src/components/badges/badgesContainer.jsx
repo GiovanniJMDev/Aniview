@@ -1,25 +1,32 @@
 import icons from "../../assets/icon";
 
 const BadgesContainer = () => {
-  const iconsArray = Array(16).fill(<icons.animeIcon />); // Creamos un array con 8 elementos de animeIcon
+  const iconsArray = Array(16).fill(<icons.animeIcon />); // Creamos un array con 16 elementos de animeIcon
 
   return (
-    <>
-      <h3 className="text-center text-xl font-bold text-black py-2">Badges</h3>
-      <div className="w-full h-fit grid grid-cols-4 grid-rows-4 place-items-center  gap-5 py-4">
+    <div className="h-full w-full flex flex-col">
+      {/* Encabezado fijo */}
+      <h3 className="text-center text-xl font-bold text-black py-2 sticky top-0 bg-white border-b-2 border-black z-10">
+        Badges
+      </h3>
+
+      {/* Contenedor de medallas con overflow */}
+      <div className="flex-1 overflow-auto grid grid-cols-4 grid-rows-auto place-items-center gap-5 py-4 px-2">
         {iconsArray.map((icon, index) => (
           <div
             key={index}
-            className=" aspect-square p-3 flex justify-center items-center"
+            className="aspect-square p-3 flex justify-center items-center bg-gray-200 hover:bg-gray-400 transition-all duration-300 rounded-lg shadow-lg"
           >
             {icon}
-          </div> // Renderizamos cada icono con un div contenedor
+          </div>
         ))}
-      </div>{" "}
-      <button className="bg-gray-600 rounded-lg py-2 px-4 w-fit my-3 col-span-4">
+      </div>
+
+      {/* Botón fijo */}
+      <button className="bg-gray-600 rounded-lg py-2 px-4 w-fit mx-auto my-3">
         Ver más
       </button>
-    </>
+    </div>
   );
 };
 
