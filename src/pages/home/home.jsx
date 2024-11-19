@@ -23,7 +23,7 @@ function Home() {
 
   return (
     <div
-      className="flex justify-center items-start h-dvh w-full bg-light-purple overflow-y-auto overflow-x-hidden"
+      className="flex justify-center items-start h-full w-full bg-light-purple overflow-y-auto overflow-x-hidden"
       style={{ maxHeight: "calc(100dvh - 3.5rem)" }}
     >
       <div className="w-5/6 flex flex-col items-center justify-center ">
