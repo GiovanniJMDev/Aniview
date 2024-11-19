@@ -50,7 +50,7 @@ const Navbar = () => {
 
   return (
     <aside className="w-auto bg-onix text-white h-dvh flex flex-col p-4 transition-all duration-500">
-      <nav className="flex flex-col space-y-4 h-5/6">
+      <nav className="flex flex-col space-y-4 flex-grow">
         <TitleNavbarButton
           isExpanded={isExpanded}
           onClick={toggleNavbarSize}
@@ -69,13 +69,15 @@ const Navbar = () => {
           />
         ))}
       </nav>
-      <LogOutButton
-        isExpanded={isExpanded}
-        title={"LogOut"}
-        IconComponent={icons.logOutIcon} // Pasa el icono como prop
-        iconType={"fill"}
-        to="/login"
-      />
+      <nav className="py-4">
+        <LogOutButton
+          isExpanded={isExpanded}
+          title={"LogOut"}
+          IconComponent={icons.logOutIcon} // Pasa el icono como prop
+          iconType={"fill"}
+          to="/login"
+        />
+      </nav>
     </aside>
   );
 };

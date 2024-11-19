@@ -44,19 +44,19 @@ function Anime() {
 
   return (
     <div className="flex justify-center items-center h-full w-full bg-light-purple overflow-y-auto">
-      <div className="bg-white rounded-lg shadow-lg w-5/6 md:w-3/5 h-5/6 max-h-[90dvh] flex flex-col overflow-hidden">
+      <div className="bg-white rounded-2xl shadow-lg w-5/6 md:w-4/5 h-full max-h-[90dvh] flex flex-col overflow-hidden">
         {/* Título */}
         <h1 className="text-3xl font-bold w-full py-4 text-center bg-white z-10 shadow-md">
           {anime.title}
         </h1>
 
         {/* Contenido principal */}
-        <div className="flex-grow overflow-auto flex flex-col py-4">
+        <div className="flex-grow overflow-auto flex flex-col py-4 items-center">
           {/* Imagen del anime */}
           <img
             src={anime.image}
             alt={anime.title}
-            className="m-4 rounded-lg aspect-video h-3/5 object-cover bg-center shadow-md"
+            className="m-4 rounded-lg aspect-video w-3/5 object-cover bg-center shadow-md"
           />
           {/* Rating */}
           <h1 className="text-center text-4xl font-bold text-gray-800 rounded-lg">

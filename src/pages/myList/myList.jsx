@@ -3,33 +3,38 @@ import AnimeListCard from "../../components/cards/AnimeListCard";
 
 const MyList = () => {
   return (
-    <div className="bg-light-purple h-full w-full flex items-center justify-start flex-col">
-      <h1 className="py-6">MyList</h1>
-      <div className="w-4/5 h-4/5 bg-white rounded-2xl drop-shadow-lg overflow-x-auto max-w-[80vw] max-h-[80vh]">
-        <div className="h-full min-w-full w-max grid grid-cols-4 content-stretch ">
-          <div className="min-w-[10rem] overflow-y-auto bg-red-100 flex flex-col items-center gap-3 p-3">
-            <AnimeListCard />
-            <AnimeListCard />
-            <AnimeListCard />
-            <AnimeListCard />
-            <AnimeListCard />
-            <AnimeListCard />
+    <div className="bg-light-purple h-full w-full flex items-center justify-center flex-col">
+      <div className=" flex justify-start items-center flex-col w-5/6 md:w-4/5 h-full max-h-[90dvh] bg-white rounded-2xl drop-shadow-lg overflow-hidden ">
+        <h1 className="text-3xl font-bold w-full py-4 text-center bg-white z-10 shadow-md">
+          My List
+        </h1>
+        <div className="w-full flex-grow flex flex-col overflow-auto">
+          <div className="min-w-full w-max grid grid-cols-4 content-stretch h-full ">
+            <div className="min-w-[10rem] bg-white flex flex-col items-center gap-3 p-3 overflow-y-auto">
+              <AnimeListCard />
+              <AnimeListCard />
+              <AnimeListCard />
+              <AnimeListCard />
+              <AnimeListCard />
+              <AnimeListCard />
+            </div>
+            <div className="min-w-[10rem] bg-white flex flex-col items-center gap-4 p-2 overflow-y-auto">
+              <AnimeListCard />
+              <AnimeListCard />
+              <AnimeListCard />
+            </div>
+            <div className="min-w-[10rem] bg-white flex flex-col items-center gap-4 p-2 overflow-y-auto">
+              <AnimeListCard />
+              <AnimeListCard />
+              <AnimeListCard />
+            </div>
+            <div className="min-w-[10rem] bg-white flex flex-col items-center gap-4 p-2 overflow-y-auto">
+              <AnimeListCard />
+              <AnimeListCard />
+              <AnimeListCard />
+            </div>
           </div>
-          <div className="min-w-[10rem] bg-red-100 flex flex-col items-center gap-4 p-2">
-            <AnimeListCard />
-            <AnimeListCard />
-            <AnimeListCard />
-          </div>
-          <div className="min-w-[10rem] bg-red-100 flex flex-col items-center gap-4 p-2">
-            <AnimeListCard />
-            <AnimeListCard />
-            <AnimeListCard />
-          </div>
-          <div className="min-w-[10rem] bg-red-100 flex flex-col items-center gap-4 p-2">
-            <AnimeListCard />
-            <AnimeListCard />
-            <AnimeListCard />
-          </div>
+          {/* <div>AAAAAAAAAAAAAAAAAAAAA</div> */}
         </div>
       </div>
     </div>
