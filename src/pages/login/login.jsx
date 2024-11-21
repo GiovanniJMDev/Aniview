@@ -40,7 +40,10 @@ const Login = () => {
 
             <div className="text-center mt-4">
               <span className="text-gray-400">Don’t have an account? </span>
-              <Link className="text-light-purple" to="/register">
+              <Link
+                className="text-light-purple hover:text-dark-purple transition-all duration-300"
+                to="/register"
+              >
                 Register
               </Link>
             </div>
@@ -64,13 +67,16 @@ const Login = () => {
                   />{" "}
                   Remember user
                 </label>
-                <Link className="text-light-purple" to="/login">
+                <Link
+                  className="text-light-purple hover:text-dark-purple transition-all duration-300"
+                  to="/login"
+                >
                   Forgor your password?
                 </Link>
               </div>
               <Link
                 to="/home"
-                className="py-2 px-6 rounded-xl text-white flex items-center justify-center"
+                className=" px-6 rounded-xl text-white flex items-center justify-center"
               >
                 <button className="w-fit bg-gray-700 py-2 px-6 rounded-xl text-white">
                   Login
@@ -81,22 +87,18 @@ const Login = () => {
                 <span className="mx-4 text-gray-400">Or register with</span>
                 <div className="flex-grow border-t border-gray-400"></div>
               </div>
-              <div className="grid md:grid-cols-2 md:grid-rows-2 grid-cols-1 grid-rows-4 gap-4 px-4 overflow-auto">
-                <button className="border-2 py-2 gap-2 border-gray-300 text-gray-800 flex items-center justify-center rounded-xl hover:bg-gray-300 transition-all duration-300">
+              <div className="grid md:grid-cols-4 md:grid-rows-1 grid-cols-2 grid-rows-2 justify-items-center gap-4 px-4 overflow-auto">
+                <button className="border-2 border-gray-300 text-gray-800 p-2 flex items-center justify-center rounded-xl aspect-square hover:bg-gray-300 transition-all duration-300">
                   <icons.googleIcon height="2rem" width="2rem" />
-                  Google
                 </button>
-                <button className="border-2 py-2 gap-2 border-gray-300 text-gray-800 flex items-center justify-center rounded-xl hover:bg-gray-300 transition-all duration-300">
+                <button className="border-2 border-gray-300 text-gray-800 p-2 flex items-center justify-center rounded-xl aspect-square hover:bg-gray-300 transition-all duration-300">
                   <icons.appleIcon fill="#252525" height="2rem" width="2rem" />
-                  Apple
                 </button>
-                <button className="border-2 py-2 gap-2 border-gray-300 text-gray-800 flex items-center justify-center rounded-xl hover:bg-gray-300 transition-all duration-300">
+                <button className="border-2 border-gray-300 text-gray-800 flex items-center justify-center rounded-xl aspect-square hover:bg-gray-300 transition-all duration-300">
                   <icons.microsoftIcon height="2rem" width="2rem" />
-                  Microsoft
                 </button>
-                <button className="border-2 py-2 gap-2 border-gray-300 text-gray-800 flex items-center justify-center rounded-xl hover:bg-gray-300 transition-all duration-300">
+                <button className="border-2 border-gray-300 text-gray-800 flex items-center justify-center rounded-xl aspect-square hover:bg-gray-300 transition-all duration-300">
                   <icons.githubIcon fill="#252525" height="2rem" width="2rem" />
-                  Github
                 </button>
               </div>{" "}
             </div>

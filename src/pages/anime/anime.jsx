@@ -43,8 +43,8 @@ function Anime() {
   const totalEpisodes = anime.episodes_per_season.reduce((a, b) => a + b, 0);
 
   return (
-    <div className="flex justify-center items-center h-full w-full bg-light-purple overflow-y-auto">
-      <div className="bg-white rounded-2xl shadow-lg w-5/6 md:w-4/5 h-full max-h-[90dvh] flex flex-col overflow-hidden">
+    <div className="bg-light-purple h-full w-full flex items-center justify-center flex-col">
+      <div className=" flex justify-center items-start flex-col w-[95%] max-w-[90dvw] h-full max-h-[90dvh] bg-white rounded-2xl drop-shadow-lg overflow-hidden">
         {/* Título */}
         <h1 className="text-3xl font-bold w-full py-4 text-center bg-white z-10 shadow-md">
           {anime.title}
@@ -52,51 +52,60 @@ function Anime() {
 
         {/* Contenido principal */}
         <div className="flex-grow overflow-auto flex flex-col py-4 items-center">
-          {/* Imagen del anime */}
-          <img
-            src={anime.image}
-            alt={anime.title}
-            className="m-4 rounded-lg aspect-video w-3/5 object-cover bg-center shadow-md"
-          />
-          {/* Rating */}
-          <h1 className="text-center text-4xl font-bold text-gray-800 rounded-lg">
-            {anime.rating}/10
-          </h1>
-          {/* Géneros */}
-          <div className="flex flex-wrap justify-center gap-2 rounded-lg border border-gray-300 p-4 m-4 bg-gray-50">
-            {anime.genres.map((genre, index) => (
-              <span
-                key={index}
-                className="bg-gray-100 text-gray-800 text-sm font-semibold px-3 py-1 rounded-full border border-gray-300 shadow-sm"
-              >
-                {genre}
-              </span>
-            ))}
+          <div className="flex flex-col md:flex-row items-start w-full px-4 gap-4">
+            {/* Imagen del anime */}
+            <img
+              src={anime.image}
+              alt={anime.title}
+              className=" rounded-lg aspect-video w-full md:w-1/3 object-cover bg-center shadow-md"
+            />
+            {/* Información del anime */}
+            <div className="p-4 h-full bg-gray-50 border border-gray-300 rounded-lg shadow-md flex-grow">
+              <p className="text-lg">
+                <strong>Platforms:</strong> {anime.platforms.join(", ")}
+              </p>
+              <p className="text-lg mt-2">
+                <strong>Years:</strong> {anime.year_started} -{" "}
+                {anime.year_ended || "En emisión"}
+              </p>
+              <p className="text-lg mt-2">
+                <strong>Seasons:</strong> {anime.seasons}
+              </p>
+              <p className="text-lg mt-2">
+                <strong>Episodes per season:</strong>{" "}
+                {anime.episodes_per_season.join(", ")}
+              </p>
+              <p className="text-lg mt-2">
+                <strong>Total number of episodes:</strong> {totalEpisodes}
+              </p>
+              <p className="text-lg mt-2">
+                {" "}
+                <strong>Rating:</strong> {anime.rating}/10
+              </p>
+            </div>
           </div>
 
-          {/* Información del anime */}
+          {/* Rating */}
+
+          <div className="w-full px-4 py-6">
+            <div className="flex flex-wrap justify-center gap-2 rounded-lg border border-gray-300 p-4 box-border bg-gray-50 w-full">
+              {anime.genres.map((genre, index) => (
+                <span
+                  key={index}
+                  className="bg-gray-100 text-gray-800 text-sm font-semibold px-3 py-1 rounded-full border border-gray-300 shadow-sm"
+                >
+                  {genre}
+                </span>
+              ))}
+            </div>
+          </div>
+          {/* Descripción */}
           <div className="p-4 mx-4 bg-gray-50 border border-gray-300 rounded-lg shadow-md">
             <p className="text-lg">
               <strong>Description:</strong> {anime.description}
             </p>
-            <p className="text-lg mt-2">
-              <strong>Platforms:</strong> {anime.platforms.join(", ")}
-            </p>
-            <p className="text-lg mt-2">
-              <strong>Years:</strong> {anime.year_started} -{" "}
-              {anime.year_ended || "En emisión"}
-            </p>
-            <p className="text-lg mt-2">
-              <strong>Seasons:</strong> {anime.seasons}
-            </p>
-            <p className="text-lg mt-2">
-              <strong>Episodes per season:</strong>{" "}
-              {anime.episodes_per_season.join(", ")}
-            </p>
-            <p className="text-lg mt-2">
-              <strong>Total number of episodes:</strong> {totalEpisodes}
-            </p>
           </div>
+          {/* Géneros */}
         </div>
       </div>
     </div>

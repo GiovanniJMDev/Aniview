@@ -6,9 +6,14 @@ const BadgesContainer = () => {
   return (
     <div className="h-full w-full flex flex-col">
       {/* Encabezado fijo */}
-      <h3 className="text-center text-xl font-bold text-black py-2 sticky top-0 bg-white border-b-2 border-black z-10">
-        Badges
-      </h3>
+      <div className="h-fit px-4 py-2 flex justify-between border-b-2 border-black">
+        <h3 className="text-xl font-bold text-black sticky top-0 bg-white border-black z-10">
+          Badges
+        </h3>
+        <button className="bg-gray-500 p-1 rounded-full aspect-square">
+          <icons.goArrowIcon fill="white" className="m-auto" />
+        </button>
+      </div>
 
       {/* Contenedor de medallas con overflow */}
       <div className="flex-1 overflow-auto grid grid-cols-4 grid-rows-auto place-items-center gap-5 py-4 px-2">

@@ -71,9 +71,9 @@ const GraphCalendar = () => {
   const getBackgroundClass = (day) => {
     switch (day) {
       case 1:
-        return "bg-emerald-900";
+        return "bg-dark-purple";
       case 2:
-        return "bg-emerald-700";
+        return "bg-light-purple";
       case 3:
         return "bg-emerald-500";
       case 4:

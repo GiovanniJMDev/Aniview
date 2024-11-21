@@ -1,0 +1,19 @@
+{
+  "timestreaks": [
+    {
+      "usuario_id": 1,
+      "nivel": 3,
+      "fecha": "2024-11-21"
+    },
+    {
+      "usuario_id": 1,
+      "nivel": 4,
+      "fecha": "2024-11-22"
+    },
+    {
+      "usuario_id": 2,
+      "nivel": 5,
+      "fecha": "2024-11-21"
+    }
+  ]
+}
