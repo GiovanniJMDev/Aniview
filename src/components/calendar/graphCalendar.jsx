@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const GraphCalendar = () => {
   const months = [
     "Jan",
-    "Feb",
+    "Feb", 
     "Mar",
     "Apr",
     "May",
@@ -24,30 +24,33 @@ const GraphCalendar = () => {
   const generateSampleData = (year) => {
     const data = [];
     const totalDays = isLeapYear(year) ? 366 : 365;
-    let dayCount = 1; // Comenzamos desde el 1 de enero
-    const firstDayOfYear = new Date(year, 0, 1).getDay(); // Día de la semana del 1 de enero
-    let startDayIndex = firstDayOfYear === 0 ? 6 : firstDayOfYear - 1; // Ajustamos para que el lunes sea el primer día (0 = domingo)
+    
+    // Obtener el primer día del año (0 = Domingo, 1 = Lunes, etc)
+    const firstDay = new Date(year, 0, 1).getDay();
+    // Ajustar para que la semana empiece en lunes (0 = Lunes)
+    const startDay = firstDay === 0 ? 6 : firstDay - 1;
+    
+    // Inicializar primera semana con días nulos hasta el primer día del año
+    let currentWeek = Array(startDay).fill(null);
+    let dayCount = 1;
 
-    // Generamos las 53 semanas
-    for (let i = 0; i < 53; i++) {
-      const week = [];
-      // Llenamos la semana con los días
-      for (let j = 0; j < 7; j++) {
-        if (dayCount <= totalDays) {
-          if (i === 0 && j < startDayIndex) {
-            // Dejamos la primera semana vacía hasta que llegue el primer día del año
-            week.push(null);
-          } else {
-            week.push(Math.floor(Math.random() * 5)); // Generamos contribuciones aleatorias
-            dayCount++;
-          }
-        } else {
-          // Después del 31 de diciembre, días vacíos
-          week.push(null);
+    // Mientras no hayamos procesado todos los días del año
+    while (dayCount <= totalDays) {
+      // Agregar el día actual a la semana en curso
+      currentWeek.push(Math.floor(Math.random() * 5));
+      dayCount++;
+
+      // Si la semana está completa o hemos llegado al último día
+      if (currentWeek.length === 7 || dayCount > totalDays) {
+        // Rellenar con nulos si es la última semana y no está completa
+        while (currentWeek.length < 7) {
+          currentWeek.push(null);
         }
+        data.push(currentWeek);
+        currentWeek = [];
       }
-      data.push(week);
     }
+
     return data;
   };
 
@@ -85,19 +88,17 @@ const GraphCalendar = () => {
 
   // Función para obtener la fecha en formato DD/MM/YYYY
   const getDateFromIndex = (weekIndex, dayIndex) => {
-    const currentYear = year || 2024;
-    const startDate = new Date(currentYear, 0, 1); // El primer día del año
-    const currentDate = new Date(startDate);
-
-    // Ajustar la fecha según el índice de la semana y el índice de día dentro de esa semana
-    currentDate.setDate(
-      startDate.getDate() + (weekIndex * 7 + dayIndex) - startDate.getDay()
-    ); // Resta el desplazamiento del primer día de la semana
-
-    const day = String(currentDate.getDate()).padStart(2, "0");
-    const month = String(currentDate.getMonth() + 1).padStart(2, "0"); // Mes en formato 2 dígitos
-
-    return `${day}/${month}/${currentYear}`;
+    const date = new Date(year, 0, 1);
+    const dayOffset = weekIndex * 7 + dayIndex;
+    const firstDayOfYear = date.getDay();
+    const adjustedOffset = dayOffset - (firstDayOfYear === 0 ? 6 : firstDayOfYear - 1);
+    
+    date.setDate(date.getDate() + adjustedOffset);
+    
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    
+    return `${day}/${month}/${year}`;
   };
 
   return (
@@ -146,17 +147,15 @@ const GraphCalendar = () => {
               {contributionData.map((week, weekIndex) => (
                 <div key={weekIndex} className="grid gap-[3px]">
                   {week.map((day, dayIndex) =>
-                    // Renderizamos solo los días con datos válidos
                     day !== null ? (
                       <div
                         key={`${weekIndex}-${dayIndex}`}
                         className={`h-6 w-6 rounded-sm ${getBackgroundClass(
                           day
                         )}`}
-                        title={getDateFromIndex(weekIndex, dayIndex)} // Mostrar la fecha exacta en el hover
+                        title={getDateFromIndex(weekIndex, dayIndex)}
                       />
                     ) : (
-                      // No renderizamos nada si es un día vacío
                       <div
                         key={`${weekIndex}-${dayIndex}`}
                         className="h-6 w-6"

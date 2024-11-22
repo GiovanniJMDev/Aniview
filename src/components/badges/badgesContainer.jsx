@@ -6,10 +6,8 @@ const BadgesContainer = () => {
   return (
     <div className="h-full w-full flex flex-col">
       {/* Encabezado fijo */}
-      <div className="h-fit px-4 py-2 flex justify-between border-b-2 border-black">
-        <h3 className="text-xl font-bold text-black sticky top-0 bg-white border-black z-10">
-          Badges
-        </h3>
+      <div className="flex justify-between items-center px-4 py-2 sticky top-0 bg-white bg-white z-10 shadow-md">
+        <h3 className="text-xl font-bold text-black">Badges</h3>
         <button className="bg-gray-500 p-1 rounded-full aspect-square">
           <icons.goArrowIcon fill="white" className="m-auto" />
         </button>

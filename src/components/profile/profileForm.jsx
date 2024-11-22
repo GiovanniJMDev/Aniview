@@ -33,8 +33,8 @@ const ProfileForm = () => {
   return (
     <div className="h-full w-full flex flex-col">
       {/* Encabezado fijo con botón para alternar el modo */}
-      <div className="flex justify-between items-center px-4 py-2 sticky top-0 bg-white border-b-2 border-black z-10">
-        <h3 className="text-xl font-bold text-black">Social Medias</h3>
+      <div className="flex justify-between items-center px-4 py-2 sticky top-0 bg-white bg-white z-10 shadow-md">
+        <h3 className="text-xl font-bold text-black">Profile</h3>
         <button
           onClick={toggleEditable}
           className={`px-3 py-1 text-sm font-medium rounded ${
@@ -48,9 +48,15 @@ const ProfileForm = () => {
       </div>
 
       {/* Contenido del formulario */}
-      <div className="flex-grow overflow-auto flex flex-col w-full gap-4 p-4">
+      <div className="flex-grow overflow-auto flex flex-col items-center w-full gap-4 p-4">
+        <img
+          src="https://avatarfiles.alphacoders.com/375/thumb-1920-375953.png"
+          alt="avatar"
+          className=" w-full max-w-40 rounded-3xl object-cover aspect-square"
+        />
+
         {Object.entries(formData).map(([key, value]) => (
-          <div key={key} className="flex flex-col gap-1">
+          <div key={key} className="flex flex-col gap-1 w-full">
             <label
               htmlFor={key}
               className="text-sm font-medium text-gray-700 capitalize"

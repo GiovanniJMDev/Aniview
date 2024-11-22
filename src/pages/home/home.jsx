@@ -31,12 +31,12 @@ function Home() {
           type="text"
           name="input"
           id="home_input"
-          className=" focus:outline-none text-onix placeholder:text-gray-400 rounded-xl w-4/5 px-4 py-2 my-3 border-2 border-gray-300"
+          className=" focus:outline-none text-onix placeholder:text-gray-400 rounded-xl w-4/5 px-4 py-2 my-6 border-2 border-gray-300"
           placeholder="Search for a anime"
         />
         <section className="px-4 pb-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className=" bg-white rounded shadow max-h-[70vh] overflow-hidden border border-gray-300">
-            <div className=" w-full z-10 h-fit bg-white  drop-shadow-lg">
+          <div className=" bg-white rounded  max-h-[70vh] overflow-hidden border border-gray-300">
+            <div className=" w-full z-10 h-fit bg-white">
               <h1 className="font-bold text-center py-4 text-2xl">Top Anime</h1>
             </div>
 
@@ -48,7 +48,7 @@ function Home() {
             </div>
           </div>
           <div className=" bg-white rounded shadow max-h-[70vh] overflow-hidden border border-gray-300">
-            <div className=" w-full z-10 h-fit bg-white drop-shadow-lg">
+            <div className=" w-full z-10 h-fit bg-white">
               <h1 className="font-bold text-center py-4 text-2xl">
                 Trending Anime
               </h1>
@@ -61,7 +61,7 @@ function Home() {
             </div>
           </div>
           <div className=" bg-white rounded shadow max-h-[70vh] overflow-hidden border border-gray-300">
-            <div className=" w-full z-10 h-fit bg-white drop-shadow-lg">
+            <div className=" w-full z-10 h-fit bg-white">
               <h1 className="font-bold text-center py-4 text-2xl">
                 Seasonal Anime
               </h1>
