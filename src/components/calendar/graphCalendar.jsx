@@ -107,7 +107,14 @@ const GraphCalendar = () => {
     // Obtener el primer día del mes
     const date = new Date(year, monthIndex, 1);
     let currentDate = new Date(year, 0, 1);
-    let weekCount = 0;
+    let weekCount = -1; // Empezamos en -1 para compensar el offset inicial
+    
+    // Obtener el día de la semana del 1 de enero (0 = Domingo, 1 = Lunes, etc.)
+    const firstDayOfYear = currentDate.getDay();
+    // Si el año no empieza en lunes, ajustamos la cuenta inicial
+    if (firstDayOfYear !== 1) {
+      weekCount = 0;
+    }
     
     // Contar las semanas hasta llegar al mes
     while (currentDate < date) {
@@ -122,10 +129,7 @@ const GraphCalendar = () => {
       weekCount++;
     }
 
-    // Restar 1 para ajustar la columna
-    weekCount = weekCount - 1;
-
-    console.log(`Mes: ${months[monthIndex]}, Semana: ${weekCount}, Día: ${days[date.getDay() === 0 ? 6 : date.getDay() - 1]}`);
+    console.log(`Mes: ${months[monthIndex]}, Semana: ${weekCount}, Primer día año: ${days[firstDayOfYear === 0 ? 6 : firstDayOfYear - 1]}`);
     return weekCount;
   };
 
