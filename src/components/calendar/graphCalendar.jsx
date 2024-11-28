@@ -137,7 +137,7 @@ const GraphCalendar = () => {
                 {months.map((month, i) => (
                   <div
                     key={`${month}-${i}`}
-                    className="col-start-[calc(4*var(--index)+1)]"
+                    className="col-start-[calc(4.4*var(--index)+2)]"
                     style={{ "--index": i }}
                   >
                     {month}
