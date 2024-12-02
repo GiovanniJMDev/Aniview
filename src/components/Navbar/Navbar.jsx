@@ -1,10 +1,14 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import NavbarButton from "../button/navbarButton";
 import icons from "../../assets/icon/index"; // Importa tus iconos
 import LogOutButton from "../button/logOutButton";
 import TitleNavbarButton from "../button/titleNavbarButton";
+
 const Navbar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   const toggleNavbarSize = () => {
     setIsExpanded(!isExpanded);
@@ -20,7 +24,7 @@ const Navbar = () => {
     },
     {
       label: "MyList",
-      href: "#mylist",
+      href: "#mylist", 
       icon: icons.myListIcon,
       iconType: "stroke",
       link: "/mylist",
@@ -43,8 +47,14 @@ const Navbar = () => {
       label: "Profile",
       href: "#profile",
       icon: icons.profileIcon,
-      iconType: "fill",
+      iconType: "fill", 
       link: "/profile",
+    },    {
+      label: "AniChat_AI",
+      href: "#anichat",
+      icon: icons.aiChatIcon,
+      iconType: "fill", 
+      link: "/chat",
     },
   ];
 
@@ -55,7 +65,7 @@ const Navbar = () => {
           isExpanded={isExpanded}
           onClick={toggleNavbarSize}
           title="Aniview"
-          IconComponent={icons.animeIcon} // Pasa el icono como prop
+          IconComponent={icons.animeIcon}
           iconType={"fill"}
         />
         {navItems.map((item) => (
@@ -63,9 +73,10 @@ const Navbar = () => {
             key={item.label}
             isExpanded={isExpanded}
             title={item.label}
-            IconComponent={item.icon} // Pasa el icono como prop
+            IconComponent={item.icon}
             iconType={item.iconType}
             to={item.link}
+            isActive={currentPath === item.link}
           />
         ))}
       </nav>
@@ -73,7 +84,7 @@ const Navbar = () => {
         <LogOutButton
           isExpanded={isExpanded}
           title={"LogOut"}
-          IconComponent={icons.logOutIcon} // Pasa el icono como prop
+          IconComponent={icons.logOutIcon}
           iconType={"fill"}
           to="/login"
         />
