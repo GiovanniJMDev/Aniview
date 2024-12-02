@@ -108,28 +108,33 @@ const GraphCalendar = () => {
     const date = new Date(year, monthIndex, 1);
     let currentDate = new Date(year, 0, 1);
     let weekCount = -1; // Empezamos en -1 para compensar el offset inicial
-    
+
     // Obtener el día de la semana del 1 de enero (0 = Domingo, 1 = Lunes, etc.)
     const firstDayOfYear = currentDate.getDay();
     // Si el año no empieza en lunes, ajustamos la cuenta inicial
     if (firstDayOfYear !== 1) {
       weekCount = 0;
     }
-    
+
     // Contar las semanas hasta llegar al mes
     while (currentDate < date) {
-      if (currentDate.getDay() === 1) { // Si es lunes, nueva semana
+      if (currentDate.getDay() === 1) {
+        // Si es lunes, nueva semana
         weekCount++;
       }
       currentDate.setDate(currentDate.getDate() + 1);
     }
-    
+
     // Si el primer día del mes es lunes, asegurarnos de contar esa semana
     if (date.getDay() === 1) {
       weekCount++;
     }
 
-    console.log(`Mes: ${months[monthIndex]}, Semana: ${weekCount}, Primer día año: ${days[firstDayOfYear === 0 ? 6 : firstDayOfYear - 1]}`);
+    console.log(
+      `Mes: ${months[monthIndex]}, Semana: ${weekCount}, Primer día año: ${
+        days[firstDayOfYear === 0 ? 6 : firstDayOfYear - 1]
+      }`
+    );
     return weekCount;
   };
 
@@ -137,21 +142,23 @@ const GraphCalendar = () => {
     <div className="h-full w-full overflow-x-auto flex flex-col">
       <div className="flex justify-between items-center px-4 py-2 sticky top-0 bg-white z-10 shadow-md">
         <h3 className="text-xl font-bold text-black">My Watching List</h3>
-        <label htmlFor="year-select" className="text-xs">
-          Select Year:
-        </label>
-        <select
-          id="year-select"
-          value={year}
-          onChange={handleYearChange}
-          className="border border-gray-400 text-gray-700 outline-none px-1 rounded"
-        >
-          {Array.from({ length: 5 }, (_, i) => 2020 + i).map((yearOption) => (
-            <option key={yearOption} value={yearOption}>
-              {yearOption}
-            </option>
-          ))}
-        </select>
+        <div className="w-fit gap-2 flex items-center justify-center">
+          <label htmlFor="year-select" className="text-xs">
+            Select Year:
+          </label>
+          <select
+            id="year-select"
+            value={year}
+            onChange={handleYearChange}
+            className="border border-gray-400 text-gray-700 outline-none px-1 rounded"
+          >
+            {Array.from({ length: 5 }, (_, i) => 2020 + i).map((yearOption) => (
+              <option key={yearOption} value={yearOption}>
+                {yearOption}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
       <div className="max-w-5xl rounded-lg flex-grow w-full overflow-auto text-sm text-gray-700 flex flex-col justify-center">
         <div className="flex gap-2 px-4 w-fit">
@@ -196,7 +203,6 @@ const GraphCalendar = () => {
                 </div>
               ))}
             </div>
-
           </div>
         </div>{" "}
       </div>

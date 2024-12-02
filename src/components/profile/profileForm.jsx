@@ -59,7 +59,7 @@ const ProfileForm = () => {
           <div key={key} className="flex flex-col gap-1 w-full">
             <label
               htmlFor={key}
-              className="text-sm font-medium text-gray-700 capitalize"
+              className="text-sm font-medium yearStarted capitalize"
             >
               {key.replace(/_/g, " ")}{" "}
               {/* Formatea las claves para mostrar nombres legibles */}
