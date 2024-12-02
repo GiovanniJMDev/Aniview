@@ -3,7 +3,7 @@ import RemoveAniponButton from "../../components/button/removeAniponButton";
 const Anipon = () => {
   return (
     <div className="bg-light-purple h-full w-full flex items-center justify-center flex-col">
-      <div className=" flex justify-center items-start flex-col w-5/6 md:w-4/5 h-full max-h-[90dvh] bg-white rounded-2xl drop-shadow-lg overflow-hidden">
+      <div className=" flex justify-center items-start flex-col w-[95%] max-w-[90dvw] h-full max-h-[90dvh] bg-white rounded-2xl drop-shadow-lg overflow-hidden">
         <h1 className="text-3xl font-bold w-full py-4 text-center bg-white z-10 shadow-md">
           Anipon{" "}
         </h1>
@@ -12,7 +12,7 @@ const Anipon = () => {
           <div className="w-full h-2/5 ">
             <img
               className="bg-cover bg-center object-cover h-full aspect-video rounded-lg m-auto"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4faOK6TmSk_N9ZEs9uxwhIrNPKnDOijAT7A&s"
+              src="https://wallpaperchain.com/download/86-eighty-six/86-eighty-six-wallpaper-19.jpg"
               alt=""
             />
           </div>

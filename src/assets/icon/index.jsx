@@ -13,7 +13,13 @@ import appleIcon from "./appleIcon";
 import googleIcon from "./googleIcon";
 import microsoftIcon from "./microsoftIcon";
 import githubIcon from "./githubIcon";
+import facebookIcon from "./facebookIcon";
+import instagramIcon from "./instagramIcon";
+import xIcon from "./xIcon";
 const icons = {
+  facebookIcon,
+  instagramIcon,
+  xIcon,
   microsoftIcon,
   githubIcon,
   googleIcon,
