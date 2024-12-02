@@ -16,7 +16,11 @@ import githubIcon from "./githubIcon";
 import facebookIcon from "./facebookIcon";
 import instagramIcon from "./instagramIcon";
 import xIcon from "./xIcon";
+import aiChatIcon from "./aiChatIcon";
+import clipIcon from "./clipIcon";
 const icons = {
+  clipIcon,
+  aiChatIcon,
   facebookIcon,
   instagramIcon,
   xIcon,
