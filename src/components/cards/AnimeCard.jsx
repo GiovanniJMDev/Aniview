@@ -9,7 +9,7 @@ const AnimeCard = ({ anime }) => {
   return (
     <div
       onClick={handleNavigate}
-      className="flex w-full shadow-lg border border-gray-500 h-fit flex-row flex-start rounded-xl p-4 overflow-hidden"
+      className="flex w-full shadow-lg border border-gray-300 h-fit flex-row flex-start rounded-xl p-4 overflow-hidden"
     >
       <img
         src={anime.image}

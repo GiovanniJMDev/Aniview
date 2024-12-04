@@ -14,6 +14,8 @@ import Profile from "./pages/profile/profile";
 import MyList from "./pages/myList/myList";
 // import TierList from "./pages/tierList/tierList";
 import Anime from "./pages/anime/anime";
+import Chat from "./pages/chat/chat";
+
 function App() {
   return (
     <Router>
@@ -29,6 +31,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />{" "}
           {/* <Route path="/tierList" element={<TierList />} />{" "} */}
           <Route path="/anime/:id" element={<Anime />} />
+        <Route path="/chat" element={<Chat />} />
         </Route>
         {/* <Route path="/login" element={<Login />} /> */}
         {/* <Route

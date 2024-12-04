@@ -63,16 +63,16 @@ const WatchingList = () => {
         </button>
       </div>
 
-      <div className="flex-grow overflow-auto flex flex-row items-center justify-start w-full gap-4 p-4 bg-white">
+      <div className="flex-grow overflow-auto flex flex-row items-center justify-start w-full gap-4 p-4 px-3 bg-white">
         {images.map((image, index) => (
-          <div key={index} className="relative w-40 h-40 aspect-square group">
+          <div key={index} className="relative  h-full aspect-square group">
             <img
               src={image.src}
               alt={image.name}
               className="w-full h-full object-cover"
             />
             <div className="absolute bottom-0 left-0 w-full bg-onix bg-opacity-80 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ">
-              <span className="text-white text-lg font-bold capitalize line-clamp-1">
+              <span className="text-white text-2xl py-2 font-bold capitalize line-clamp-1">
                 {image.name}
               </span>
             </div>

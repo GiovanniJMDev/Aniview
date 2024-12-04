@@ -7,6 +7,7 @@ const NavbarButton = ({
   iconType = "fill",
   to = "/", // Nueva propiedad para la ruta
   onClick, // Recibe onClick como prop, para que se cierre el modal
+  isActive
 }) => {
   const navigate = useNavigate(); // Hook de navegación
   const handleClick = () => {
@@ -16,22 +17,26 @@ const NavbarButton = ({
   return (
     <button
       onClick={handleClick} // Ejecuta la función handleClick
-      className="bg-medium-purple hover:bg-dark-purple hover:border-white border-4 border-transparent rounded-xl p-2 text-start w-fit transition-all duration-500 ease-in-out flex flex-nowrap items-center"
+      className={`${
+        isActive 
+          ? "bg-white text-dark-purple border-dark-purple"
+          : "bg-medium-purple text-white border-transparent hover:bg-dark-purple hover:border-white"
+      } border-4 rounded-xl p-2 text-start w-fit transition-all duration-500 ease-in-out flex flex-nowrap items-center`}
     >
       {IconComponent && (
         <IconComponent
           height="2em"
           width="2em"
           {...(iconType === "fill"
-            ? { fill: "#f3f3f3" }
-            : { stroke: "#f3f3f3" })}
+            ? { fill: isActive ? "#2a014c" : "#f3f3f3" }
+            : { stroke: isActive ? "#2a014c" : "#f3f3f3" })}
           className="inline-block align-middle transition-transform duration-500"
         />
       )}
       <h2
         className={`inline-block align-middle transition-all duration-500 ease-in-out overflow-hidden ${
           isExpanded ? "w-32 ml-2" : "w-0"
-        }`}
+        } ${isActive ? "text-dark-purple" : ""}`}
       >
         {title}
       </h2>
