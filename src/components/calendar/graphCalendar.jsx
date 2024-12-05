@@ -130,11 +130,11 @@ const GraphCalendar = () => {
       weekCount++;
     }
 
-    console.log(
-      `Mes: ${months[monthIndex]}, Semana: ${weekCount}, Primer día año: ${
-        days[firstDayOfYear === 0 ? 6 : firstDayOfYear - 1]
-      }`
-    );
+    // console.log(
+    //   `Mes: ${months[monthIndex]}, Semana: ${weekCount}, Primer día año: ${
+    //     days[firstDayOfYear === 0 ? 6 : firstDayOfYear - 1]
+    //   }`
+    // );
     return weekCount;
   };
 
@@ -154,7 +154,7 @@ const GraphCalendar = () => {
             onChange={handleYearChange}
             className="border border-gray-400 text-gray-700 outline-none px-1 rounded"
           >
-            {Array.from({ length: 5 }, (_, i) => 2020 + i).map((yearOption) => (
+            {Array.from({ length: 8 }, (_, i) => 2022 + i).map((yearOption) => (
               <option key={yearOption} value={yearOption}>
                 {yearOption}
               </option>

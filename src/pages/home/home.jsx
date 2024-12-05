@@ -33,13 +33,13 @@ function Home() {
           placeholder="Search for a anime"
         />
         <section className="flex-1 w-full flex flex-wrap justify-center gap-4 p-4 overflow-auto">
-          <div className="flex flex-col w-full md:w-2/5 lg:w-1/4">
+          <div className="flex flex-col w-full md:w-2/5 lg:w-1/4 max-h-[60dvh]">
             <HomeCardsList title="Seasonal Anime" items={animes} />
           </div>
-          <div className="flex flex-col w-full md:w-2/5 lg:w-1/4">
+          <div className="flex flex-col w-full md:w-2/5 lg:w-1/4 max-h-[60dvh]">
             <HomeCardsList title="Popular Anime" items={animes} />
           </div>
-          <div className="flex flex-col w-full md:w-2/5 lg:w-1/4">
+          <div className="flex flex-col w-full md:w-2/5 lg:w-1/4 max-h-[60dvh]">
             <HomeCardsList title="My Favorites" items={animes} />
           </div>
         </section>

@@ -8,7 +8,7 @@ const Anipon = () => {
           Anipon{" "}
         </h1>
         <div className="flex-grow overflow-auto flex flex-col  items-center w-full">
-          <h1 className=" w-full  text-center py-6 ">Eighty Six</h1>
+          <h3 className=" w-full font-bold text-xl text-center py-4 ">Eighty Six</h3>
           <div className="flex flex-col md:flex-row items-start w-full px-4 gap-4">
             {/* Anime Image */}
             <img

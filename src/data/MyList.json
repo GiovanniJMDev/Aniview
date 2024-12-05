@@ -27,7 +27,7 @@
       "animes": [
         {
           "name": "Naruto",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi_KR7ll0cyUBynJEywZJGucRvyKmRvYPPHw&s",
+          "image": "https://images2.alphacoders.com/516/516246.jpg",
           "rating": 8.8
         },
         {
@@ -68,7 +68,7 @@
         },
         {
           "name": "Vinland Saga",
-          "image": "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2014/07/354500-manga-vinland-saga-octubre-espana.jpg?tf=3840x",
+          "image": "https://images5.alphacoders.com/103/1031844.jpg",
           "rating": 8.9
         }
       ]

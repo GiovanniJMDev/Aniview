@@ -1,7 +1,7 @@
 const aniponIcon = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={props.width || "2em"}
+    width={props.width || "1.5em"}
     height={props.height || "1.5em"}
     viewBox="0 0 24 24"
     {...props}

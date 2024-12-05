@@ -16,17 +16,17 @@ const MessageInput = ({
 
   const adjustTextareaHeight = (textarea, content) => {
     // Create temporary element to measure text width
-    const temp = document.createElement('div');
+    const temp = document.createElement("div");
     temp.style.cssText = window.getComputedStyle(textarea).cssText;
-    temp.style.height = 'auto';
-    temp.style.position = 'absolute';
-    temp.style.visibility = 'hidden';
-    temp.style.whiteSpace = 'pre-wrap';
-    temp.style.wordBreak = 'break-word';
-    temp.style.width = textarea.clientWidth + 'px';
+    temp.style.height = "auto";
+    temp.style.position = "absolute";
+    temp.style.visibility = "hidden";
+    temp.style.whiteSpace = "pre-wrap";
+    temp.style.wordBreak = "break-word";
+    temp.style.width = textarea.clientWidth + "px";
     temp.textContent = content;
     document.body.appendChild(temp);
-    
+
     // Calculate rows needed
     const lineHeight = parseInt(window.getComputedStyle(textarea).lineHeight);
     const rows = Math.ceil(temp.scrollHeight / lineHeight);
@@ -43,7 +43,7 @@ const MessageInput = ({
 
   const handleSendClick = () => {
     sendMessage();
-    const textarea = document.querySelector('textarea');
+    const textarea = document.querySelector("textarea");
     if (textarea) textarea.rows = 1; // Reset rows to 1 after sending
   };
 
@@ -52,7 +52,7 @@ const MessageInput = ({
       <div className="flex flex-col box-border py-4 px-2 h-full">
         <div className="flex justify-between items-end w-full">
           <button className="h-10 w-10 flex items-center justify-center rounded-full bg-medium-purple hover:bg-dark-purple transition-all duration-300">
-            <icons.clipIcon fill="white" className="p-2" />
+            <icons.clipIcon fill="white" className="p-1" />
           </button>
           <textarea
             value={newMessage}
@@ -60,10 +60,10 @@ const MessageInput = ({
             onKeyDown={handleKeyDown}
             placeholder="Escribe un mensaje..."
             className="flex-1 px-3 py-2 mx-1 min-h-[40px] border border-gray-500 focus:border-gray-800 rounded-2xl focus:outline-none transition-all duration-300 resize-none overflow-y-auto break-words"
-            style={{ 
-              wordBreak: 'break-word', 
-              whiteSpace: 'pre-wrap',
-              transition: 'height 3s ease'
+            style={{
+              wordBreak: "break-word",
+              whiteSpace: "pre-wrap",
+              transition: "height 3s ease",
             }}
             rows={1}
           />

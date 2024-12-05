@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Flame Medal",
+    "icon": "icons.flameIcon",
+    "description": "Awarded for outstanding performance in fiery challenges.",
+    "completed": true,
+    "secret": false,
+    "colorType": "fill",
+    "color": "#FF4500"
+  },
+  {
+    "name": "Fight Medal",
+    "icon": "icons.figthIcon",
+    "description": "Recognizes achievements in combat-related activities.",
+    "completed": false,
+    "secret": false,
+    "colorType": "fill",
+    "color": "#FF0000"
+  },
+  {
+    "name": "Sport Medal",
+    "icon": "icons.sportIcon",
+    "description": "Given for excellence in sports and athletic events.",
+    "completed": true,
+    "secret": false,
+    "colorType": "stroke",
+    "color": "#008000"
+  },
+  {
+    "name": "Medal of Honor",
+    "icon": "icons.medalIcon",
+    "description": "Awarded for exceptional bravery and service.",
+    "completed": true,
+    "secret": false,
+    "colorType": "fill",
+    "color": "#FFD700"
+  },
+  {
+    "name": "Magician Medal",
+    "icon": "icons.magicianIcon",
+    "description": "For those who have mastered the art of magic.",
+    "completed": true,
+    "secret": false,
+    "colorType": "fill",
+    "color": "#800080"
+  },
+  {
+    "name": "Crunchyroll Medal",
+    "icon": "icons.crunchyrollIcon",
+    "description": "Awarded for dedication to anime and manga culture.",
+    "completed": false,
+    "secret": false,
+    "colorType": "fill",
+    "color": "#FF69B4"
+  },
+  {
+    "name": "Skull Medal",
+    "icon": "icons.skullIcon",
+    "description": "Given for achievements in horror-themed challenges.",
+    "completed": true,
+    "secret": false,
+    "colorType": "fill",
+    "color": "#000000"
+  },
+  {
+    "name": "Cane Medal",
+    "icon": "icons.caneIcon",
+    "description": "Recognizes wisdom and guidance in the community.",
+    "completed": true,
+    "secret": false,
+    "colorType": "fill",
+    "color": "#A52A2A"
+  },
+  {
+    "name": "Ninja Medal",
+    "icon": "icons.ninjaIcon",
+    "description": "For stealth and skill in covert operations.",
+    "completed": true,
+    "secret": false,
+    "colorType": "fill",
+    "color": "#2F4F4F"
+  },
+  {
+    "name": "Triorb Medal",
+    "icon": "icons.triorbIcon",
+    "description": "Awarded for excellence in multi-dimensional challenges.",
+    "completed": true,
+    "secret": false,
+    "colorType": "fill",
+    "color": "#4682B4"
+  }
+]

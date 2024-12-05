@@ -26,7 +26,7 @@ const MyList = () => {
         <div className="w-full py-4 bg-white z-20 shadow-md flex flex-row justify-between items-center gap-4 px-8">
           <div className="col-span-1"></div>
           <h1 className="col-span-8 text-3xl font-bold text-center">
-            Mis Listas
+            My Lists
           </h1>
           <button
             onClick={() => setIsGridView(!isGridView)}

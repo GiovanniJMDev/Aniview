@@ -1,4 +1,4 @@
-const myListIcon = (props) => (
+const sportIcon = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={props.width || "1.5em"}
@@ -6,16 +6,18 @@ const myListIcon = (props) => (
     viewBox="0 0 24 24"
     {...props}
   >
-    <path
+    <g
       xmlns="http://www.w3.org/2000/svg"
       fill={props.fill || "none"}
-      stroke={props.stroke || "#000000"}
+      stroke={props.stroke || "currentColor"}
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2"
-      d="M3 4a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1zm6-1v18m6-18v18"
-    />
+    >
+      <path d="M3 9a3 3 0 1 0 6 0a3 3 0 1 0-6 0m12 0a3 3 0 1 0 6 0a3 3 0 1 0-6 0M9 9a3 3 0 1 0 6 0a3 3 0 1 0-6 0" />
+      <path d="M6 15a3 3 0 1 0 6 0a3 3 0 1 0-6 0m6 0a3 3 0 1 0 6 0a3 3 0 1 0-6 0" />
+    </g>
   </svg>
 );
 
-export default myListIcon;
+export default sportIcon;
