@@ -163,7 +163,7 @@ const GraphCalendar = () => {
         </div>
       </div>
 
-      <div className="max-w-5xl rounded-lg flex-grow w-full overflow-auto text-sm text-gray-700 flex flex-col justify-center">
+      <div className="max-w-max rounded-lg flex-grow w-full overflow-auto text-sm text-gray-700 flex flex-col justify-center">
         <div className="flex gap-2 px-4 w-fit">
           <div className="grid gap-2 pt-6 text-xs">
             {days.map((day) => (

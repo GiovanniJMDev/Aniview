@@ -66,11 +66,12 @@ const Register = () => {
                     className={`bg-[#28272f] border-0 text-white placeholder:text-gray-400 ${firstNameError ? "border-red-500" : ""}`} // Added error styling
                     placeholder="First Name"
                     type="text"
-                    name="First Name"
+                    name="firstName" // Changed name to lowercase
                     value={firstName}
                     error={firstNameError ? "First Name is required" : undefined} // Error message for first name
                     onChange={(e) => {
-                      setFirstName(e.target.value);
+                      const value = e.target.value || ""; // Ensure value is a string
+                      setFirstName(value);
                       if (firstNameError) setFirstNameError(false); // Clear error on input
                     }}
                   />
@@ -78,10 +79,12 @@ const Register = () => {
                     className={`bg-[#28272f] border-0 text-white placeholder:text-gray-400 ${lastNameError ? "border-red-500" : ""}`} // Added error styling
                     placeholder="Last Name"
                     type="text"
+                    name="lastName" // Changed name to lowercase
                     value={lastName}
                     error={lastNameError ? "Last Name is required" : undefined} // Error message for last name
                     onChange={(e) => {
-                      setLastName(e.target.value);
+                      const value = e.target.value || ""; // Ensure value is a string
+                      setLastName(value);
                       if (lastNameError) setLastNameError(false); // Clear error on input
                     }}
                   />
@@ -93,7 +96,8 @@ const Register = () => {
                   error={emailError ? "Email is required" : undefined} 
                   value={email}
                   onChange={(e) => {
-                    setEmail(e.target.value);
+                    const value = e.target.value || ""; // Ensure value is a string
+                    setEmail(value);
                     if (emailError) setEmailError(false); // Clear error on input
                   }} 
                 />
@@ -101,11 +105,12 @@ const Register = () => {
                   className=""
                   placeholder="Enter your password"
                   type={showPassword ? "text" : "password"}
-                  name="Password"
+                  name="password" // Changed name to lowercase
                   error={passwordError ? "Password is required" : undefined}
                   value={password}
                   onChange={(e) => {
-                    setPassword(e.target.value);
+                    const value = e.target.value || ""; // Ensure value is a string
+                    setPassword(value);
                     if (passwordError) setPasswordError(false); // Clear error on input
                   }} 
                 />
@@ -119,7 +124,7 @@ const Register = () => {
                 />{" "}
                 I agree to the{" "}
                 <Link
-                  href="#"
+                  to="#"
                   className="text-light-purple hover:text-light-purple"
                 >
                   Terms & Conditions
@@ -127,11 +132,9 @@ const Register = () => {
               </div>
               <button
                 onClick={handleRegister}
-                className="py-2 px-6 rounded-xl text-white flex items-center justify-center w-full"
+                className="py-2 px-6 rounded-xl text-white flex items-center justify-center w-full bg-gray-700" // Removed nested button
               >
-                <button className="w-fit bg-gray-700 py-2 px-6 rounded-xl text-white">
-                  Register
-                </button>
+                Register
               </button>
               <div className="flex items-center justify-center m-4 ">
                 <div className="flex-grow border-t border-gray-400"></div>
@@ -139,16 +142,16 @@ const Register = () => {
                 <div className="flex-grow border-t border-gray-400"></div>
               </div>
               <div className="grid md:grid-cols-4 md:grid-rows-1 grid-cols-2 grid-rows-2 justify-items-center gap-4 px-4 overflow-auto">
-                <button className="border-2 border-gray-300 text-gray-800 p-2 flex items-center justify-center rounded-xl aspect-square hover:bg-gray-300 transition-all duration-300">
+                <button onClick={() => navigate('/home')} className="border-2 border-gray-300 text-gray-800 p-2 flex items-center justify-center rounded-xl aspect-square hover:bg-gray-300 transition-all duration-300">
                   <icons.googleIcon height="2rem" width="2rem" />
                 </button>
-                <button className="border-2 border-gray-300 text-gray-800 p-2 flex items-center justify-center rounded-xl aspect-square hover:bg-gray-300 transition-all duration-300">
+                <button onClick={() => navigate('/home')} className="border-2 border-gray-300 text-gray-800 p-2 flex items-center justify-center rounded-xl aspect-square hover:bg-gray-300 transition-all duration-300">
                   <icons.appleIcon fill="#252525" height="2rem" width="2rem" />
                 </button>
-                <button className="border-2 border-gray-300 text-gray-800 flex items-center justify-center rounded-xl aspect-square hover:bg-gray-300 transition-all duration-300">
+                <button onClick={() => navigate('/home')} className="border-2 border-gray-300 text-gray-800 flex items-center justify-center rounded-xl aspect-square hover:bg-gray-300 transition-all duration-300">
                   <icons.microsoftIcon height="2rem" width="2rem" />
                 </button>
-                <button className="border-2 border-gray-300 text-gray-800 flex items-center justify-center rounded-xl aspect-square hover:bg-gray-300 transition-all duration-300">
+                <button onClick={() => navigate('/home')} className="border-2 border-gray-300 text-gray-800 flex items-center justify-center rounded-xl aspect-square hover:bg-gray-300 transition-all duration-300">
                   <icons.githubIcon fill="#252525" height="2rem" width="2rem" />
                 </button>
               </div>

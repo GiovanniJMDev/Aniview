@@ -1,4 +1,4 @@
-const Input = ({ name, placeholder, error, value, onChange, type }) => {
+const Input = ({ name = "", placeholder, error, value, onChange, type }) => {
   return (
     <div className="flex flex-col">
       <label className={` ${error ? "text-red-500" : "text-gray-500"}`}>
