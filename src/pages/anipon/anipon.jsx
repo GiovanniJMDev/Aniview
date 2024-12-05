@@ -9,7 +9,7 @@ const Anipon = () => {
         </h1>
         <div className="flex-grow overflow-auto flex flex-col  items-center w-full">
           <h1 className=" w-full  text-center py-6 ">Eighty Six</h1>
-          <div className="w-full h-2/5 ">
+          <div className="w-[90%] aspect-video max-h-[40dvh] ">
             <img
               className="bg-cover bg-center object-cover h-full aspect-video rounded-lg m-auto"
               src="https://wallpaperchain.com/download/86-eighty-six/86-eighty-six-wallpaper-19.jpg"

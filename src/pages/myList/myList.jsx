@@ -1,4 +1,3 @@
-import React from "react";
 import AnimeListCard from "../../components/cards/AnimeListCard";
 
 const MyList = () => {

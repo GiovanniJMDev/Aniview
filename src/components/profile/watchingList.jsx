@@ -56,7 +56,7 @@ const WatchingList = () => {
 
   return (
     <div className="h-full w-full flex flex-col box-border">
-      <div className="flex justify-between items-center px-4 py-2 sticky top-0 bg-white bg-white z-10 shadow-md">
+      <div className="flex justify-between items-center px-4 py-2 sticky top-0 bg-white z-10 shadow-md">
         <h3 className="text-xl font-bold text-black">My Watching List</h3>
         <button className="bg-gray-500 p-1 rounded-full aspect-square">
           <icons.goArrowIcon fill="white" className="m-auto" />
