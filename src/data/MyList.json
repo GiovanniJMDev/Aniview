@@ -1,0 +1,104 @@
+{
+  "listas": [
+    {
+      "id_lista": 1,
+      "animes": [
+        {
+          "nombre": "Attack on Titan",
+          "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX-wmM3L9Yg74vIAa1XG66L1ox7_cBMuRq7g&s",
+          "nota": 9.5
+        },
+        {
+          "nombre": "My Hero Academia",
+          "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX-wmM3L9Yg74vIAa1XG66L1ox7_cBMuRq7g&s",
+          "nota": 8.7
+        },
+        {
+          "nombre": "Demon Slayer",
+          "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX-wmM3L9Yg74vIAa1XG66L1ox7_cBMuRq7g&s",
+          "nota": 9.3
+        }
+      ]
+    },
+    {
+      "id_lista": 2,
+      "animes": [
+        {
+          "nombre": "Naruto",
+          "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX-wmM3L9Yg74vIAa1XG66L1ox7_cBMuRq7g&s",
+          "nota": 8.5
+        },
+        {
+          "nombre": "Death Note",
+          "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX-wmM3L9Yg74vIAa1XG66L1ox7_cBMuRq7g&s",
+          "nota": 9.0
+        },
+        {
+          "nombre": "Fullmetal Alchemist: Brotherhood",
+          "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX-wmM3L9Yg74vIAa1XG66L1ox7_cBMuRq7g&s",
+          "nota": 9.6
+        },
+        {
+          "nombre": "Sword Art Online",
+          "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX-wmM3L9Yg74vIAa1XG66L1ox7_cBMuRq7g&s",
+          "nota": 8.0
+        },
+        {
+          "nombre": "One Punch Man",
+          "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX-wmM3L9Yg74vIAa1XG66L1ox7_cBMuRq7g&s",
+          "nota": 8.8
+        }
+      ]
+    },
+    {
+      "id_lista": 3,
+      "animes": [
+        {
+          "nombre": "Tokyo Ghoul",
+          "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX-wmM3L9Yg74vIAa1XG66L1ox7_cBMuRq7g&s",
+          "nota": 8.3
+        },
+        {
+          "nombre": "Hunter x Hunter",
+          "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX-wmM3L9Yg74vIAa1XG66L1ox7_cBMuRq7g&s",
+          "nota": 9.1
+        },
+        {
+          "nombre": "Mob Psycho 100",
+          "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX-wmM3L9Yg74vIAa1XG66L1ox7_cBMuRq7g&s",
+          "nota": 9.2
+        }
+      ]
+    },
+    {
+      "id_lista": 4,
+      "animes": [
+        {
+          "nombre": "Your Name",
+          "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX-wmM3L9Yg74vIAa1XG66L1ox7_cBMuRq7g&s",
+          "nota": 9.4
+        },
+        {
+          "nombre": "Spirited Away",
+          "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX-wmM3L9Yg74vIAa1XG66L1ox7_cBMuRq7g&s",
+          "nota": 9.8
+        },
+        {
+          "nombre": "My Neighbor Totoro",
+          "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX-wmM3L9Yg74vIAa1XG66L1ox7_cBMuRq7g&s",
+          "nota": 9.2
+        },
+        {
+          "nombre": "Attack on Titan: The Final Season",
+          "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX-wmM3L9Yg74vIAa1XG66L1ox7_cBMuRq7g&s",
+          "nota": 9.7
+        },
+        {
+          "nombre": "Sword Art Online: Alternative",
+          "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX-wmM3L9Yg74vIAa1XG66L1ox7_cBMuRq7g&s",
+          "nota": 8.5
+        }
+      ]
+    }
+  ]
+}

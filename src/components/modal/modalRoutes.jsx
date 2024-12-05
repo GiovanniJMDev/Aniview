@@ -2,46 +2,9 @@ import Modal from "./modal";
 import NavbarButton from "../button/navbarButton";
 import LogOutButton from "../button/logOutButton";
 import icons from "../../assets/icon";
+import navItems from "../../data/Routes.json"; // Updated import to use the correct path
 
 const ModalRoutes = ({ isOpen, onClose, isExpanded }) => {
-  const navItems = [
-    {
-      label: "Home",
-      href: "#home",
-      icon: icons.homeIcon,
-      iconType: "stroke",
-      link: "/home",
-    },
-    {
-      label: "MyList",
-      href: "#mylist",
-      icon: icons.myListIcon,
-      iconType: "stroke",
-      link: "/mylist",
-    },
-    {
-      label: "TierList",
-      href: "#tierlist",
-      icon: icons.tierListIcon,
-      iconType: "stroke",
-      link: "/tierlist",
-    },
-    {
-      label: "Anipon",
-      href: "#anipon",
-      icon: icons.aniponIcon,
-      iconType: "fill",
-      link: "/anipon",
-    },
-    {
-      label: "Profile",
-      href: "#profile",
-      icon: icons.profileIcon,
-      iconType: "fill",
-      link: "/profile",
-    },
-  ];
-
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <nav className="flex flex-col space-y-4 h-5/6 items-center">
@@ -50,7 +13,7 @@ const ModalRoutes = ({ isOpen, onClose, isExpanded }) => {
             key={item.label}
             isExpanded={isExpanded}
             title={item.label}
-            IconComponent={item.icon}
+            IconComponent={icons[item.icon.split('.').pop()]} // Adjusted to use the icon from the icons object
             iconType={item.iconType}
             to={item.link}
             onClick={onClose} // Cierra el modal al hacer clic en cada botón de navegación

@@ -1,21 +1,36 @@
 import Input from "../../components/input/input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Added useNavigate for navigation
 import icons from "../../assets/icon";
 import { useState } from "react";
 
-const inputs = [
-  {
-    name: "Username/Email",
-    placeholder: "Write your username or email here...",
-  },
-  {
-    name: "Password",
-    placeholder: "Write your password here...",
-  },
-];
-
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [firstName, setFirstName] = useState(""); // Changed usernameEmail to firstName
+  const [lastName, setLastName] = useState(""); // Added lastName state
+  const [email, setEmail] = useState(""); // Changed usernameEmail to email
+  const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [firstNameError, setFirstNameError] = useState(false); // Added firstNameError state
+  const [lastNameError, setLastNameError] = useState(false); // Added lastNameError state
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  const handleRegister = () => {
+    const isEmailEmpty = !email;
+    const isPasswordEmpty = !password;
+    const isFirstNameEmpty = !firstName; // Check if firstName is empty
+    const isLastNameEmpty = !lastName; // Check if lastName is empty
+
+    setEmailError(isEmailEmpty);
+    setPasswordError(isPasswordEmpty);
+    setFirstNameError(isFirstNameEmpty); // Set firstNameError
+    setLastNameError(isLastNameEmpty); // Set lastNameError
+
+    if (!isEmailEmpty && !isPasswordEmpty && !isFirstNameEmpty && !isLastNameEmpty) {
+      // Redirect to /home after successful registration logic
+      navigate("/home"); // Changed Link to navigate for registration
+    }
+  };
 
   return (
     <div className="h-dvh bg-light-purple w-full flex justify-center items-center">
@@ -26,14 +41,13 @@ const Register = () => {
             backgroundImage: `url("https://w.wallhaven.cc/full/zy/wallhaven-zywpgw.png")`, // Envolviendo LoginWallpaper con url()
           }}
         >
-          {" "}
           <div className="flex items-end justify-center w-full h-fit  py-4 gap-4">
             <icons.animeIcon fill="white" height="2.5rem" width="2.5rem" />{" "}
             <h1 className="text-white text-5xl ">Aniview</h1>
           </div>
         </div>
         <div className="w-full lg:w-1/2 h-full flex flex-col justify-center items-center">
-          <div className="  rounded-xl h-full md:h-5/6 flex flex-col gap-3 w-full md:w-5/6 justify-around">
+          <div className="rounded-xl h-full md:h-5/6 flex flex-col gap-3 w-full md:w-5/6 justify-around">
             <h1 className="text-center font-bold text-5xl py-2 ">
               Register to Aniview
             </h1>
@@ -49,21 +63,51 @@ const Register = () => {
               <div className="px-4 gap-3 flex flex-col">
                 <div className="grid grid-cols-2 gap-4">
                   <Input
-                    className="bg-[#28272f] border-0 text-white placeholder:text-gray-400"
-                    placeholder="Name"
+                    className={`bg-[#28272f] border-0 text-white placeholder:text-gray-400 ${firstNameError ? "border-red-500" : ""}`} // Added error styling
+                    placeholder="First Name"
                     type="text"
+                    name="First Name"
+                    value={firstName}
+                    error={firstNameError ? "First Name is required" : undefined} // Error message for first name
+                    onChange={(e) => {
+                      setFirstName(e.target.value);
+                      if (firstNameError) setFirstNameError(false); // Clear error on input
+                    }}
                   />
                   <Input
-                    className="bg-[#28272f] border-0 text-white placeholder:text-gray-400"
-                    placeholder="Last name"
+                    className={`bg-[#28272f] border-0 text-white placeholder:text-gray-400 ${lastNameError ? "border-red-500" : ""}`} // Added error styling
+                    placeholder="Last Name"
                     type="text"
+                    value={lastName}
+                    error={lastNameError ? "Last Name is required" : undefined} // Error message for last name
+                    onChange={(e) => {
+                      setLastName(e.target.value);
+                      if (lastNameError) setLastNameError(false); // Clear error on input
+                    }}
                   />
                 </div>
-                <Input className="" placeholder="Email" type="email" />
+                <Input 
+                  className="" 
+                  placeholder="Email" 
+                  type="email" 
+                  error={emailError ? "Email is required" : undefined} 
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (emailError) setEmailError(false); // Clear error on input
+                  }} 
+                />
                 <Input
                   className=""
                   placeholder="Enter your password"
                   type={showPassword ? "text" : "password"}
+                  name="Password"
+                  error={passwordError ? "Password is required" : undefined}
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    if (passwordError) setPasswordError(false); // Clear error on input
+                  }} 
                 />
               </div>
               <div className="text-sm text-gray-400 text-center my-4">
@@ -81,14 +125,14 @@ const Register = () => {
                   Terms & Conditions
                 </Link>
               </div>
-              <Link
-                to="/home"
-                className="py-2 px-6 rounded-xl text-white flex items-center justify-center"
+              <button
+                onClick={handleRegister}
+                className="py-2 px-6 rounded-xl text-white flex items-center justify-center w-full"
               >
                 <button className="w-fit bg-gray-700 py-2 px-6 rounded-xl text-white">
                   Register
                 </button>
-              </Link>
+              </button>
               <div className="flex items-center justify-center m-4 ">
                 <div className="flex-grow border-t border-gray-400"></div>
                 <span className="mx-4 text-gray-400">Or register with</span>
@@ -107,7 +151,7 @@ const Register = () => {
                 <button className="border-2 border-gray-300 text-gray-800 flex items-center justify-center rounded-xl aspect-square hover:bg-gray-300 transition-all duration-300">
                   <icons.githubIcon fill="#252525" height="2rem" width="2rem" />
                 </button>
-              </div>{" "}
+              </div>
             </div>
           </div>
         </div>

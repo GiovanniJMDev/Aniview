@@ -1,21 +1,28 @@
 import Input from "../../components/input/input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Changed useHistory to useNavigate
 import icons from "../../assets/icon";
 import { useState } from "react";
 
-const inputs = [
-  {
-    name: "Username/Email",
-    placeholder: "Write your username or email here...",
-  },
-  {
-    name: "Password",
-    placeholder: "Write your password here...",
-  },
-];
-
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  const handleLogin = () => {
+    const isEmailEmpty = !email;
+    const isPasswordEmpty = !password;
+
+    setEmailError(isEmailEmpty);
+    setPasswordError(isPasswordEmpty);
+
+    if (!isEmailEmpty && !isPasswordEmpty) {
+      // Redirect to /home after successful login logic
+      navigate("/home"); // Changed history.push to navigate
+    }
+  };
 
   return (
     <div className="h-dvh bg-light-purple w-100 flex justify-center items-center">
@@ -26,14 +33,13 @@ const Login = () => {
             backgroundImage: `url("https://w.wallhaven.cc/full/zy/wallhaven-zywpgw.png")`, // Envolviendo LoginWallpaper con url()
           }}
         >
-          {" "}
           <div className="flex items-end justify-center w-full h-fit  py-4 gap-4">
             <icons.animeIcon fill="white" height="2.5rem" width="2.5rem" />{" "}
             <h1 className="text-white text-5xl ">Aniview</h1>
           </div>
-        </div>{" "}
+        </div>
         <div className="w-full lg:w-1/2 h-full flex flex-col justify-center items-center">
-          <div className="  rounded-xl h-full md:h-5/6 flex flex-col gap-3 w-full md:w-5/6 justify-around">
+          <div className="rounded-xl h-full md:h-5/6 flex flex-col gap-3 w-full md:w-5/6 justify-around">
             <h1 className="text-center font-bold text-5xl py-2 ">
               Login to Aniview
             </h1>
@@ -50,11 +56,29 @@ const Login = () => {
 
             <div className="overflow-auto">
               <div className="px-4 gap-3 flex flex-col">
-                <Input className="" placeholder="Email" type="email" />
+                <Input 
+                  className="" 
+                  placeholder="Email" 
+                  type="email" 
+                  name="Email" 
+                  error={emailError ? "Email is required" : undefined} 
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (emailError) setEmailError(false);
+                  }} 
+                />
                 <Input
                   className="bg-[#28272f] border-0 text-white placeholder:text-gray-400 pr-10"
                   placeholder="Enter your password"
                   type={showPassword ? "text" : "password"}
+                  name="Password" 
+                  error={passwordError ? "Password is required" : undefined}
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    if (passwordError) setPasswordError(false);
+                  }} 
                 />
               </div>
               <div className="text-sm text-gray-400 flex justify-between items-center text-center m-4">
@@ -74,14 +98,14 @@ const Login = () => {
                   Forgor your password?
                 </Link>
               </div>
-              <Link
-                to="/home"
-                className=" px-6 rounded-xl text-white flex items-center justify-center"
+              <button
+                onClick={handleLogin}
+                className="px-6 rounded-xl text-white flex items-center justify-center w-full"
               >
                 <button className="w-fit bg-gray-700 py-2 px-6 rounded-xl text-white">
                   Login
                 </button>
-              </Link>
+              </button>
               <div className="flex items-center justify-center m-4 ">
                 <div className="flex-grow border-t border-gray-400"></div>
                 <span className="mx-4 text-gray-400">Or register with</span>
@@ -100,7 +124,7 @@ const Login = () => {
                 <button className="border-2 border-gray-300 text-gray-800 flex items-center justify-center rounded-xl aspect-square hover:bg-gray-300 transition-all duration-300">
                   <icons.githubIcon fill="#252525" height="2rem" width="2rem" />
                 </button>
-              </div>{" "}
+              </div>
             </div>
           </div>
         </div>

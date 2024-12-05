@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const GraphCalendar = () => {
   const months = [
@@ -142,7 +142,7 @@ const GraphCalendar = () => {
     <div className="h-full w-full flex flex-col box-border">
       <div className="flex justify-between items-center px-4 py-2 sticky top-0 bg-white z-10 shadow-md">
         <h3 className="text-xl font-bold text-black line-clamp-1">
-          My Watching List
+          Streak Calendar
         </h3>
         <div className="w-fit gap-2 flex items-center justify-center">
           <label htmlFor="year-select" className="text-xs hidden sm:block">
