@@ -1,0 +1,103 @@
+{
+  "lists": [
+    {
+      "id_list": 1,
+      "name": "Watching",
+      "animes": [
+        {
+          "name": "Dandadan",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX-wmM3L9Yg74vIAa1XG66L1ox7_cBMuRq7g&s",
+          "rating": 9.7
+        },
+        {
+          "name": "My Hero Academia",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQe0iNm_J-4W9pdbhw0osSpEM_bB4GYmBnfw&s",
+          "rating": 8.7
+        },
+        {
+          "name": "Demon Slayer",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwIz67Al7_C4-t5UGowHQODjb2JckREy4sUA&s",
+          "rating": 9.1
+        }
+      ]
+    },
+    {
+      "id_list": 2,
+      "name": "Completed",
+      "animes": [
+        {
+          "name": "Naruto",
+          "image": "https://images2.alphacoders.com/516/516246.jpg",
+          "rating": 8.8
+        },
+        {
+          "name": "Death Note",
+          "image": "https://es.web.img3.acsta.net/pictures/14/05/28/20/47/033239.jpg",
+          "rating": 9.0
+        },
+        {
+          "name": "Fullmetal Alchemist: Brotherhood",
+          "image": "https://ramenparados.com/wp-content/uploads/2018/04/fullmetal.jpg",
+          "rating": 9.4
+        },
+        {
+          "name": "Sword Art Online",
+          "image": "https://www.mundodeportivo.com/alfabeta/hero/2023/03/sword-art-online-anime.jpg?width=768&aspect_ratio=16:9&format=nowebp",
+          "rating": 7.5
+        },
+        {
+          "name": "One Punch Man",
+          "image": "https://i.blogs.es/5216b6/one-punch-man/1366_2000.jpeg",
+          "rating": 8.8
+        }
+      ]
+    },
+    {
+      "id_list": 3,
+      "name": "Plan to Watch",
+      "animes": [
+        {
+          "name": "Tokyo Ghoul",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiSnaMYGfGwSWUjcPzf4C10OGmHzIUHQBY7A&s",
+          "rating": 8.2
+        },
+        {
+          "name": "Hunter x Hunter",
+          "image": "https://i.blogs.es/276013/hunter-x-hunter/1366_2000.jpeg",
+          "rating": 9.0
+        },
+        {
+          "name": "Vinland Saga",
+          "image": "https://images5.alphacoders.com/103/1031844.jpg",
+          "rating": 8.9
+        }
+      ]
+    },
+    {
+      "id_list": 4,
+      "name": "Dropped",
+      "animes": [
+        {
+          "name": "Naruto: Shippuden",
+          "image": "https://play-lh.googleusercontent.com/nwL8eFXaahMvQX6Nez6f2uIZG-Wm1ORRNvwALBUCCAKKt1CH6nLKxs59nmM6dyaSveQ",
+          "rating": 8.6
+        },
+        {
+          "name": "One Piece",
+          "image": "https://fotografias-neox.atresmedia.com/clipping/cmsimages01/2022/06/10/DE6907B4-E712-4EC9-BF65-023888E1B1A0/one-piece_98.jpg?crop=640,360,x0,y0&width=1900&height=1069&optimize=high&format=webply",
+          "rating": 8.9
+        },
+        {
+          "name": "Attack on Titan",
+          "image": "https://media.revistagq.com/photos/6061de8b7e6648d674c91a59/master/pass/attack%20on%20titan.jpeg",
+          "rating": 9.5
+        },
+        {
+          "name": "Your Name",
+          "image": "https://hips.hearstapps.com/hmg-prod/images/your-name-poster-1547566631.jpeg?crop=0.8xw:1xh;center,top&resize=1200:*",
+          "rating": 8.7
+        }
+      ]
+    }
+  ]
+}

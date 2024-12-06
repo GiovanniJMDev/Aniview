@@ -8,7 +8,7 @@ function Home() {
   useEffect(() => {
     const fetchAnimes = async () => {
       try {
-        const response = await fetch("http://localhost:8080/api/anime");
+        const response = await fetch("https://aniview-rest-api-0-0-1.onrender.com/api/anime");
         const data = await response.json();
         setAnimes(data);
       } catch (error) {
@@ -32,10 +32,16 @@ function Home() {
           className=" focus:outline-none text-onix placeholder:text-gray-400 rounded-xl w-4/5 px-4 py-2 my-6 border-2 border-gray-300"
           placeholder="Search for a anime"
         />
-        <section className="flex-1 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 overflow-auto">
-          <HomeCardsList title="Seasonal Anime" items={animes} />
-          <HomeCardsList title="Popular Anime" items={animes} />
-          <HomeCardsList title="My Favorites" items={animes} />
+        <section className="flex-1 w-full flex flex-wrap justify-center gap-4 p-4 overflow-auto">
+          <div className="flex flex-col w-full md:w-2/5 lg:w-1/4 max-h-[60dvh]">
+            <HomeCardsList title="Seasonal Anime" items={animes} />
+          </div>
+          <div className="flex flex-col w-full md:w-2/5 lg:w-1/4 max-h-[60dvh]">
+            <HomeCardsList title="Popular Anime" items={animes} />
+          </div>
+          <div className="flex flex-col w-full md:w-2/5 lg:w-1/4 max-h-[60dvh]">
+            <HomeCardsList title="My Favorites" items={animes} />
+          </div>
         </section>
       </div>
     </div>

@@ -10,7 +10,7 @@ function Anime() {
   useEffect(() => {
     const fetchAnime = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/anime/${id}`);
+        const response = await fetch(`https://aniview-rest-api-0-0-1.onrender.com/api/anime/${id}`);
         const data = await response.json();
         setAnime(data);
         console.log(data);
@@ -51,13 +51,13 @@ function Anime() {
         </h1>
 
         {/* Contenido principal */}
-        <div className="flex-grow overflow-auto flex flex-col py-4 items-center">
+        <div className="flex-grow overflow-auto flex flex-col py-4 items-center w-full">
           <div className="flex flex-col md:flex-row items-start w-full px-4 gap-4">
             {/* Imagen del anime */}
             <img
               src={anime.image}
               alt={anime.title}
-              className=" rounded-lg aspect-video w-full md:w-1/3 object-cover bg-center shadow-md"
+              className=" rounded-lg aspect-video h-full md:w-1/3 object-cover bg-center shadow-md"
             />
             {/* Información del anime */}
             <div className="p-4 h-full bg-gray-50 border w-full md:w-2/3 border-gray-300 rounded-lg shadow-md flex-grow">

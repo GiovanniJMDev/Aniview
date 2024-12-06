@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const GraphCalendar = () => {
   const months = [
@@ -130,20 +130,22 @@ const GraphCalendar = () => {
       weekCount++;
     }
 
-    console.log(
-      `Mes: ${months[monthIndex]}, Semana: ${weekCount}, Primer día año: ${
-        days[firstDayOfYear === 0 ? 6 : firstDayOfYear - 1]
-      }`
-    );
+    // console.log(
+    //   `Mes: ${months[monthIndex]}, Semana: ${weekCount}, Primer día año: ${
+    //     days[firstDayOfYear === 0 ? 6 : firstDayOfYear - 1]
+    //   }`
+    // );
     return weekCount;
   };
 
   return (
-    <div className="h-full w-full overflow-x-auto flex flex-col">
+    <div className="h-full w-full flex flex-col box-border">
       <div className="flex justify-between items-center px-4 py-2 sticky top-0 bg-white z-10 shadow-md">
-        <h3 className="text-xl font-bold text-black">My Watching List</h3>
+        <h3 className="text-xl font-bold text-black line-clamp-1">
+          Streak Calendar
+        </h3>
         <div className="w-fit gap-2 flex items-center justify-center">
-          <label htmlFor="year-select" className="text-xs">
+          <label htmlFor="year-select" className="text-xs hidden sm:block">
             Select Year:
           </label>
           <select
@@ -152,7 +154,7 @@ const GraphCalendar = () => {
             onChange={handleYearChange}
             className="border border-gray-400 text-gray-700 outline-none px-1 rounded"
           >
-            {Array.from({ length: 5 }, (_, i) => 2020 + i).map((yearOption) => (
+            {Array.from({ length: 8 }, (_, i) => 2022 + i).map((yearOption) => (
               <option key={yearOption} value={yearOption}>
                 {yearOption}
               </option>
@@ -160,7 +162,8 @@ const GraphCalendar = () => {
           </select>
         </div>
       </div>
-      <div className="max-w-5xl rounded-lg flex-grow w-full overflow-auto text-sm text-gray-700 flex flex-col justify-center">
+
+      <div className="max-w-max rounded-lg flex-grow w-full overflow-auto text-sm text-gray-700 flex flex-col justify-center">
         <div className="flex gap-2 px-4 w-fit">
           <div className="grid gap-2 pt-6 text-xs">
             {days.map((day) => (

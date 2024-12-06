@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import NavbarButton from "../button/navbarButton";
-import icons from "../../assets/icon/index"; // Importa tus iconos
+import icons from "../../assets/icon/index"; // Import your icons
 import LogOutButton from "../button/logOutButton";
 import TitleNavbarButton from "../button/titleNavbarButton";
+import navItems from "../../data/Routes.json";
 
 const Navbar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -14,50 +15,6 @@ const Navbar = () => {
     setIsExpanded(!isExpanded);
   };
 
-  const navItems = [
-    {
-      label: "Home",
-      href: "#home",
-      icon: icons.homeIcon,
-      iconType: "stoke",
-      link: "/home",
-    },
-    {
-      label: "MyList",
-      href: "#mylist", 
-      icon: icons.myListIcon,
-      iconType: "stroke",
-      link: "/mylist",
-    },
-    // {
-    //   label: "TierList",
-    //   href: "#tierlist",
-    //   icon: icons.tierListIcon,
-    //   iconType: "stroke",
-    //   link: "/tierlist",
-    // },
-    {
-      label: "Anipon",
-      href: "#anipon",
-      icon: icons.aniponIcon,
-      iconType: "fill",
-      link: "/anipon",
-    },
-    {
-      label: "Profile",
-      href: "#profile",
-      icon: icons.profileIcon,
-      iconType: "fill", 
-      link: "/profile",
-    },    {
-      label: "AniChat_AI",
-      href: "#anichat",
-      icon: icons.aiChatIcon,
-      iconType: "fill", 
-      link: "/chat",
-    },
-  ];
-
   return (
     <aside className="w-auto bg-onix text-white h-dvh flex flex-col p-4 transition-all duration-500">
       <nav className="flex flex-col space-y-4 flex-grow">
@@ -66,14 +23,14 @@ const Navbar = () => {
           onClick={toggleNavbarSize}
           title="Aniview"
           IconComponent={icons.animeIcon}
-          iconType={"fill"}
+          iconType="fill"
         />
         {navItems.map((item) => (
           <NavbarButton
             key={item.label}
             isExpanded={isExpanded}
             title={item.label}
-            IconComponent={item.icon}
+            IconComponent={icons[item.icon.split('.').pop()]} // Adjusted to use the icon from the icons object
             iconType={item.iconType}
             to={item.link}
             isActive={currentPath === item.link}
@@ -83,9 +40,9 @@ const Navbar = () => {
       <nav className="py-4">
         <LogOutButton
           isExpanded={isExpanded}
-          title={"LogOut"}
+          title="LogOut"
           IconComponent={icons.logOutIcon}
-          iconType={"fill"}
+          iconType="fill"
           to="/login"
         />
       </nav>

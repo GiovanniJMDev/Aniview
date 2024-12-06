@@ -8,13 +8,38 @@ const Anipon = () => {
           Anipon{" "}
         </h1>
         <div className="flex-grow overflow-auto flex flex-col  items-center w-full">
-          <h1 className=" w-full  text-center py-6 ">Eighty Six</h1>
-          <div className="w-full h-2/5 ">
+          <h3 className=" w-full font-bold text-xl text-center py-4 ">Eighty Six</h3>
+          <div className="flex flex-col md:flex-row items-start w-full px-4 gap-4">
+            {/* Anime Image */}
             <img
-              className="bg-cover bg-center object-cover h-full aspect-video rounded-lg m-auto"
               src="https://wallpaperchain.com/download/86-eighty-six/86-eighty-six-wallpaper-19.jpg"
-              alt=""
+              alt="Eighty Six"
+              className="rounded-lg aspect-video h-full md:w-1/3 object-cover bg-center shadow-md"
             />
+            {/* Anime Information */}
+            <div className="p-4 h-full bg-gray-50 border w-full md:w-2/3 border-gray-300 rounded-lg shadow-md flex-grow">
+              <p className="text-lg">
+                <strong>Platforms:</strong> Crunchyroll, Funimation
+              </p>
+              <p className="text-lg mt-2">
+                <strong>Years:</strong> 2021 - Ongoing
+              </p>
+              <p className="text-lg mt-2">
+                <strong>Seasons:</strong> 2
+              </p>
+              <p className="text-lg mt-2">
+                <strong>Episodes per season:</strong> 12, 12
+              </p>
+              <p className="text-lg mt-2">
+                <strong>Total number of episodes:</strong> 24
+              </p>
+              <p className="text-lg mt-2">
+                <strong>Rating:</strong> 8.5/10
+              </p>
+              <p className="text-lg mt-2">
+                <strong>Synopsis:</strong> In a world where war is fought between humans and machines, a group of young pilots fights for their freedom and the truth behind their existence.
+              </p>
+            </div>
           </div>
           <button className="m-auto my-3 bg-onix py-2 px-6 text-white rounded-lg">
             Search
