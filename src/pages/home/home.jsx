@@ -8,7 +8,7 @@ function Home() {
   useEffect(() => {
     const fetchAnimes = async () => {
       try {
-        const response = await fetch("http://localhost:8080/api/anime");
+        const response = await fetch("https://aniview-rest-api-0-0-1.onrender.com/api/anime");
         const data = await response.json();
         setAnimes(data);
       } catch (error) {

@@ -10,7 +10,7 @@ function Anime() {
   useEffect(() => {
     const fetchAnime = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/anime/${id}`);
+        const response = await fetch(`https://aniview-rest-api-0-0-1.onrender.com/api/anime/${id}`);
         const data = await response.json();
         setAnime(data);
         console.log(data);
