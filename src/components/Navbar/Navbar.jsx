@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import NavbarButton from "../button/navbarButton";
+import NavbarButton from "../Button/NavbarButton";
 import icons from "../../assets/icon/index"; // Import your icons
-import LogOutButton from "../button/logOutButton";
-import TitleNavbarButton from "../button/titleNavbarButton";
+import LogOutButton from "../Button/LogOutButton";
+import TitleNavbarButton from "../Button/TitleNavbarButton";
 import navItems from "../../data/Routes.json";
 
 const Navbar = () => {
@@ -30,7 +30,7 @@ const Navbar = () => {
             key={item.label}
             isExpanded={isExpanded}
             title={item.label}
-            IconComponent={icons[item.icon.split('.').pop()]} // Adjusted to use the icon from the icons object
+            IconComponent={icons[item.icon.split(".").pop()]} // Adjusted to use the icon from the icons object
             iconType={item.iconType}
             to={item.link}
             isActive={currentPath === item.link}

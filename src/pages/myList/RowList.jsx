@@ -1,4 +1,4 @@
-import RowAnimeListCard from "../../components/lists/RowAnimeListCard";
+import RowAnimeListCard from "../../components/Lists/RowAnimeListCard";
 
 const Listas = ({ lists, selectedList, setSelectedList }) => {
   return (

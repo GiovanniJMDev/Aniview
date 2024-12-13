@@ -1,6 +1,6 @@
 import badgeData from "../../data/badgeData.json";
 import icons from "../../assets/icon";
-import Badge from "./badge";
+import Badge from "./Badge";
 import badgeIcons from "../../assets/badgeIcons";
 
 const BadgesContainer = () => {

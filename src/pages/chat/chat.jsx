@@ -4,7 +4,7 @@ import MessageInput from "../../components/MessageInput/MessageInput";
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
-  const [newMessage, setNewMessage] = useState('');
+  const [newMessage, setNewMessage] = useState("");
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -20,35 +20,35 @@ const Chat = () => {
 
     const userMessage = {
       text: newMessage,
-      isUser: true
+      isUser: true,
     };
-    setMessages(prev => [...prev, userMessage]);
-    setNewMessage('');
+    setMessages((prev) => [...prev, userMessage]);
+    setNewMessage("");
 
     try {
-      const response = await fetch('http://localhost:8080/api/groq/chat', {
-        method: 'POST',
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+      const response = await fetch(`${API_BASE_URL}/api/groq/chat`, {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ prompt: newMessage })
+        body: JSON.stringify({ prompt: newMessage }),
       });
 
       const data = await response.json();
-      
+
       const aiMessage = {
         text: data.response,
-        isUser: false
+        isUser: false,
       };
-      setMessages(prev => [...prev, aiMessage]);
-
+      setMessages((prev) => [...prev, aiMessage]);
     } catch (error) {
-      console.error('Error al enviar mensaje:', error);
+      console.error("Error al enviar mensaje:", error);
     }
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       sendMessage();
     }
   };
@@ -60,7 +60,7 @@ const Chat = () => {
           Anichat
         </h1>
         <MessageList messages={messages} messagesEndRef={messagesEndRef} />
-        <MessageInput 
+        <MessageInput
           newMessage={newMessage}
           setNewMessage={setNewMessage}
           sendMessage={sendMessage}
@@ -69,6 +69,6 @@ const Chat = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Chat;

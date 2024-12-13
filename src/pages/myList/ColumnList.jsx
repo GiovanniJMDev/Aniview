@@ -1,4 +1,4 @@
-import AnimeListColumn from "../../components/lists/AnimeListColumn";
+import AnimeListColumn from "../../components/Lists/AnimeListColumn";
 
 const ColumnList = ({ lists }) => {
   return (

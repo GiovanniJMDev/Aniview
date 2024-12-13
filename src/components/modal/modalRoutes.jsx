@@ -1,6 +1,6 @@
-import Modal from "./modal";
-import NavbarButton from "../button/navbarButton";
-import LogOutButton from "../button/logOutButton";
+import Modal from "./Modal";
+import NavbarButton from "../Button/NavbarButton";
+import LogOutButton from "../Button/LogOutButton";
 import icons from "../../assets/icon";
 import navItems from "../../data/Routes.json"; // Updated import to use the correct path
 
@@ -13,7 +13,7 @@ const ModalRoutes = ({ isOpen, onClose, isExpanded }) => {
             key={item.label}
             isExpanded={isExpanded}
             title={item.label}
-            IconComponent={icons[item.icon.split('.').pop()]} // Adjusted to use the icon from the icons object
+            IconComponent={icons[item.icon.split(".").pop()]} // Adjusted to use the icon from the icons object
             iconType={item.iconType}
             to={item.link}
             onClick={onClose} // Cierra el modal al hacer clic en cada botón de navegación

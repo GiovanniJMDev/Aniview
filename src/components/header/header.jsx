@@ -1,6 +1,6 @@
 import { useState } from "react";
 import icons from "../../assets/icon";
-import ModalRoutes from "../modal/modalRoutes";
+import ModalRoutes from "../Modal/ModalRoutes";
 
 const Header = () => {
   const [isModalOpen, setModalOpen] = useState(false);

@@ -10,7 +10,9 @@ function Anime() {
   useEffect(() => {
     const fetchAnime = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/anime/${id}`);
+        const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+        const response = await fetch(`${API_BASE_URL}/api/anime/${id}`);
         const data = await response.json();
         setAnime(data);
         console.log(data);

@@ -5,16 +5,16 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import Home from "./pages/home/home";
-import Login from "./pages/login/login";
-import Register from "./pages/register/register";
-import PrivateLayout from "./layout/PrivateLayout";
-import Anipon from "./pages/anipon/anipon";
-import Profile from "./pages/profile/profile";
-import MyList from "./pages/myList/myList";
-// import TierList from "./pages/tierList/tierList";
-import Anime from "./pages/anime/anime";
-import Chat from "./pages/chat/chat";
+import Home from "./Pages/Home/Home";
+import Login from "./Pages/Login/Login";
+import Register from "./Pages/Register/Register";
+import PrivateLayout from "./Layout/PrivateLayout";
+import Anipon from "./Pages/Anipon/Anipon";
+import Profile from "./Pages/Profile/Profile";
+import MyList from "./Pages/MyList/MyList";
+// import TierList from "./Pages/tierList/tierList";
+import Anime from "./Pages/Anime/Anime";
+import Chat from "./Pages/Chat/Chat";
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />{" "}
           {/* <Route path="/tierList" element={<TierList />} />{" "} */}
           <Route path="/anime/:id" element={<Anime />} />
-        <Route path="/chat" element={<Chat />} />
+          <Route path="/chat" element={<Chat />} />
         </Route>
         {/* <Route path="/login" element={<Login />} /> */}
         {/* <Route
