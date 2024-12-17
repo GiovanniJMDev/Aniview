@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import icons from "../../assets/icon";
 import MyList from "../../data/MyList.json"; // Import the JSON data
 
 const WatchingList = () => {
@@ -25,7 +24,7 @@ const WatchingList = () => {
         <select
           value={selectedList}
           onChange={handleListChange}
-          className="border border-gray-300 rounded-lg px-2 outline-none"
+          className="border border-gray-300 rounded-lg px-2 outline-gray-800"
         >
           {MyList.lists.map((list) => (
             <option key={list.id_list} value={list.id_list}>

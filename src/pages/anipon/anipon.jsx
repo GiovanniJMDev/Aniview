@@ -63,11 +63,9 @@ const Anipon = () => {
           <div className="flex flex-col md:flex-row items-start w-full px-4 gap-4">
             {/* Anime Image */}
             <img
-              // src="https://wallpaperchain.com/download/86-eighty-six/86-eighty-six-wallpaper-19.jpg"
               src={
-                animeData.image
-                  ? animeData.image
-                  : "https://www.tokyoweekender.com/wp-content/uploads/2023/05/Things-you-didnt-know-about-Japans-gacha-750x502.jpg.webp"
+                animeData.image ??
+                "https://www.tokyoweekender.com/wp-content/uploads/2023/05/Things-you-didnt-know-about-Japans-gacha-750x502.jpg.webp"
               }
               alt="Eighty Six"
               className="rounded-lg aspect-video h-full md:w-1/3 object-cover bg-center shadow-md"

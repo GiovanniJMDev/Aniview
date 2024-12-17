@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import dataUser from "../../data/user.json";
 
 const ProfileForm = () => {
@@ -33,7 +33,7 @@ const ProfileForm = () => {
   return (
     <div className="h-full w-full flex flex-col">
       {/* Encabezado fijo con botón para alternar el modo */}
-      <div className="flex justify-between items-center px-4 py-2 sticky top-0 bg-white bg-white z-10 shadow-md">
+      <div className="flex justify-between items-center px-4 py-2 sticky top-0 bg-white z-10 shadow-md">
         <h3 className="text-xl font-bold text-black">Profile</h3>
         <button
           onClick={toggleEditable}

@@ -13,7 +13,6 @@ html {
   background-color: #bd82f8;
   @apply h-dvh w-screen;
 }
-
 /* Personalización de barras de scroll para desktop */
 @media (hover: hover) and (pointer: fine) {
   /* Ancho de la barra y separación de los bordes */

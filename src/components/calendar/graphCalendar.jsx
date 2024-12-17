@@ -139,7 +139,7 @@ const GraphCalendar = () => {
   };
 
   return (
-    <div className="h-full w-full flex flex-col box-border">
+    <div className="h-full w-full flex flex-col box-border bg-white">
       <div className="flex justify-between items-center px-4 py-2 sticky top-0 bg-white z-10 shadow-md">
         <h3 className="text-xl font-bold text-black line-clamp-1">
           Streak Calendar
@@ -152,7 +152,7 @@ const GraphCalendar = () => {
             id="year-select"
             value={year}
             onChange={handleYearChange}
-            className="border border-gray-400 text-gray-700 outline-none px-1 rounded"
+            className="border border-gray-400 text-gray-700 outline-gray-800 px-1 rounded"
           >
             {Array.from({ length: 8 }, (_, i) => 2022 + i).map((yearOption) => (
               <option key={yearOption} value={yearOption}>

@@ -1,7 +1,9 @@
-const RowAnimeListCard = ({ anime, index }) => {
+import PropTypes from "prop-types"
+const RowAnimeListCard = ({ anime, index, openModal }) => {
   return (
-    <div
+    <button
       key={index}
+      onClick={openModal}
       className="flex flex-col sm:flex-row items-center drop-shadow-lg border border-gray-300 rounded-lg p-4 bg-white"
     >
       <div className="h-fit">
@@ -15,8 +17,18 @@ const RowAnimeListCard = ({ anime, index }) => {
         {anime.name}
       </h3>
       <div className="text-gray-800 text-right text-3xl">{anime.rating}</div>
-    </div>
+    </button>
   );
 };
+
+RowAnimeListCard.propTypes = {
+  anime: PropTypes.shape({
+    image: PropTypes.any,
+    name: PropTypes.any,
+    rating: PropTypes.any
+  }),
+  index: PropTypes.any,
+  openModal: PropTypes.func
+}
 
 export default RowAnimeListCard;

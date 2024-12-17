@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Modal from "./Modal";
 import NavbarButton from "../Button/NavbarButton";
 import LogOutButton from "../Button/LogOutButton";
@@ -7,7 +8,7 @@ import navItems from "../../data/Routes.json"; // Updated import to use the corr
 const ModalRoutes = ({ isOpen, onClose, isExpanded }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <nav className="flex flex-col space-y-4 h-5/6 items-center">
+      <nav className="flex flex-col justify-evenly items-center bg-onix h-full">
         {navItems.map((item) => (
           <NavbarButton
             key={item.label}
@@ -30,6 +31,12 @@ const ModalRoutes = ({ isOpen, onClose, isExpanded }) => {
       </nav>
     </Modal>
   );
+};
+
+ModalRoutes.propTypes = {
+  isExpanded: PropTypes.any,
+  isOpen: PropTypes.any,
+  onClose: PropTypes.any,
 };
 
 export default ModalRoutes;
