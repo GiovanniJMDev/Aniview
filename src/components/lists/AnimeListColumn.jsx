@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import AnimeListCard from "../Cards/AnimeListCard";
 
 const AnimeListColumn = ({ count, animes, openModal }) => {
-  console.log(animes);
   return (
     <button
       onClick={openModal}

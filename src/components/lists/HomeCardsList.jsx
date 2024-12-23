@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 import AnimeCard from "../Cards/AnimeCard";
 function HomeCardsList({ title, items = [] }) {
   return (
@@ -15,6 +16,11 @@ function HomeCardsList({ title, items = [] }) {
       </div>
     </div>
   );
+}
+
+HomeCardsList.propTypes = {
+  items: PropTypes.array,
+  title: PropTypes.string
 }
 
 export default HomeCardsList;
