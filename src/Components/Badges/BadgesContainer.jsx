@@ -1,4 +1,4 @@
-import badgeData from "../../data/badgeData.json";
+import badgeData from "../../Data/BadgeData.json";
 import icons from "../../assets/icon";
 import Badge from "./Badge";
 import badgeIcons from "../../assets/badgeIcons";

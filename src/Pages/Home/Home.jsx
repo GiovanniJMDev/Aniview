@@ -10,8 +10,8 @@ function Home() {
       const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
       try {
         const response = await fetch(`${API_BASE_URL}/api/anime`);
-        const data = await response.json();
-        setAnimes(data);
+        const Data = await response.json();
+        setAnimes(Data);
       } catch (error) {
         console.error("Error al obtener los animes:", error);
       }

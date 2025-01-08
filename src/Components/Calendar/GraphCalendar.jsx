@@ -22,7 +22,7 @@ const GraphCalendar = () => {
 
   // Generar datos de muestra de contribución (niveles de intensidad de 0 a 4)
   const generateSampleData = (year) => {
-    const data = [];
+    const Data = [];
     const totalDays = isLeapYear(year) ? 366 : 365;
 
     // Obtener el primer día del año (0 = Domingo, 1 = Lunes, etc)
@@ -46,12 +46,12 @@ const GraphCalendar = () => {
         while (currentWeek.length < 7) {
           currentWeek.push(null);
         }
-        data.push(currentWeek);
+        Data.push(currentWeek);
         currentWeek = [];
       }
     }
 
-    return data;
+    return Data;
   };
 
   // Función para verificar si un año es bisiesto

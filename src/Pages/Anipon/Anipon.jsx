@@ -29,9 +29,9 @@ const Anipon = () => {
 
     fetch(`${API_BASE_URL}/api/anime/random?genres=${genresQuery}`)
       .then((response) => response.json())
-      .then((data) => {
-        setAnimeData(data);
-        console.log(data);
+      .then((Data) => {
+        setAnimeData(Data);
+        console.log(Data);
       });
   };
   // Estado para los géneros seleccionados

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import MyList from "../../data/MyList.json"; // Import the JSON data
+import MyList from "../../Data/MyList.json"; // Import the JSON Data
 
 const WatchingList = () => {
   const [selectedList, setSelectedList] = useState(1); // Default to the first list

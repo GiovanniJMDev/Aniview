@@ -60,11 +60,11 @@ const Chat = () => {
         body: JSON.stringify({ prompt: newMessage }),
       });
 
-      const data = await response.json();
+      const Data = await response.json();
 
       const aiMessage = {
-        text: data.response,
-        type: data.type || "ai",
+        text: Data.response,
+        type: Data.type || "ai",
       };
 
       setMessages((prev) => [...prev, aiMessage]);

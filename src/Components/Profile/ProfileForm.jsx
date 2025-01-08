@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import dataUser from "../../data/user.json";
+import dataUser from "../../Data/User.json";
 
 const ProfileForm = () => {
   // Estado para manejar los datos editables

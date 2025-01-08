@@ -4,7 +4,7 @@ import NavbarButton from "../Button/NavbarButton";
 import icons from "../../assets/icon/index"; // Import your icons
 import LogOutButton from "../Button/LogOutButton";
 import TitleNavbarButton from "../Button/TitleNavbarButton";
-import navItems from "../../data/Routes.json";
+import navItems from "../../Data/Routes.json";
 
 const Navbar = () => {
   const [isExpanded, setIsExpanded] = useState(false);

@@ -3,7 +3,7 @@ import Modal from "./Modal";
 import NavbarButton from "../Button/NavbarButton";
 import LogOutButton from "../Button/LogOutButton";
 import icons from "../../assets/icon";
-import navItems from "../../data/Routes.json"; // Updated import to use the correct path
+import navItems from "../../Data/Routes.json"; // Updated import to use the correct path
 
 const ModalRoutes = ({ isOpen, onClose, isExpanded }) => {
   return (

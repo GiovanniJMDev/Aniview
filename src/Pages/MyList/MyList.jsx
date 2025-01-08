@@ -1,4 +1,4 @@
-import MyListData from "../../data/MyList.json";
+import MyListData from "../../Data/MyList.json";
 import { useState, useEffect } from "react";
 import ColumnList from "./ColumnList";
 import RowList from "./RowList";

@@ -14,9 +14,9 @@ function Anime() {
 
         const response = await fetch(`${API_BASE_URL}/api/anime/${id}`);
 
-        const data = await response.json();
-        setAnime(data);
-        console.log(data);
+        const Data = await response.json();
+        setAnime(Data);
+        console.log(Data);
       } catch (error) {
         console.error("Error al obtener el anime:", error);
       } finally {
