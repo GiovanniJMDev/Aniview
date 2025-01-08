@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import MessageList from "../../components/MessageList/MessageList";
-import MessageInput from "../../components/MessageInput/MessageInput";
+import MessageList from "../../Components/MessageList/MessageList";
+import MessageInput from "../../Components/MessageInput/MessageInput";
 
 const Chat = () => {
   const [messages, setMessages] = useState([
@@ -66,7 +66,7 @@ const Chat = () => {
         text: data.response,
         type: data.type || "ai",
       };
-      
+
       setMessages((prev) => [...prev, aiMessage]);
       console.log(messages);
     } catch (error) {
