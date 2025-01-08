@@ -1,4 +1,4 @@
-import Input from "../../components/Input/Input";
+import Input from "../../Components/Input/Input";
 import { Link, useNavigate } from "react-router-dom"; // Added useNavigate for navigation
 import icons from "../../assets/icon";
 import { useState } from "react";

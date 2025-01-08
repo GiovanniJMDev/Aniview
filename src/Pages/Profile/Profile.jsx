@@ -1,8 +1,8 @@
-import BadgesContainer from "../../components/Badges/BadgesContainer";
-import WatchingList from "../../components/Profile/WatchingList";
-import GraphCalendar from "../../components/Calendar/GraphCalendar";
-// import SocialMedias from "../../components/socialMedias/socialMedias";
-import ProfileForm from "../../components/Profile/ProfileForm";
+import BadgesContainer from "../../Components/Badges/BadgesContainer";
+import WatchingList from "../../Components/Profile/WatchingList";
+import GraphCalendar from "../../Components/Calendar/GraphCalendar";
+// import SocialMedias from "../../Components/socialMedias/socialMedias";
+import ProfileForm from "../../Components/Profile/ProfileForm";
 const Profile = () => {
   return (
     <div className="bg-light-purple h-full w-full flex items-center justify-center flex-col">

@@ -1,5 +1,5 @@
-import PropTypes from "prop-types"
-import AnimeListColumn from "../../components/Lists/AnimeListColumn";
+import PropTypes from "prop-types";
+import AnimeListColumn from "../../Components/Lists/AnimeListColumn";
 
 const ColumnList = ({ lists, openModal }) => {
   return (
@@ -18,9 +18,9 @@ const ColumnList = ({ lists, openModal }) => {
 
 ColumnList.propTypes = {
   lists: PropTypes.shape({
-    map: PropTypes.func
+    map: PropTypes.func,
   }),
-  openModal: PropTypes.func
-}
+  openModal: PropTypes.func,
+};
 
 export default ColumnList;

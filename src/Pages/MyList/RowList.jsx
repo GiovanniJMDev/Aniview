@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import RowAnimeListCard from "../../components/Lists/RowAnimeListCard";
+import RowAnimeListCard from "../../Components/Lists/RowAnimeListCard";
 const Listas = ({ lists, selectedList, setSelectedList, openModal }) => {
   return (
     <div className="w-full flex flex-col">
@@ -26,7 +26,12 @@ const Listas = ({ lists, selectedList, setSelectedList, openModal }) => {
       </div>
       <div className="flex flex-col gap-2 h-max px-4 py-2">
         {selectedList.animes.map((anime, index) => (
-          <RowAnimeListCard key={index} anime={anime} index={index} openModal={openModal} />
+          <RowAnimeListCard
+            key={index}
+            anime={anime}
+            index={index}
+            openModal={openModal}
+          />
         ))}
       </div>
     </div>

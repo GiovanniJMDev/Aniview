@@ -1,6 +1,6 @@
 import { useState } from "react";
-import AddAniponButton from "../../components/Button/AddAniponButton";
-import RemoveAniponButton from "../../components/Button/RemoveAniponButton";
+import AddAniponButton from "../../Components/Button/AddAniponButton";
+import RemoveAniponButton from "../../Components/Button/RemoveAniponButton";
 const Anipon = () => {
   const [animeData, setAnimeData] = useState("");
   const animeGenres = [
