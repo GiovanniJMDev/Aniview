@@ -8,7 +8,7 @@ import {
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
-import PrivateLayout from "./Layout/PrivateLayout";
+import HomeLayout from "./Layout/HomeLayout";
 import Anipon from "./Pages/Anipon/Anipon";
 import Profile from "./Pages/Profile/Profile";
 import MyList from "./Pages/MyList/MyList";
@@ -24,7 +24,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<Navigate to="/login" />} />
 
-        <Route element={<PrivateLayout />}>
+        <Route element={<HomeLayout />}>
           <Route path="/home" element={<Home />} />
           <Route path="/anipon" element={<Anipon />} />{" "}
           <Route path="/myList" element={<MyList />} />
