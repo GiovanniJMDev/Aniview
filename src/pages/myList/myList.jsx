@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import ColumnList from "./ColumnList";
 import RowList from "./RowList";
 import icons from "../../assets/icon/index";
+import ModalAnimeList from "../../Components/Modal/ModalAnimeList";
 
 const MyList = () => {
   const { lists } = MyListData;
@@ -14,6 +15,11 @@ const MyList = () => {
   const [selectedList, setSelectedList] = useState(
     lists.length > 0 ? lists[0] : null
   );
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setModalOpen(!isModalOpen);
+  };
 
   useEffect(() => {
     // Save the view type to localStorage whenever it changes
@@ -30,7 +36,7 @@ const MyList = () => {
           </h1>
           <button
             onClick={() => setIsGridView(!isGridView)}
-            className="col-span-1 px-4 py-2 bg-gray-500 w-fit rounded flex items-center justify-center transition-transform duration-300 ease-in-out"
+            className="col-span-1 px-4 py-1.5 bg-gray-500 w-fit rounded flex items-center justify-center transition-transform duration-300 ease-in-out"
           >
             {isGridView ? (
               <icons.myListIcon
@@ -53,16 +59,18 @@ const MyList = () => {
 
         <div className="w-full flex-grow flex flex-col overflow-auto bg-white">
           {isGridView ? (
-            <ColumnList lists={lists} />
+            <ColumnList lists={lists} openModal={toggleModal} />
           ) : (
             <RowList
               lists={lists}
               selectedList={selectedList}
               setSelectedList={setSelectedList}
+              openModal={toggleModal}
             />
           )}
         </div>
-      </div>
+      </div>{" "}
+      <ModalAnimeList isOpen={isModalOpen} onClose={toggleModal} />
     </div>
   );
 };

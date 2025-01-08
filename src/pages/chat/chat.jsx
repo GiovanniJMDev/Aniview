@@ -3,7 +3,32 @@ import MessageList from "../../components/MessageList/MessageList";
 import MessageInput from "../../components/MessageInput/MessageInput";
 
 const Chat = () => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    {
+      text: "hola",
+      type: "user",
+    },
+    {
+      text: "¡Hola! Soy Aniview_AI, tu asistente de anime y cultura japonesa. ¿En qué puedo ayudarte hoy?",
+      type: "ai",
+    },
+    {
+      text: "Q tal?",
+      type: "user",
+    },
+    {
+      text: "Hola! ¿Cómo estás? Aniview_AI al servicio, listo para hablar sobre anime y cultura japonesa. ¿Necesitas recomendaciones o información sobre algún anime en particular?",
+      type: "ai",
+    },
+    {
+      text: "¿Qué anime me recomiendas ver?",
+      type: "anime",
+    },
+    {
+      text: "Anipon es un saludo típico en la cultura del anime.",
+      type: "list",
+    },
+  ]);
   const [newMessage, setNewMessage] = useState("");
   const messagesEndRef = useRef(null);
 
@@ -20,30 +45,30 @@ const Chat = () => {
 
     const userMessage = {
       text: newMessage,
-      isUser: true,
+      type: "user",
     };
     setMessages((prev) => [...prev, userMessage]);
     setNewMessage("");
 
     try {
-      const response = await fetch(
-        "https://aniview-rest-api-0-0-1.onrender.com/api/groq/chat",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ prompt: newMessage }),
-        }
-      );
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+      const response = await fetch(`${API_BASE_URL}/api/groq/chat`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt: newMessage }),
+      });
 
       const data = await response.json();
 
       const aiMessage = {
         text: data.response,
-        isUser: false,
+        type: data.type || "ai",
       };
+      
       setMessages((prev) => [...prev, aiMessage]);
+      console.log(messages);
     } catch (error) {
       console.error("Error al enviar mensaje:", error);
     }

@@ -7,7 +7,7 @@ const AnimeCard = ({ anime }) => {
     navigate(`/anime/${anime.id}`);
   };
   return (
-    <div
+    <button
       onClick={handleNavigate}
       className="flex w-full shadow-lg border border-gray-300 h-fit flex-row flex-start rounded-xl p-4 overflow-hidden"
     >
@@ -20,7 +20,7 @@ const AnimeCard = ({ anime }) => {
         <h1 className="text-xl font-bold line-clamp-1">{anime.title}</h1>
         <p className="text-gray-600 line-clamp-3 h-fit">{anime.description}</p>
       </div>
-    </div>
+    </button>
   );
 };
 

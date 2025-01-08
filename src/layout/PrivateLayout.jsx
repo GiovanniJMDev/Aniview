@@ -1,7 +1,7 @@
 // PrivateLayout.js
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
-import Header from "../components/header/header";
+import Header from "../components/Header/Header";
 const PrivateLayout = () => {
   return (
     <>
@@ -20,9 +20,9 @@ const PrivateLayout = () => {
         </div>
 
         {/* Contenido principal visible en todos los tamaños */}
-        <div className="flex-grow overflow-hidden max-h-dvh">
+        <main className="flex-grow overflow-hidden max-h-dvh">
           <Outlet />
-        </div>
+        </main>
       </div>
     </>
   );

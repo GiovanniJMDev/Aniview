@@ -1,5 +1,5 @@
 // src/Home.js
-import HomeCardsList from "../../components/lists/HomeCardsList";
+import HomeCardsList from "../../Components/Lists/HomeCardsList";
 import { useState, useEffect } from "react";
 
 function Home() {
@@ -7,8 +7,9 @@ function Home() {
 
   useEffect(() => {
     const fetchAnimes = async () => {
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
       try {
-        const response = await fetch("https://aniview-rest-api-0-0-1.onrender.com/api/anime");
+        const response = await fetch(`${API_BASE_URL}/api/anime`);
         const data = await response.json();
         setAnimes(data);
       } catch (error) {
