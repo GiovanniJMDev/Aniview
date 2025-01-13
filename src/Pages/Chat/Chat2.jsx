@@ -4,30 +4,30 @@ import MessageInput from "../../Components/MessageInput/MessageInput";
 
 const Chat = () => {
   const [messages, setMessages] = useState([
-    {
-      text: "hola",
-      type: "user",
-    },
-    {
-      text: "¡Hola! Soy Aniview_AI, tu asistente de anime y cultura japonesa. ¿En qué puedo ayudarte hoy?",
-      type: "ai",
-    },
-    {
-      text: "Q tal?",
-      type: "user",
-    },
-    {
-      text: "Hola! ¿Cómo estás? Aniview_AI al servicio, listo para hablar sobre anime y cultura japonesa. ¿Necesitas recomendaciones o información sobre algún anime en particular?",
-      type: "ai",
-    },
-    {
-      text: "¿Qué anime me recomiendas ver?",
-      type: "anime",
-    },
-    {
-      text: "Anipon es un saludo típico en la cultura del anime.",
-      type: "list",
-    },
+    // {
+    //   text: "hola",
+    //   type: "user",
+    // },
+    // {
+    //   text: "¡Hola! Soy Aniview_AI, tu asistente de anime y cultura japonesa. ¿En qué puedo ayudarte hoy?",
+    //   type: "ai",
+    // },
+    // {
+    //   text: "Q tal?",
+    //   type: "user",
+    // },
+    // {
+    //   text: "Hola! ¿Cómo estás? Aniview_AI al servicio, listo para hablar sobre anime y cultura japonesa. ¿Necesitas recomendaciones o información sobre algún anime en particular?",
+    //   type: "ai",
+    // },
+    // {
+    //   text: "¿Qué anime me recomiendas ver?",
+    //   type: "anime",
+    // },
+    // {
+    //   text: "Anipon es un saludo típico en la cultura del anime.",
+    //   type: "list",
+    // },
   ]);
   const [newMessage, setNewMessage] = useState("");
   const messagesEndRef = useRef(null);
@@ -59,6 +59,7 @@ const Chat = () => {
         },
         body: JSON.stringify({ prompt: newMessage }),
       });
+      console.log(response);
 
       const Data = await response.json();
 
