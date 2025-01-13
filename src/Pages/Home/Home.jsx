@@ -1,7 +1,6 @@
 // src/Home.js
 import HomeCardsList from "../../Components/Lists/HomeCardsList";
 import { useState, useEffect } from "react";
-
 function Home() {
   const [animes, setAnimes] = useState([]);
 

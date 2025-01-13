@@ -2,6 +2,7 @@ import Input from "../../Components/Input/Input";
 import { Link, useNavigate } from "react-router-dom"; // Changed useHistory to useNavigate
 import icons from "../../assets/icon";
 import { useState } from "react";
+import SocialLoginButton from "../../Components/Button/SocialLoginButton";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -111,30 +112,10 @@ const Login = () => {
                 <div className="flex-grow border-t border-gray-400"></div>
               </div>
               <div className="grid md:grid-cols-4 md:grid-rows-1 grid-cols-2 grid-rows-2 justify-items-center gap-2 px-4 overflow-auto">
-                <button
-                  onClick={() => navigate("/home")}
-                  className="border-2 border-gray-300 text-gray-800 p-2 flex items-center justify-center rounded-xl aspect-square hover:bg-gray-300 transition-all duration-300"
-                >
-                  <icons.googleIcon height="2rem" width="2rem" />
-                </button>
-                <button
-                  onClick={() => navigate("/home")}
-                  className="border-2 border-gray-300 text-gray-800 p-2 flex items-center justify-center rounded-xl aspect-square hover:bg-gray-300 transition-all duration-300"
-                >
-                  <icons.appleIcon fill="#252525" height="2rem" width="2rem" />
-                </button>
-                <button
-                  onClick={() => navigate("/home")}
-                  className="border-2 border-gray-300 text-gray-800 flex items-center justify-center rounded-xl aspect-square hover:bg-gray-300 transition-all duration-300"
-                >
-                  <icons.microsoftIcon height="2rem" width="2rem" />
-                </button>
-                <button
-                  onClick={() => navigate("/home")}
-                  className="border-2 border-gray-300 text-gray-800 flex items-center justify-center rounded-xl aspect-square hover:bg-gray-300 transition-all duration-300"
-                >
-                  <icons.githubIcon fill="#252525" height="2rem" width="2rem" />
-                </button>
+                <SocialLoginButton app={"google"} link="/home" />
+                <SocialLoginButton app={"apple"} link="/home" />
+                <SocialLoginButton app={"microsoft"} link="/home" />
+                <SocialLoginButton app={"github"} link="/home" />
               </div>
             </div>
           </div>
