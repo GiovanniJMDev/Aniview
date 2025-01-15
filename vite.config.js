@@ -6,5 +6,6 @@ export default defineConfig({
   plugins: [react()],
   test: {
     environment: "happy-dom",
+    globals: true, // Esto asegura que puedes usar test(), expect() y vi
   },
 });

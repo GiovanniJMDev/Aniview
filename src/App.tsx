@@ -16,7 +16,7 @@ import MyList from "./Pages/MyList/MyList";
 import Anime from "./Pages/Anime/Anime";
 import Chat from "./Pages/Chat/Chat";
 
-function App() {
+const App: React.FC = () => {
   return (
     <Router>
       <Routes>
@@ -47,6 +47,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;
