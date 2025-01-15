@@ -77,67 +77,141 @@ Si tienes conflictos, resuélvelos antes de hacer un push.
 
 ## 3. **Convenciones de Sintaxis y Estilo de Código**
 
-### 3.1 **Convenciones de Código**
-
-- **Indentación**: Usa 2 espacios para la indentación.
-- **Líneas**: Las líneas de código no deben superar los 80 caracteres. Si una línea es demasiado larga, divídela de manera clara.
-- **Nombres de Variables y Funciones**: Usa **camelCase** para las variables y funciones. Los componentes de React deben usar **PascalCase**.
-  - Ejemplo correcto:
-    ```tsx
-    const nombreDeUsuario = "Juan";
-    const getUsuario = () => {...};
-    ```
-  - Ejemplo de componente en React:
-    ```tsx
-    const MiComponente = () => {...};
-    ```
-- **Componentes**: Los componentes de React deben estar en archivos separados y deben exportarse de forma predeterminada.
-
-### 3.2 **Uso de TailwindCSS**
+### 3.1 **Uso de TailwindCSS**
 
 Este proyecto utiliza **TailwindCSS** para la gestión de estilos. Para mantener la coherencia, los estilos **no deben escribirse directamente en los componentes**. En su lugar, deberás aplicar clases de Tailwind en tus archivos de CSS (usando Tailwind desde el archivo CSS).
 
-#### 3.2.1 **Clases CSS y Convenciones**
+Ejemplo de implementación con TailwindCSS:
 
-Usamos **kebab-case** para las clases CSS. Esto es consistente con la convención de nombres de Tailwind y también mejora la legibilidad.
+#### Componente React:
 
-Ejemplo:
-
-```html
-<div class="bg-blue-500 text-white p-4 rounded-md">
-  Esto es un ejemplo.
+```tsx
+<div className="custom-component">
+  <div className="custom-component__header">{HeaderTitle}</div>
+  <div className="custom-component__content">
+    <h3 className="content__title">Resumen</h3>
+    <div className="content__body">
+      <p className="body__text">Texto de ejemplo</p>
+      <button className="body__button" onClick={handleClick}>Acción</button>
+    </div>
+  </div>
 </div>
 ```
 
-### 3.3 **Comentarios y Documentación**
+#### Archivo CSS:
 
-- **Comentarios**: Usa comentarios de línea para explicar porciones complejas del código. Evita comentarios innecesarios.
-- **JSDoc**: Documenta las funciones y componentes con JSDoc cuando sea necesario. Ejemplo:
-  
-  ```tsx
-  /**
-   * Componente que muestra la información de un usuario.
-   * @param {string} nombre Nombre del usuario.
-   * @returns {JSX.Element} El componente JSX.
-   */
-  const Usuario = ({ nombre }: { nombre: string }) => {
-    return <div>{nombre}</div>;
-  };
-  ```
+```css
+.custom-component {
+  @apply flex flex-col items-center justify-center w-full h-full;
+}
+.custom-component__header {
+  @apply text-lg font-bold text-center;
+}
 
-### 3.4 **Funciones y Métodos**
+.custom-component__content {
+  @apply bg-gray-100 p-4 rounded-lg shadow-md;
+}
+
+.content__title {
+  @apply text-xl font-semibold mb-2;
+}
+
+.content__body {
+  @apply flex flex-col items-start gap-4;
+}
+
+.body__text {
+  @apply text-base text-gray-700;
+}
+
+.body__button {
+  @apply bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600;
+}
+```
+
+#### Notas sobre la organización del CSS:
+
+- Cada componente React debe tener un archivo CSS en la misma carpeta con el nombre del componente.
+- Las clases de CSS deben seguir la convención **BEM** para mantener una estructura clara y modular.
+
+### 3.1.1 **Extender colores y clases en Tailwind Config**
+
+Para personalizar colores o agregar clases adicionales, modifica el archivo `tailwind.config.js`.
+
+Ejemplo:
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        custom_blue: '#1e3a8a',
+        custom_gray: '#64748b',
+      },
+      spacing: {
+        '72': '18rem',
+        '84': '21rem',
+      },
+    },
+  },
+  plugins: [],
+};
+```
+
+Con esta configuración, puedes usar las nuevas clases en tus componentes, como `bg-custom_blue` o `p-72`.
+
+
+### 3.2 **Funciones y Métodos**
 
 - **Funciones pequeñas**: Cada función debe hacer solo una cosa y debe tener un nombre claro que describa su comportamiento.
 - **Desestructuración**: Usa desestructuración cuando sea posible para mejorar la legibilidad del código.
-  
-  Ejemplo:
-  ```tsx
-  const Usuario = ({ nombre, edad }: { nombre: string, edad: number }) => {
-    return <div>{nombre} - {edad}</div>;
-  };
-  ```
 
----
+  Ejemplo:
+
+```tsx
+const Usuario = ({ nombre, edad }: { nombre: string; edad: number }) => {
+  return <div>{nombre} - {edad}</div>;
+};
+```
+
+### 3.3 **Variables de Entorno**
+
+- **Variables de Entorno**: Todas las variables de entorno deben ser creadas en un archivo `.env`, siguiendo la estructura de Vite. Ejemplo:
+
+**Archivo `.env`**:
+```env
+VITE_API_URL=https://api.ejemplo.com
+VITE_APP_KEY=clave-de-aplicacion
+```
+
+**Uso en el código**:
+```tsx
+const apiUrl = import.meta.env.VITE_API_URL;
+const appKey = import.meta.env.VITE_APP_KEY;
+
+fetch(`${apiUrl}/endpoint`, {
+  headers: {
+    Authorization: `Bearer ${appKey}`,
+  },
+});
+```
+
+### 3.4 **Console Logs**
+
+- **Console Logs**: Antes de crear un Pull Request (PR), elimina todos los `console.log` que no sean necesarios. Sin embargo, los `console.error` deben permanecer para propósitos de depuración. Ejemplos:
+
+**Antes del PR**:
+```tsx
+console.log("Usuario autenticado:", usuario); // Eliminar
+console.error("Error al autenticar usuario"); // Mantener
+```
+
+**Después del PR**:
+```tsx
+console.error("Error al autenticar usuario"); // Este log permanece para depuración
+```
+
+----
 
 ## 4. **Pruebas**
 
@@ -168,14 +242,32 @@ Sigue una estructura de carpetas coherente para mantener el proyecto organizado.
 
 ```
 /src
-  /components
+  /assets
+  /Components
     /Button
       Button.tsx
       Button.test.tsx
-  /services
-    api.ts
-  /utils
-    helpers.ts
+      ButtonLogin.tsx
+      ButtonLogin.test.tsx
+  /Services
+    Api.ts
+  /Utils
+    Helpers.ts
+  /Pages
+    /Login
+      Login.tsx
+      Login.css
+      Login.test.tsx
+    /Register
+      Register.tsx
+      Register.css
+      Register.test.tsx
+    /Home
+      Home.tsx
+      Home.css
+      Home.test.tsx
+  /Config
+  /Layout
   App.tsx
   index.tsx
 ```
