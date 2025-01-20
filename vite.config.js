@@ -5,6 +5,7 @@ import react from "@vitejs/plugin-react-swc";
 export default defineConfig({
   plugins: [react()],
   test: {
+    setupFiles: ["./setupVitest.js"], // Esto asegura que puedes usar test(), expect() y vi
     environment: "happy-dom",
     globals: true, // Esto asegura que puedes usar test(), expect() y vi
   },

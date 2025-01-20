@@ -28,6 +28,7 @@ const NavbarButton = ({
         <IconComponent
           height="2em"
           width="2em"
+          data-testid="navbar-icon"
           {...(iconType === "fill"
             ? { fill: isActive ? "#32373b" : "#f3f3f3" }
             : { stroke: isActive ? "#32373b" : "#f3f3f3" })}
@@ -46,12 +47,12 @@ const NavbarButton = ({
 };
 
 NavbarButton.propTypes = {
-  IconComponent: PropTypes.IconComponent,
+  IconComponent: PropTypes.elementType,
   iconType: PropTypes.string,
   isActive: PropTypes.bool,
   isExpanded: PropTypes.bool,
   onClick: PropTypes.func,
-  title: PropTypes.any,
+  title: PropTypes.string,
   to: PropTypes.string,
 };
 

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
 const AnimeCard = ({ anime }) => {
@@ -22,6 +23,15 @@ const AnimeCard = ({ anime }) => {
       </div>
     </button>
   );
+};
+
+AnimeCard.propTypes = {
+  anime: PropTypes.shape({
+    description: PropTypes.string,
+    id: PropTypes.number,
+    image: PropTypes.string,
+    title: PropTypes.string,
+  }),
 };
 
 export default AnimeCard;

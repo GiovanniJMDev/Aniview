@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
 const LogOutButton = ({
@@ -37,6 +38,16 @@ const LogOutButton = ({
       </h2>
     </button>
   );
+};
+
+LogOutButton.propTypes = {
+  IconComponent: PropTypes.elementType,
+  iconType: PropTypes.string,
+  isActive: PropTypes.bool,
+  isExpanded: PropTypes.bool,
+  onClick: PropTypes.func,
+  title: PropTypes.string,
+  to: PropTypes.string,
 };
 
 export default LogOutButton;

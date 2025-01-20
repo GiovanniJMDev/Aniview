@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 const Input = ({ name = "", placeholder, error, value, onChange, type }) => {
   return (
     <div className="flex flex-col">
@@ -25,6 +26,15 @@ const Input = ({ name = "", placeholder, error, value, onChange, type }) => {
       {/* {error && <span className="text-red-500 text-sm mt-1">{error}</span>} */}
     </div>
   );
+};
+
+Input.propTypes = {
+  error: PropTypes.bool,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  placeholder: PropTypes.string,
+  type: PropTypes.string,
+  value: PropTypes.string,
 };
 
 export default Input;
