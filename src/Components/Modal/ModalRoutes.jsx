@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import Modal from "./Modal";
-import NavbarButton from "../Button/NavbarButton";
+import NavbarButton from "../Button/NavbarButton/NavbarButton";
 import LogOutButton from "../Button/LogOutButton";
 import icons from "../../assets/icon";
 import navItems from "../../Data/Routes.json"; // Updated import to use the correct path

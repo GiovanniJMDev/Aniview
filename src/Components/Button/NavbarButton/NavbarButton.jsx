@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
+import "./NavbarButton.styles.css";
 
 const NavbarButton = ({
   isExpanded = true,
@@ -15,14 +16,14 @@ const NavbarButton = ({
     navigate(to); // Navega a la ruta
     if (onClick) onClick(); // Llama a onClick si está definido
   };
+
+  
   return (
     <button
       onClick={handleClick} // Ejecuta la función handleClick
-      className={`${
-        isActive
-          ? "bg-white border-white text-onix"
-          : "bg-transparent text-white border-transparent hover:border-white"
-      } border-4 outline-white rounded-xl p-2 text-start w-fit transition-all duration-500 ease-in-out flex flex-nowrap items-center`}
+      className={`navbar-button ${
+        isActive ? "navbar-button-active" : "navbar-button-not-active"
+      }`}
     >
       {IconComponent && (
         <IconComponent
@@ -36,9 +37,11 @@ const NavbarButton = ({
         />
       )}
       <h2
-        className={`inline-block align-middle transition-all duration-500 ease-in-out overflow-hidden ${
-          isExpanded ? "w-32 ml-2" : "w-0"
-        } ${isActive ? "text-dark-purple" : ""}`}
+        className={`navbar-button__text ${
+          isExpanded
+            ? "navbar-button__text-expanded"
+            : "navbar-button__text-not-expanded"
+        } ${isActive ? "navbar-button__text-active" : ""}`}
       >
         {title}
       </h2>

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 import { useState } from "react";
 import icons from "../../assets/icon";
 
@@ -63,5 +64,12 @@ const AddAniponButton = ({ suggestions, handleAddAnime }) => {
     </div>
   );
 };
+
+AddAniponButton.propTypes = {
+  handleAddAnime: PropTypes.func,
+  suggestions: PropTypes.shape({
+    filter: PropTypes.func
+  })
+}
 
 export default AddAniponButton;

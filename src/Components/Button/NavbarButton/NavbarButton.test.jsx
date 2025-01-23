@@ -1,17 +1,16 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { MemoryRouter, useNavigate } from "react-router-dom"; // Para simular la navegación
-import NavbarButton from "./NavbarButton"; // Asegúrate de que la ruta sea correcta
+import { MemoryRouter, useNavigate } from "react-router-dom"; 
+import NavbarButton from "./NavbarButton"; 
 import "@testing-library/jest-dom";
 
 const MockIcon = "icons.myListIcon";
 
-// Mock de useNavigate
 vi.mock("react-router-dom", async (importOriginal) => {
-  const actual = await importOriginal(); // Importa el módulo original
+  const actual = await importOriginal(); 
   return {
-    ...actual, // Mantén todas las exportaciones originales
-    useNavigate: vi.fn(), // Mock de useNavigate
+    ...actual, 
+    useNavigate: vi.fn(), 
   };
 });
 
@@ -78,7 +77,7 @@ describe("NavbarButton", () => {
     );
 
     const button = screen.getByRole("button");
-    expect(button).toHaveClass("bg-white", "border-white", "text-onix");
+    expect(button).toHaveClass("navbar-button-active");
   });
 
   it("oculta el título cuando isExpanded es false", () => {
@@ -93,6 +92,6 @@ describe("NavbarButton", () => {
     );
 
     const title = screen.getByText("Inicio");
-    expect(title).toHaveClass("w-0");
+    expect(title).toHaveClass("navbar-button__text-not-expanded");
   });
 });

@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "dist": "vite dist",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "host": "vite --host"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
