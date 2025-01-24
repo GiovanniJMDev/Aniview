@@ -150,9 +150,9 @@ const Register = () => {
               </button>
 
               <div className="flex items-center justify-center m-4 ">
-                <div className="flex-grow border-t border-gray-400"></div>
+                <div className="grow border-t border-gray-400"></div>
                 <span className="mx-4 text-gray-400">Or register with</span>
-                <div className="flex-grow border-t border-gray-400"></div>
+                <div className="grow border-t border-gray-400"></div>
               </div>
               <div className="grid md:grid-cols-4 md:grid-rows-1 grid-cols-2 grid-rows-2 justify-items-center gap-2 px-4 overflow-auto">
                 <SocialLoginButton app={"google"} link="/home" />

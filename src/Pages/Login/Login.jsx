@@ -26,7 +26,7 @@ const Login = () => {
   };
 
   return (
-    <div className="h-dvh bg-light-purple w-100 flex justify-center items-center">
+    <div className="h-dvh bg-light-purple w-full flex justify-center items-center">
       <div className="h-5/6 md:h-4/5 md:aspect-video max-w-[90vw] w-4/5  bg-white flex flex-row rounded-2xl overflow-hidden drop-shadow-lg p-4 gap-4">
         <div
           className="md:w-1/2 h-full bg-cover bg-center rounded-lg md:flex hidden justify-center items-end"
@@ -107,9 +107,9 @@ const Login = () => {
               </button>
 
               <div className="flex items-center justify-center m-4 ">
-                <div className="flex-grow border-t border-gray-400"></div>
+                <div className="grow border-t border-gray-400"></div>
                 <span className="mx-4 text-gray-400">Or register with</span>
-                <div className="flex-grow border-t border-gray-400"></div>
+                <div className="grow border-t border-gray-400"></div>
               </div>
               <div className="grid md:grid-cols-4 md:grid-rows-1 grid-cols-2 grid-rows-2 justify-items-center gap-2 px-4 overflow-auto">
                 <SocialLoginButton app={"google"} link="/home" />

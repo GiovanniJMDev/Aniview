@@ -33,7 +33,7 @@ const AddAniponButton = ({ suggestions, handleAddAnime }) => {
           type="text"
           name="input"
           id="home_input"
-          className="bg-transparent border-none focus:outline-none text-onix placeholder:text-gray-400 w-fit border-gray-300"
+          className="bg-transparent border-none focus:outline-hidden text-onix placeholder:text-gray-400 w-fit border-gray-300"
           placeholder="Add a gender"
           value={inputValue}
           onChange={handleInputChange}

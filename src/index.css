@@ -1,6 +1,48 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-light-purple: #bd82f8;
+  --color-medium-purple: #6200b3;
+  --color-dark-purple: #2a014c;
+  --color-raspberry-red: #ce2d4f;
+  --color-dark-raspberry-red: #972039;
+  --color-onix: #32373b;
+  --color-blue-button: #0c8ce9;
+  --color-light-gray: #d9d9d9;
+
+  --width-22: 5.5rem;
+
+  --animate-infinite-scroll: scroll 15s linear infinite;
+
+  --translate-banner: 150%;
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 h2 {
   @apply text-lg font-semibold text-white; /* Personaliza con tus estilos */

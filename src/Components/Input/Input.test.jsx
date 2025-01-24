@@ -3,7 +3,7 @@ import { test, expect, vi } from "vitest";
 import Input from "./Input";
 import "@testing-library/jest-dom";
 
-test("debe renderizar el componente Input", () => {
+test("must render the Input component", () => {
   render(<Input placeholder="Enter text" />);
 
   const inputElement = screen.getByPlaceholderText("Enter text");
@@ -11,36 +11,30 @@ test("debe renderizar el componente Input", () => {
   expect(inputElement.value).toBe("");
 });
 
-// Test 2: Verifica que el valor por defecto de `value` sea una cadena vacía
-test("el valor predeterminado de value debe ser una cadena vacía", () => {
+test("the value prop should be an empty string by default", () => {
   render(<Input placeholder="Enter text" value="" />);
 
   const inputElement = screen.getByPlaceholderText("Enter text");
   expect(inputElement).toHaveAttribute("value", "");
 });
 
-// Test 3: Verifica que el `name` se asigna correctamente cuando se pasa como prop
-test("el atributo name debe ser igual al prop name", () => {
+test("the name prop should be equal to the prop name", () => {
   render(<Input name="Email" placeholder="Enter your email" />);
 
   const inputElement = screen.getByPlaceholderText("Enter your email");
   expect(inputElement).toHaveAttribute("name", "email");
 });
 
-// Test 4: Verifica que el error se muestra correctamente en el placeholder y el color de borde cambia
-test("debe mostrar el error en el placeholder y cambiar el color del borde", () => {
-  render(<Input placeholder="Enter text" error="Campo obligatorio" />);
+test("must show the error in the placeholder and change the border color", () => {
+  render(<Input placeholder="Enter text" error="Field is required" />);
 
-  // Verifica que el placeholder muestre el error
-  const inputElement = screen.getByPlaceholderText("Campo obligatorio");
+  const inputElement = screen.getByPlaceholderText("Field is required");
   expect(inputElement).toHaveClass("border-red-500");
 
-  // Verifica que el texto del error esté en rojo
   expect(inputElement).toHaveClass("text-red-500");
 });
 
-// Test 5: Verifica que el valor del input se actualiza correctamente cuando se cambia el valor de onChange
-test("el valor del input se actualiza correctamente cuando se cambia el valor de onChange", () => {
+test(" the input value should be updated correctly when the value of onChange changes", () => {
   const onChange = vi.fn();
   render(<Input placeholder="Enter text" onChange={onChange} />);
 
@@ -56,22 +50,28 @@ test("el valor del input se actualiza correctamente cuando se cambia el valor de
   );
 });
 
-// Test 6: Verifica que el valor del input es tipo password, texto o email según se especifique el tipo
-test("el valor del input es tipo password, texto o email según se especifique el tipo", () => {
-  // Prueba para tipo "password"
+test(" the input value is password when the type is password", () => {
   render(<Input placeholder="Enter password" type="password" />);
   const inputElementPassword = screen.getByPlaceholderText("Enter password");
   expect(inputElementPassword).toHaveAttribute("type", "password");
+});
 
-  // Prueba para tipo "text"
+test(" the input value is text when the type is text", () => {
   render(<Input placeholder="Enter text" type="text" />);
   const inputElementText = screen.getByPlaceholderText("Enter text");
   expect(inputElementText).toHaveAttribute("type", "text");
+});
 
-  // Prueba para tipo "email"
+test(" the input value is email when the type is email", () => {
   render(<Input placeholder="Enter email" type="email" />);
   const inputElementEmail = screen.getByPlaceholderText("Enter email");
   expect(inputElementEmail).toHaveAttribute("type", "email");
+});
+
+test(" the input value is text when the type is not specified", () => {
+  render(<Input placeholder="Enter text" />);
+  const inputElementEmail = screen.getByPlaceholderText("Enter text");
+  expect(inputElementEmail).toHaveAttribute("type", "text");
 });
 
 test("el label tiene el nombre correctamente", () => {

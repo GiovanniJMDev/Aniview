@@ -152,7 +152,7 @@ const GraphCalendar = () => {
             id="year-select"
             value={year}
             onChange={handleYearChange}
-            className="border border-gray-400 text-gray-700 outline-gray-800 px-1 rounded"
+            className="border border-gray-400 text-gray-700 outline-gray-800 px-1 rounded-sm"
           >
             {Array.from({ length: 8 }, (_, i) => 2022 + i).map((yearOption) => (
               <option key={yearOption} value={yearOption}>
@@ -163,7 +163,7 @@ const GraphCalendar = () => {
         </div>
       </div>
 
-      <div className="max-w-max rounded-lg flex-grow w-full overflow-auto text-sm text-gray-700 flex flex-col justify-center">
+      <div className="max-w-max rounded-lg grow w-full overflow-auto text-sm text-gray-700 flex flex-col justify-center">
         <div className="flex gap-2 px-4 w-fit">
           <div className="grid gap-2 pt-6 text-xs">
             {days.map((day) => (

@@ -36,7 +36,7 @@ const MyList = () => {
           </h1>
           <button
             onClick={() => setIsGridView(!isGridView)}
-            className="col-span-1 px-4 py-1.5 bg-gray-500 w-fit rounded flex items-center justify-center transition-transform duration-300 ease-in-out"
+            className="col-span-1 px-4 py-1.5 bg-gray-500 w-fit rounded-sm flex items-center justify-center transition-transform duration-300 ease-in-out"
           >
             {isGridView ? (
               <icons.myListIcon
@@ -57,7 +57,7 @@ const MyList = () => {
           </button>
         </div>
 
-        <div className="w-full flex-grow flex flex-col overflow-auto bg-white">
+        <div className="w-full grow flex flex-col overflow-auto bg-white">
           {isGridView ? (
             <ColumnList lists={lists} openModal={toggleModal} />
           ) : (

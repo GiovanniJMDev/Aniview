@@ -55,7 +55,7 @@ const Anipon = () => {
         <h1 className="text-3xl font-bold w-full py-4 text-center bg-white z-10 shadow-md">
           Anipon{" "}
         </h1>
-        <div className="flex-grow overflow-auto flex flex-col  items-center w-full">
+        <div className="grow overflow-auto flex flex-col  items-center w-full">
           <h3 className=" w-full font-bold text-xl text-center py-4 ">
             {/* Eighty Six */}
             {animeData.title || "Eighty Six"}
@@ -71,7 +71,7 @@ const Anipon = () => {
               className="rounded-lg aspect-video h-full md:w-1/3 object-cover bg-center shadow-md"
             />
             {/* Anime Information */}
-            <div className="p-4 h-full bg-gray-50 border w-full md:w-2/3 border-gray-300 rounded-lg shadow-md flex-grow">
+            <div className="p-4 h-full bg-gray-50 border w-full md:w-2/3 border-gray-300 rounded-lg shadow-md grow">
               {(animeData && (
                 <>
                   <p className="text-lg">
@@ -120,7 +120,7 @@ const Anipon = () => {
             Search
           </button>
           <div
-            className="flex-grow w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 row-span-3  justify-items-center"
+            className="grow w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 row-span-3  justify-items-center"
             style={{ gridAutoRows: "min-content" }}
           >
             {selectedGenres.map((genre, index) => (

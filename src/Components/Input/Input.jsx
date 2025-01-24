@@ -1,5 +1,12 @@
 import PropTypes from "prop-types";
-const Input = ({ name = "", placeholder, error, value, onChange, type }) => {
+const Input = ({
+  name = "",
+  placeholder,
+  error,
+  value,
+  onChange,
+  type = "text",
+}) => {
   return (
     <div className="flex flex-col">
       <label className={` ${error ? "text-red-500" : "text-gray-500"}`}>
@@ -7,7 +14,7 @@ const Input = ({ name = "", placeholder, error, value, onChange, type }) => {
       </label>
       <input
         placeholder={error ? error : placeholder}
-        className={`w-full focus:outline-none border-2 ${
+        className={`w-full focus:outline-hidden border-2 ${
           error
             ? "border-red-500 text-red-500 placeholder:text-red-500"
             : "border-gray-300 text-gray-500 placeholder:text-gray-400"
@@ -15,7 +22,7 @@ const Input = ({ name = "", placeholder, error, value, onChange, type }) => {
         value={value}
         type={type}
         name={name.toLowerCase().replace(/ /g, "_")}
-        autoComplete={type === "password" ? "current-password" : "email"}
+        // autoComplete={type === "password" ? "current-password" : "email"}
         onChange={(e) => {
           onChange(e);
           if (error) {

@@ -32,7 +32,7 @@ const ModalAnimeList = ({ isOpen, onClose }) => {
               <select
                 name="list"
                 id="list"
-                className="mt-2 w-full p-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="mt-2 w-full p-2 border border-gray-300 rounded-lg bg-white focus:outline-hidden focus:ring-2 focus:ring-blue-500"
               >
                 <option value="1">Lista 1</option>
                 <option value="2">Lista 2</option>
@@ -54,7 +54,7 @@ const ModalAnimeList = ({ isOpen, onClose }) => {
                 <select
                   name="chapter"
                   id="chapter"
-                  className="w-full p-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-2 border border-gray-300 rounded-lg bg-white focus:outline-hidden focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="1">Cap 1</option>
                   <option value="2">Cap 2</option>
@@ -80,7 +80,7 @@ const ModalAnimeList = ({ isOpen, onClose }) => {
                   max="10"
                   step="0.5"
                   defaultValue={5}
-                  className="w-full p-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-2 border border-gray-300 rounded-lg bg-white focus:outline-hidden focus:ring-2 focus:ring-blue-500"
                 />
               </div>
             </div>

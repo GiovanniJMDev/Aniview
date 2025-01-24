@@ -54,7 +54,7 @@ function Anime() {
         </h1>
 
         {/* Contenido principal */}
-        <div className="flex-grow overflow-auto flex flex-col py-4 items-center w-full">
+        <div className="grow overflow-auto flex flex-col py-4 items-center w-full">
           <div className="flex flex-col md:flex-row items-start w-full px-4 gap-4">
             {/* Imagen del anime */}
             <img
@@ -63,7 +63,7 @@ function Anime() {
               className=" rounded-lg aspect-video h-full md:w-1/3 object-cover bg-center shadow-md"
             />
             {/* Información del anime */}
-            <div className="p-4 h-full bg-gray-50 border w-full md:w-2/3 border-gray-300 rounded-lg shadow-md flex-grow">
+            <div className="p-4 h-full bg-gray-50 border w-full md:w-2/3 border-gray-300 rounded-lg shadow-md grow">
               <p className="text-lg">
                 <strong>Platforms:</strong> {anime.platforms?.join(", ")}
               </p>
@@ -96,7 +96,7 @@ function Anime() {
               {anime.genres?.map((genre, index) => (
                 <span
                   key={index}
-                  className="bg-gray-100 text-gray-800 text-sm font-semibold px-3 py-1 rounded-full border border-gray-300 shadow-sm"
+                  className="bg-gray-100 text-gray-800 text-sm font-semibold px-3 py-1 rounded-full border border-gray-300 shadow-xs"
                 >
                   {genre}
                 </span>

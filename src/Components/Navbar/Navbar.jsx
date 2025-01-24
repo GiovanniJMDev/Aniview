@@ -17,7 +17,7 @@ const Navbar = () => {
 
   return (
     <aside className="w-auto bg-onix text-white h-dvh flex flex-col p-4 transition-all duration-500">
-      <nav className="flex flex-col space-y-4 flex-grow">
+      <nav className="flex flex-col space-y-4 grow">
         <TitleNavbarButton
           isExpanded={isExpanded}
           onClick={toggleNavbarSize}

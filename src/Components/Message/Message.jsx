@@ -68,7 +68,7 @@ const Message = ({ message }) => {
                 className=" rounded-lg aspect-video h-full md:w-1/2 object-cover bg-center shadow-md"
               />
               {/* Información del anime */}
-              <div className="p-4 bg-gray-50 border min-h-full  w-full md:w-1/2 border-gray-300 rounded-lg shadow-md flex-grow md:aspect-video overflow-y-auto">
+              <div className="p-4 bg-gray-50 border min-h-full  w-full md:w-1/2 border-gray-300 rounded-lg shadow-md grow md:aspect-video overflow-y-auto">
                 <p className="text-lg">
                   <strong>Platforms:</strong> Netflix, Hulu, Amazon Prime
                 </p>

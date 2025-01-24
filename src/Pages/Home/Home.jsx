@@ -29,7 +29,7 @@ function Home() {
           type="text"
           name="input"
           id="home_input"
-          className=" focus:outline-none text-onix placeholder:text-gray-400 rounded-xl w-4/5 px-4 py-2 my-6 border-2 border-gray-300"
+          className=" focus:outline-hidden text-onix placeholder:text-gray-400 rounded-xl w-4/5 px-4 py-2 my-6 border-2 border-gray-300"
           placeholder="Search for a anime"
         />
         <section className="flex-1 w-full flex flex-wrap justify-center gap-4 p-4 overflow-auto">
