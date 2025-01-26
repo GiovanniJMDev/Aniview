@@ -66,7 +66,7 @@ describe("Input", () => {
   it(" the input value is email when the type is email", () => {
     render(<Input placeholder="Enter email" type="email" />);
     const inputElementEmail = screen.getByPlaceholderText("Enter email");
-    expect(inputElementEmail).toHaveAttribute("type", "text");
+    expect(inputElementEmail).toHaveAttribute("type", "email");
   });
 
   it(" the input value is text when the type is not specified", () => {
@@ -81,6 +81,6 @@ describe("Input", () => {
 
     const labelElement = screen.getByText(name);
 
-    expect(labelElement).not.toBeInTheDocument();
+    expect(labelElement).toBeInTheDocument();
   });
 });
