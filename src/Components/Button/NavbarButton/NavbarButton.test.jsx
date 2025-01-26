@@ -1,16 +1,16 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { MemoryRouter, useNavigate } from "react-router-dom"; 
-import NavbarButton from "./NavbarButton"; 
+import { MemoryRouter, useNavigate } from "react-router-dom";
+import NavbarButton from "./NavbarButton";
 import "@testing-library/jest-dom";
 
 const MockIcon = "icons.myListIcon";
 
 vi.mock("react-router-dom", async (importOriginal) => {
-  const actual = await importOriginal(); 
+  const actual = await importOriginal();
   return {
-    ...actual, 
-    useNavigate: vi.fn(), 
+    ...actual,
+    useNavigate: vi.fn(),
   };
 });
 
@@ -26,7 +26,7 @@ describe("NavbarButton", () => {
     vi.clearAllMocks();
   });
 
-  it("renderiza correctamente con título y ícono", () => {
+  it("renders correctly with title and icon", () => {
     render(
       <MemoryRouter>
         <NavbarButton title="Home" IconComponent={MockIcon} isExpanded={true} />
@@ -40,7 +40,7 @@ describe("NavbarButton", () => {
     expect(icon).toBeInTheDocument();
   });
 
-  it("navega a la ruta correcta al hacer clic", () => {
+  it("navigates to the correct route when clicked", () => {
     render(
       <MemoryRouter>
         <NavbarButton title="Inicio" IconComponent={MockIcon} to="/inicio" />
@@ -52,7 +52,7 @@ describe("NavbarButton", () => {
     expect(navigateMock).toHaveBeenCalledWith("/inicio");
   });
 
-  it("llama a onClick si está definido", () => {
+  it("calls onClick if it is defined", () => {
     const onClickMock = vi.fn();
     render(
       <MemoryRouter>
@@ -69,7 +69,7 @@ describe("NavbarButton", () => {
     expect(onClickMock).toHaveBeenCalled();
   });
 
-  it("aplica las clases correctas cuando isActive es true", () => {
+  it("applies the correct classes when isActive is true", () => {
     render(
       <MemoryRouter>
         <NavbarButton title="Inicio" IconComponent={MockIcon} isActive={true} />
@@ -80,7 +80,7 @@ describe("NavbarButton", () => {
     expect(button).toHaveClass("navbar-button-active");
   });
 
-  it("oculta el título cuando isExpanded es false", () => {
+  it("hidden the text when isExpanded is false", () => {
     render(
       <MemoryRouter>
         <NavbarButton

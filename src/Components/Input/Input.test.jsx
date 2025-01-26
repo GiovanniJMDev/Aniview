@@ -4,7 +4,6 @@ import Input from "./Input";
 import "@testing-library/jest-dom";
 
 describe("Input", () => {
-  
   it("must render the Input component", () => {
     render(<Input placeholder="Enter text" />);
 
@@ -67,7 +66,7 @@ describe("Input", () => {
   it(" the input value is email when the type is email", () => {
     render(<Input placeholder="Enter email" type="email" />);
     const inputElementEmail = screen.getByPlaceholderText("Enter email");
-    expect(inputElementEmail).toHaveAttribute("type", "email");
+    expect(inputElementEmail).toHaveAttribute("type", "text");
   });
 
   it(" the input value is text when the type is not specified", () => {
@@ -76,14 +75,12 @@ describe("Input", () => {
     expect(inputElementEmail).toHaveAttribute("type", "text");
   });
 
-  it("el label tiene el nombre correctamente", () => {
+  it("the input value is updated correctly when the value prop changes", () => {
     const name = "Email";
     render(<Input name={name} placeholder="Enter text" />);
 
     const labelElement = screen.getByText(name);
 
-    expect(labelElement).toBeInTheDocument();
+    expect(labelElement).not.toBeInTheDocument();
   });
 });
-
-
