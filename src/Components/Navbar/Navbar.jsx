@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import NavbarButton from "../Button/NavbarButton/NavbarButton";
 import icons from "../../assets/icon/index"; // Import your icons
-import LogOutButton from "../Button/LogOutButton";
+import LogOutButton from "../Button/LogOutButton/LogOutButton";
 import TitleNavbarButton from "../Button/TitleNavbarButton";
 import navItems from "../../Data/Routes.json";
 

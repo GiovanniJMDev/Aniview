@@ -9,11 +9,11 @@ vi.mock("react-router-dom", () => ({
   useNavigate: vi.fn(),
 }));
 
-describe("AnimeCard (pruebas mixtas: correctas e incorrectas)", () => {
+describe("AnimeCard testing routes, and render", () => {
   const mockAnime = {
     id: 1,
     title: "Naruto",
-    description: "Un ninja joven que busca ser el Hokage.",
+    description: "Naruto is a shinobi",
     image: "https://example.com/naruto.jpg",
   };
 
@@ -21,7 +21,7 @@ describe("AnimeCard (pruebas mixtas: correctas e incorrectas)", () => {
     useNavigate.mockReset();
   });
 
-  it("navega a la página correcta al hacer clic en el botón", async () => {
+  it("navigate to the anime page when the button is clicked", () => {
     const mockNavigate = vi.fn();
     useNavigate.mockReturnValue(mockNavigate);
 
@@ -33,7 +33,7 @@ describe("AnimeCard (pruebas mixtas: correctas e incorrectas)", () => {
     expect(mockNavigate).toHaveBeenCalledWith(`/anime/${mockAnime.id}`);
   });
 
-  it("navega a la página incorrecta al hacer clic en el botón (error a propósito)", async () => {
+  it(" navigate to the incorrect page when the button is clicked", () => {
     const mockNavigate = vi.fn();
     useNavigate.mockReturnValue(mockNavigate);
 
@@ -43,18 +43,18 @@ describe("AnimeCard (pruebas mixtas: correctas e incorrectas)", () => {
     fireEvent.click(button);
 
     expect(mockNavigate).not.toHaveBeenCalledWith(
-      `/ruta-incorrecta/${mockAnime.id}`
+      `/incorrect-route/${mockAnime.id}`
     );
   });
 
-  it("renderiza el título correctamente", async () => {
+  it("render the title correctly", () => {
     render(<AnimeCard anime={mockAnime} />);
 
     const titleElement = screen.getByText(mockAnime.title);
     expect(titleElement).toBeInTheDocument();
   });
 
-  it("renderiza la imagen correctamente", async () => {
+  it("render the image correctly", () => {
     render(<AnimeCard anime={mockAnime} />);
 
     const image = screen.getByRole("img");

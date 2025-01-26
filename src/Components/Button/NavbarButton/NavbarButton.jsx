@@ -17,7 +17,6 @@ const NavbarButton = ({
     if (onClick) onClick(); // Llama a onClick si está definido
   };
 
-  
   return (
     <button
       onClick={handleClick} // Ejecuta la función handleClick
@@ -33,7 +32,7 @@ const NavbarButton = ({
           {...(iconType === "fill"
             ? { fill: isActive ? "#32373b" : "#f3f3f3" }
             : { stroke: isActive ? "#32373b" : "#f3f3f3" })}
-          className="inline-block align-middle transition-transform duration-500"
+          className="navbar-button__icon"
         />
       )}
       <h2

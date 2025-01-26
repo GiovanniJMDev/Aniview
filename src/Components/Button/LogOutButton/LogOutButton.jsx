@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-
+import "./LogOutButton.styles.css";
 const LogOutButton = ({
   isExpanded = true,
   title,
@@ -17,7 +17,7 @@ const LogOutButton = ({
   return (
     <button
       onClick={handleClick} // Ejecuta la función handleClick
-      className="bg-raspberry-red outline-white hover:bg-dark-raspberry-red hover:border-white border-4 border-transparent rounded-xl p-2 text-start w-fit transition-all duration-500 ease-in-out flex flex-nowrap"
+      className="log-out-button"
     >
       {IconComponent && ( // Verifica que IconComponent no sea undefined
         <IconComponent
@@ -26,7 +26,9 @@ const LogOutButton = ({
           {...(iconType === "fill"
             ? { fill: "#f3f3f3" }
             : { stroke: "#f3f3f3" })}
-          className="inline-block align-middle transition-transform duration-500"
+          className={`log-out-button__icon ${
+            isExpanded && "log-out-button__icon-expanded"
+          }`}
         />
       )}
       <h2

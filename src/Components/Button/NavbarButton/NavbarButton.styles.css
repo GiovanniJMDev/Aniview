@@ -10,6 +10,10 @@
   @apply bg-transparent text-white border-transparent hover:border-white;
 }
 
+.navbar-button__icon {
+  @apply inline-block align-middle transition-transform duration-500;
+}
+
 .navbar-button__text {
   @apply inline-block align-middle transition-all duration-500 ease-in-out overflow-hidden;
 }
