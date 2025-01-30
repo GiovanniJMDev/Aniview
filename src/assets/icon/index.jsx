@@ -18,7 +18,11 @@ import instagramIcon from "./instagramIcon";
 import xIcon from "./xIcon";
 import aiChatIcon from "./aiChatIcon";
 import clipIcon from "./clipIcon";
+import eyeIcon from "./eyeIcon";
+import slashEyeIcon from "./slashEyeIcon";
 const icons = {
+  slashEyeIcon,
+  eyeIcon,
   clipIcon,
   aiChatIcon,
   facebookIcon,
