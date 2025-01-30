@@ -11,8 +11,9 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate(); // Initialize useNavigate
+  const API_AUTH_URL = import.meta.env.VITE_API_AUTH_URL;
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     const isEmailEmpty = !email;
     const isPasswordEmpty = !password;
 
@@ -20,8 +21,39 @@ const Login = () => {
     setPasswordError(isPasswordEmpty);
 
     if (!isEmailEmpty && !isPasswordEmpty) {
-      // Redirect to /home after successful login logic
-      navigate("/home"); // Changed history.push to navigate
+      // Crea el objeto de datos que se enviará
+      const loginData = {
+        email: email,
+        password: password,
+      };
+
+      try {
+        const response = await fetch(`${API_AUTH_URL}/auth/login`, {
+          method: "POST", // Tipo de solicitud (POST)
+          headers: {
+            "Content-Type": "application/json", // Indicamos que el cuerpo está en formato JSON
+          },
+          body: JSON.stringify(loginData), // Convertimos los datos a formato JSON
+        });
+
+        if (response.ok) {
+          // Si la respuesta es exitosa, redirigimos al home
+          navigate("/home");
+        } else {
+          // Si hay un error con la solicitud
+          const errorData = await response.json();
+          alert(
+            `Error: ${
+              errorData.message || "Hubo un problema al iniciar sesión"
+            }`
+          );
+        }
+      } catch (error) {
+        console.error("Error en la solicitud:", error);
+        alert("Hubo un error al realizar la solicitud");
+      }
+    } else {
+      alert("Por favor, rellene todos los campos");
     }
   };
 
