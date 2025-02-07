@@ -2,6 +2,7 @@ import animeIcon from "./animeIcon";
 import profileIcon from "./profileIcon";
 import logOutIcon from "./logOutIcon";
 import aniponIcon from "./aniponIcon";
+import helpIcon from "./helpIcon";
 import myListIcon from "./myListIcon";
 import tierListIcon from "./tierListIcon";
 import homeIcon from "./homeIcon";
@@ -21,6 +22,7 @@ import clipIcon from "./clipIcon";
 import eyeIcon from "./eyeIcon";
 import slashEyeIcon from "./slashEyeIcon";
 const icons = {
+  helpIcon,
   slashEyeIcon,
   eyeIcon,
   clipIcon,

@@ -12,8 +12,17 @@ const NavbarButton = ({
   isActive,
 }) => {
   const navigate = useNavigate(); // Hook de navegación
+
   const handleClick = () => {
-    navigate(to); // Navega a la ruta
+    // Verifica si 'to' es un enlace externo
+    if (to.startsWith("http")) {
+      // Si es un enlace externo, usa window.location para redirigir
+      window.location.href = to;
+    } else {
+      // Si es una ruta interna, usa navigate de react-router
+      navigate(to);
+    }
+
     if (onClick) onClick(); // Llama a onClick si está definido
   };
 
