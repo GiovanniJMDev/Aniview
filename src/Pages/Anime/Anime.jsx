@@ -12,7 +12,10 @@ function Anime() {
       try {
         const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-        const response = await fetch(`${API_BASE_URL}/api/anime/${id}`);
+        const response = await fetch(`${API_BASE_URL}/api/anime/${id}`, {
+          method: "GET",
+          credentials: "include",
+        });
 
         const Data = await response.json();
         setAnime(Data);

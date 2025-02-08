@@ -27,7 +27,10 @@ const Anipon = () => {
     const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
     const genresQuery = selectedGenres.join(",");
 
-    fetch(`${API_BASE_URL}/api/anime/random?genres=${genresQuery}`)
+    fetch(`${API_BASE_URL}/api/anime/random?genres=${genresQuery}`, {
+      method: "GET",
+      credentials: "include",
+    })
       .then((response) => response.json())
       .then((Data) => {
         setAnimeData(Data);

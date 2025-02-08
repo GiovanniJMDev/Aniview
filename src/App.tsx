@@ -1,4 +1,4 @@
-// src/App.js
+// src/App.tsx
 import {
   BrowserRouter as Router,
   Routes,
@@ -8,42 +8,35 @@ import {
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
-import HomeLayout from "./Layout/HomeLayout";
+import PrivateLayout from "./Layout/PrivateLayout"; // Importa PrivateLayout
 import Anipon from "./Pages/Anipon/Anipon";
 import Profile from "./Pages/Profile/Profile";
 import MyList from "./Pages/MyList/MyList";
-// import TierList from "./Pages/tierList/tierList";
 import Anime from "./Pages/Anime/Anime";
 import Chat from "./Pages/Chat/Chat";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute"; // Importa el PrivateRoute
 
 const App: React.FC = () => {
   return (
     <Router>
       <Routes>
+        {/* Rutas públicas */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<Navigate to="/login" />} />
 
-        <Route element={<HomeLayout />}>
-          <Route path="/home" element={<Home />} />
-          <Route path="/anipon" element={<Anipon />} />{" "}
-          <Route path="/myList" element={<MyList />} />
-          <Route path="/profile" element={<Profile />} />{" "}
-          {/* <Route path="/tierList" element={<TierList />} />{" "} */}
-          <Route path="/anime/:id" element={<Anime />} />
-          <Route path="/chat" element={<Chat />} />
+        {/* Rutas protegidas */}
+        <Route element={<PrivateRoute />}>
+          {/* Ruta de layout para las rutas protegidas */}
+          <Route element={<PrivateLayout />}>
+            <Route path="/home" element={<Home />} />
+            <Route path="/anipon" element={<Anipon />} />
+            <Route path="/myList" element={<MyList />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/anime/:id" element={<Anime />} />
+            <Route path="/chat" element={<Chat />} />
+          </Route>
         </Route>
-        {/* <Route path="/login" element={<Login />} /> */}
-        {/* <Route
-          element={
-            <PrivateRoute
-              onlylogged={true}
-              allowedRoles={["admin", "employee"]}
-            />
-          }
-        >
-
-        </Route> */}
       </Routes>
     </Router>
   );

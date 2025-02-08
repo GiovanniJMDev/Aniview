@@ -8,7 +8,10 @@ function Home() {
     const fetchAnimes = async () => {
       const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
       try {
-        const response = await fetch(`${API_BASE_URL}/api/anime`);
+        const response = await fetch(`${API_BASE_URL}/api/anime`, {
+          method: "GET",
+          credentials: "include",
+        });
         const Data = await response.json();
         setAnimes(Data);
       } catch (error) {

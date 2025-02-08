@@ -34,6 +34,7 @@ const Login = () => {
             "Content-Type": "application/json", // Indicamos que el cuerpo está en formato JSON
           },
           body: JSON.stringify(loginData), // Convertimos los datos a formato JSON
+          credentials: "include",
         });
 
         if (response.ok) {
