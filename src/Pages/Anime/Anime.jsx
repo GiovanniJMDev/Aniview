@@ -1,11 +1,14 @@
 // src/Anime.js
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Loading from "../Loading/Loading";
+import ModalAddAnimeToList from "../../Components/Modal/ModalAddAnimeToList";
 
 function Anime() {
   const { id } = useParams();
-  const [anime, setAnime] = useState(null); // Estado para almacenar el anime encontrado
-  const [loading, setLoading] = useState(true); // Estado para controlar la carga
+  const [anime, setAnime] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para abrir/cerrar el modal
 
   useEffect(() => {
     const fetchAnime = async () => {
@@ -32,11 +35,7 @@ function Anime() {
 
   if (loading) {
     // Mostrar mientras se está cargando
-    return (
-      <div className="flex justify-center items-center h-screen w-full bg-light-purple">
-        Cargando...
-      </div>
-    );
+    return <Loading />;
   }
 
   if (!anime) {
@@ -48,15 +47,32 @@ function Anime() {
     );
   }
 
+  // Función para abrir el modal
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  // Función para cerrar el modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="bg-light-purple h-full w-full flex items-center justify-center flex-col">
       <div className=" flex justify-center items-start flex-col w-[95%] max-w-[90dvw] h-full max-h-[90dvh] bg-white rounded-2xl drop-shadow-lg overflow-hidden">
-        {/* Título */}
-        <h1 className="text-3xl font-bold w-full py-4 text-center bg-white z-10 shadow-md">
-          {anime.title}
-        </h1>
+        <div className="w-full py-4 bg-white z-20 shadow-md flex flex-row justify-between items-center gap-4 px-8">
+          <div className="col-span-1" />
+          <h1 className="col-span-8 text-3xl font-bold text-center">
+            {anime.title}
+          </h1>
+          <button
+            onClick={openModal} // Llamamos a la función openModal al hacer clic
+            className="col-span-1 px-4 py-1.5 text-white bg-gray-500 w-fit rounded-sm flex items-center justify-center transition-transform duration-300 ease-in-out"
+          >
+            Add to list
+          </button>
+        </div>
 
-        {/* Contenido principal */}
         <div className="grow overflow-auto flex flex-col py-4 items-center w-full">
           <div className="flex flex-col md:flex-row items-start w-full px-4 gap-4">
             {/* Imagen del anime */}
@@ -93,7 +109,6 @@ function Anime() {
           </div>
 
           {/* Rating */}
-
           <div className="w-full px-4 py-6">
             <div className="flex flex-wrap justify-center gap-2 rounded-lg border border-gray-300 p-4 box-border bg-gray-50 w-full">
               {anime.genres?.map((genre, index) => (
@@ -114,10 +129,15 @@ function Anime() {
               </p>
             </div>{" "}
           </div>
-
-          {/* Géneros */}
         </div>
       </div>
+
+      {/* Modal para añadir anime */}
+      <ModalAddAnimeToList
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        anime={anime}
+      />
     </div>
   );
 }

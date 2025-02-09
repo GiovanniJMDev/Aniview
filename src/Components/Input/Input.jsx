@@ -34,7 +34,7 @@ const Input = ({
           }}
         />
         {type === "password" && (
-          <div
+          <button
             onClick={() => setShowPassword(!showPassword)} // This will toggle the visibility of the password
             className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer"
           >
@@ -43,7 +43,7 @@ const Input = ({
             ) : (
               <icons.eyeIcon fill="#252525" />
             )}
-          </div>
+          </button>
         )}
       </div>
     </div>

@@ -1,8 +1,11 @@
-
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 import Modal from "./Modal";
 
-const ModalAnimeList = ({ isOpen, onClose }) => {
+const ModalAnimeList = ({ isOpen, onClose, anime }) => {
+  const goToAnime = () => {
+    console.log(anime);
+  };
+
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <div className="w-full h-full flex flex-col items-center justify-start px-4 overflow-y-auto gap-4">
@@ -91,7 +94,10 @@ const ModalAnimeList = ({ isOpen, onClose }) => {
             </button>
           </div>
         </div>
-        <button className="bg-medium-purple text-white px-4 py-2 rounded-lg text-center">
+        <button
+          className="bg-medium-purple text-white px-4 py-2 rounded-lg text-center"
+          onClick={() => goToAnime()}
+        >
           Ir a ver el anime
         </button>
         <div></div>
@@ -102,7 +108,8 @@ const ModalAnimeList = ({ isOpen, onClose }) => {
 
 ModalAnimeList.propTypes = {
   isOpen: PropTypes.bool,
-  onClose: PropTypes.func
-}
+  onClose: PropTypes.func,
+  anime: PropTypes.object,
+};
 
 export default ModalAnimeList;
