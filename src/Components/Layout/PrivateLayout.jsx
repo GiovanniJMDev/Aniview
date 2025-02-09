@@ -1,7 +1,9 @@
 // PrivateLayout.js
 import { Outlet } from "react-router-dom";
-import Navbar from "../Components/Navbar/Navbar";
-import Header from "../Components/Header/Header";
+// import Navbar from "../Navbar/Navbar";
+// import Header from "../Header/Header";
+import Navbar from "../Navbar/Navbar";
+import Header from "../Header/Header";
 const PrivateLayout = () => {
   return (
     <>
