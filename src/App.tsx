@@ -16,6 +16,7 @@ import Anime from "./Pages/Anime/Anime";
 import Chat from "./Pages/Chat/Chat";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import AuthLayout from "./Components/Layout/AuthLayout";
+import Loading from "./Pages/Loading/Loading";
 
 const App: React.FC = () => {
   return (
@@ -26,11 +27,7 @@ const App: React.FC = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Route>
-        <Route path="*" element={<Navigate to="/login" />} />
-
-        {/* Rutas protegidas */}
         <Route element={<PrivateRoute />}>
-          {/* Ruta de layout para las rutas protegidas */}
           <Route element={<PrivateLayout />}>
             <Route path="/home" element={<Home />} />
             <Route path="/anipon" element={<Anipon />} />
@@ -40,6 +37,7 @@ const App: React.FC = () => {
             <Route path="/chat" element={<Chat />} />
           </Route>
         </Route>
+        <Route path="/loading" element={<Loading />} />
       </Routes>
     </Router>
   );
