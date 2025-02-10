@@ -6,13 +6,14 @@ import { useUser } from "../../Context/UserContext"; // Importar el hook useUser
 const ModalAddAnime = ({ isOpen, onClose, anime }) => {
   const { animeLists } = useUser(); // Obtener las listas del usuario desde el contexto
 
+  console.log("Anime Lists:", animeLists); // Verificar qué listas están disponibles
+
   // Calcular el total de episodios sumando los episodios por temporada
   const totalEpisodes = anime.episodesPerSeason.reduce(
     (total, seasonEpisodes) => total + seasonEpisodes,
     0
   );
 
-  // Inicializamos el estado con los valores predeterminados
   const [animeDetails, setAnimeDetails] = useState({
     title: anime.title,
     description: anime.description,
@@ -22,55 +23,65 @@ const ModalAddAnime = ({ isOpen, onClose, anime }) => {
     episode: 1, // Capítulo predeterminado (1)
   });
 
-  // Función para manejar cambios en los inputs del formulario
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(`Changing ${name} to`, value);
     setAnimeDetails((prevDetails) => ({
       ...prevDetails,
       [name]: value,
     }));
   };
 
-  // Función para manejar el envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Selected list type:", animeDetails.list);
+
+    if (!animeLists || animeLists.length === 0) {
+      console.error("animeLists is empty or undefined!");
+      return;
+    }
+
     const selectedList = animeLists.find(
-      (list) => list.listType === animeDetails.list
+      (list) => list.listType.toUpperCase() === animeDetails.list.toUpperCase()
     );
+
+    console.log("Selected list:", selectedList);
 
     if (!selectedList) {
       console.error("List not found!");
       return;
     }
 
-    const animeListId = selectedList.id; // Obtener el animeListId correspondiente
-
+    const animeListId = selectedList.id;
     const data = {
-      animeListId, // ID de la lista donde se añadirá el anime
-      animeId: anime.id, // ID del anime
+      animeListId,
+      animeId: anime.id,
     };
 
-    // // Hacer la solicitud HTTP a la API para agregar el anime a la lista
-    // try {
-    //   const response = await fetch(
-    //     "http://localhost:8080/api/anime-list-items",
-    //     {
-    //       method: "POST",
-    //       credentials: "include",
-    //       body: JSON.stringify(data),
-    //     }
-    //   );
+    // Hacer la solicitud HTTP a la API para agregar el anime a la lista
+    try {
+      const response = await fetch(
+        "http://localhost:8080/api/anime-list-items",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify(data),
+        }
+      );
 
-    //   if (!response.ok) {
-    //     throw new Error("Failed to add anime to list");
-    //   }
+      if (!response.ok) {
+        throw new Error("Failed to add anime to list");
+      }
 
-    //   // Si la solicitud fue exitosa, muestra el resultado o cierra el modal
-    //   console.log("Anime successfully added to list!");
-    //   onClose(); // Cerrar el modal después de enviar
-    // } catch (error) {
-    //   console.error("Error adding anime to list:", error.message);
-    // }
+      // Si la solicitud fue exitosa, muestra el resultado o cierra el modal
+      console.log("Anime successfully added to list!");
+      onClose(); // Cerrar el modal después de enviar
+    } catch (error) {
+      console.error("Error adding anime to list:", error.message);
+    }
   };
 
   return (
@@ -172,12 +183,12 @@ ModalAddAnime.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   anime: PropTypes.shape({
-    id: PropTypes.string.isRequired, // Añadir ID del anime
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     episodesPerSeason: PropTypes.arrayOf(PropTypes.number).isRequired,
-  }).isRequired, // Validar la estructura del objeto anime
+  }).isRequired,
 };
 
 export default ModalAddAnime;
