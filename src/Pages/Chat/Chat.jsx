@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import MessageList from "../../Components/MessageList/MessageList";
 import MessageInput from "../../Components/MessageInput/MessageInput";
+import PropTypes from "prop-types";
 
 const Chat = () => {
   const [messages, setMessages] = useState([
@@ -57,6 +58,7 @@ const Chat = () => {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify({ prompt: newMessage }),
       });
       console.log(response);
@@ -97,6 +99,16 @@ const Chat = () => {
       </div>
     </div>
   );
+};
+
+MessageList.propTypes = {
+  messages: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  messagesEndRef: PropTypes.object.isRequired,
 };
 
 export default Chat;

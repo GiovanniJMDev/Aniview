@@ -59,7 +59,7 @@ const MessageInput = ({
             onChange={handleTextareaChange}
             onKeyDown={handleKeyDown}
             placeholder="Escribe un mensaje..."
-            className="flex-1 px-3 py-2 mx-1 min-h-[40px] border border-gray-500 focus:border-gray-800 rounded-2xl focus:outline-none transition-all duration-300 resize-none overflow-y-auto break-words"
+            className="flex-1 px-3 py-2 mx-1 min-h-[40px] border border-gray-500 focus:border-gray-800 rounded-2xl focus:outline-hidden transition-all duration-300 resize-none overflow-y-auto break-words"
             style={{
               wordBreak: "break-word",
               whiteSpace: "pre-wrap",

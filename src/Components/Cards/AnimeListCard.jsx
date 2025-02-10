@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 const AnimeListCard = ({
   anime,
   image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpQtkoWwwOljsEsVFxILtdXFW2qk4iZq2oNA&s",
@@ -6,19 +7,28 @@ const AnimeListCard = ({
   return (
     <div
       className="relative border border-black min-w-32 w-full max-w-64 aspect-video bg-cover bg-center text-white"
-      style={{ backgroundImage: `url(${anime.image})` }}
+      style={{ backgroundImage: `url(${anime.image ? anime.image : image})` }}
     >
       {/* Number in the top left corner */}
-      <span className="absolute h-8 text-center top-1 left-1 border-2 border-white bg-black bg-opacity-50 p-1 rounded aspect-square">
+      <span className="absolute h-8 text-center top-1 left-1 border-2 border-white bg-black/50 p-1 rounded-sm aspect-square">
         {anime.rating}
       </span>
 
       {/* Name at the bottom center */}
-      <h3 className="absolute bottom-0 w-full text-center left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 px-2 py-1 rounded">
+      <h3 className="absolute bottom-0 w-full text-center left-1/2 transform -translate-x-1/2 bg-black/50 px-2 py-1">
         {anime.name}
       </h3>
     </div>
   );
+};
+
+AnimeListCard.propTypes = {
+  anime: PropTypes.shape({
+    image: PropTypes.string,
+    name: PropTypes.string,
+    rating: PropTypes.number,
+  }),
+  image: PropTypes.string,
 };
 
 export default AnimeListCard;

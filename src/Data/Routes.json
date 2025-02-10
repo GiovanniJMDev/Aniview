@@ -1,37 +1,44 @@
 [
-    {
-      "label": "Home",
-      "href": "#home",
-      "icon": "icons.homeIcon",
-      "iconType": "stroke",
-      "link": "/home"
-    },
-    {
-      "label": "MyList",
-      "href": "#mylist", 
-      "icon": "icons.myListIcon",
-      "iconType": "stroke",
-      "link": "/mylist"
-    },
-    {
-      "label": "Anipon",
-      "href": "#anipon",
-      "icon": "icons.aniponIcon",
-      "iconType": "fill",
-      "link": "/anipon"
-    },
-    {
-      "label": "Profile",
-      "href": "#profile",
-      "icon": "icons.profileIcon",
-      "iconType": "fill", 
-      "link": "/profile"
-    },
-    {
-      "label": "AniChat_AI",
-      "href": "#anichat",
-      "icon": "icons.aiChatIcon",
-      "iconType": "fill", 
-      "link": "/chat"
-    }
+  {
+    "label": "Home",
+    "href": "#home",
+    "icon": "icons.homeIcon",
+    "iconType": "stroke",
+    "link": "/home"
+  },
+  {
+    "label": "MyList",
+    "href": "#mylist",
+    "icon": "icons.myListIcon",
+    "iconType": "stroke",
+    "link": "/mylist"
+  },
+  {
+    "label": "Anipon",
+    "href": "#anipon",
+    "icon": "icons.aniponIcon",
+    "iconType": "fill",
+    "link": "/anipon"
+  },
+  {
+    "label": "Profile",
+    "href": "#profile",
+    "icon": "icons.profileIcon",
+    "iconType": "fill",
+    "link": "/profile"
+  },
+  {
+    "label": "AniChat_AI",
+    "href": "#anichat",
+    "icon": "icons.aiChatIcon",
+    "iconType": "fill",
+    "link": "/chat"
+  },
+  {
+    "label": "Help",
+    "href": "#help",
+    "icon": "icons.helpIcon",
+    "iconType": "fill",
+    "link": "https://aniview-docs-lkd9.vercel.app/"
+  }
 ]

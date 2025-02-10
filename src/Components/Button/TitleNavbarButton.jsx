@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 const TitleNavbarButton = ({
   isExpanded = true,
   title,
@@ -31,5 +32,12 @@ const TitleNavbarButton = ({
   );
 };
 
+TitleNavbarButton.propTypes = {
+  IconComponent: PropTypes.elementType,
+  iconType: PropTypes.string,
+  isExpanded: PropTypes.bool,
+  onClick: PropTypes.func,
+  title: PropTypes.string,
+};
 
 export default TitleNavbarButton;

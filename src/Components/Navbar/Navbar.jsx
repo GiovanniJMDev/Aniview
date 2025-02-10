@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import NavbarButton from "../Button/NavbarButton";
+import NavbarButton from "../Button/NavbarButton/NavbarButton";
 import icons from "../../assets/icon/index"; // Import your icons
-import LogOutButton from "../Button/LogOutButton";
+import LogOutButton from "../Button/LogOutButton/LogOutButton";
 import TitleNavbarButton from "../Button/TitleNavbarButton";
 import navItems from "../../Data/Routes.json";
 
@@ -17,7 +17,7 @@ const Navbar = () => {
 
   return (
     <aside className="w-auto bg-onix text-white h-dvh flex flex-col p-4 transition-all duration-500">
-      <nav className="flex flex-col space-y-4 flex-grow">
+      <nav className="flex flex-col space-y-4 grow">
         <TitleNavbarButton
           isExpanded={isExpanded}
           onClick={toggleNavbarSize}

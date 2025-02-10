@@ -1,8 +1,11 @@
-
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 import Modal from "./Modal";
 
-const ModalAnimeList = ({ isOpen, onClose }) => {
+const ModalAnimeList = ({ isOpen, onClose, anime }) => {
+  const goToAnime = () => {
+    console.log(anime);
+  };
+
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <div className="w-full h-full flex flex-col items-center justify-start px-4 overflow-y-auto gap-4">
@@ -32,7 +35,7 @@ const ModalAnimeList = ({ isOpen, onClose }) => {
               <select
                 name="list"
                 id="list"
-                className="mt-2 w-full p-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="mt-2 w-full p-2 border border-gray-300 rounded-lg bg-white focus:outline-hidden focus:ring-2 focus:ring-blue-500"
               >
                 <option value="1">Lista 1</option>
                 <option value="2">Lista 2</option>
@@ -54,7 +57,7 @@ const ModalAnimeList = ({ isOpen, onClose }) => {
                 <select
                   name="chapter"
                   id="chapter"
-                  className="w-full p-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-2 border border-gray-300 rounded-lg bg-white focus:outline-hidden focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="1">Cap 1</option>
                   <option value="2">Cap 2</option>
@@ -80,7 +83,7 @@ const ModalAnimeList = ({ isOpen, onClose }) => {
                   max="10"
                   step="0.5"
                   defaultValue={5}
-                  className="w-full p-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-2 border border-gray-300 rounded-lg bg-white focus:outline-hidden focus:ring-2 focus:ring-blue-500"
                 />
               </div>
             </div>
@@ -91,7 +94,10 @@ const ModalAnimeList = ({ isOpen, onClose }) => {
             </button>
           </div>
         </div>
-        <button className="bg-medium-purple text-white px-4 py-2 rounded-lg text-center">
+        <button
+          className="bg-medium-purple text-white px-4 py-2 rounded-lg text-center"
+          onClick={() => goToAnime()}
+        >
           Ir a ver el anime
         </button>
         <div></div>
@@ -102,7 +108,8 @@ const ModalAnimeList = ({ isOpen, onClose }) => {
 
 ModalAnimeList.propTypes = {
   isOpen: PropTypes.bool,
-  onClose: PropTypes.func
-}
+  onClose: PropTypes.func,
+  anime: PropTypes.object,
+};
 
 export default ModalAnimeList;

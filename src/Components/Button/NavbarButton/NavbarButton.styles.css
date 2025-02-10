@@ -1,0 +1,31 @@
+@reference "../../../index.css";
+
+.navbar-button {
+  @apply border-4 rounded-xl p-2 text-start w-fit transition-all duration-500 ease-in-out flex flex-nowrap items-center;
+}
+.navbar-button-active {
+  @apply bg-white border-white text-onix;
+}
+.navbar-button-not-active {
+  @apply bg-transparent text-white border-transparent hover:border-white;
+}
+
+.navbar-button__icon {
+  @apply inline-block align-middle transition-transform duration-500;
+}
+
+.navbar-button__text {
+  @apply inline-block align-middle transition-all duration-500 ease-in-out overflow-hidden;
+}
+
+.navbar-button__text-active {
+  @apply text-dark-purple;
+}
+
+.navbar-button__text-expanded {
+  @apply w-32 ml-2;
+}
+
+.navbar-button__text-not-expanded {
+  @apply w-0;
+}

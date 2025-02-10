@@ -1,0 +1,14 @@
+@reference "../../../index.css";
+
+.log-out-button {
+  @apply bg-raspberry-red outline-white hover:bg-dark-raspberry-red hover:border-white border-4 border-transparent rounded-xl p-2 text-start w-fit transition-all duration-500 ease-in-out flex flex-nowrap;
+}
+
+.log-out-button__icon {
+  @apply inline-block align-middle transition-transform duration-500;
+}
+
+.log-out-button__icon-expanded {
+  @apply rotate-y-180 transition-all duration-300 ease-in-out;
+}
+

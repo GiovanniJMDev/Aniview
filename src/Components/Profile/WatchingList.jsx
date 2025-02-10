@@ -34,7 +34,7 @@ const WatchingList = () => {
         </select>
       </div>
 
-      <div className="flex-grow overflow-auto flex flex-row items-center justify-start w-full gap-4 p-4 px-3 bg-white">
+      <div className="grow overflow-auto flex flex-row items-center justify-start w-full gap-4 p-4 px-3 bg-white">
         {images.map((image, index) => (
           <div key={index} className="relative h-full aspect-square group">
             <img

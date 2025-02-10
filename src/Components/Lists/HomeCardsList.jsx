@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 import AnimeCard from "../Cards/AnimeCard";
 function HomeCardsList({ title, items = [] }) {
   return (
-    <div className="bg-white rounded shadow h-full min-h-[50vh] overflow-hidden border border-gray-300">
+    <div className="bg-white rounded-sm shadow-sm h-full min-h-[50vh] overflow-hidden border border-gray-300">
       <div className="w-full z-10 h-fit bg-white">
         <h1 className="font-bold text-center py-4 text-2xl">{title}</h1>
       </div>

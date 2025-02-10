@@ -48,7 +48,7 @@ const ProfileForm = () => {
       </div>
 
       {/* Contenido del formulario */}
-      <div className="flex-grow overflow-auto flex flex-col items-center w-full gap-4 p-4">
+      <div className="grow overflow-auto flex flex-col items-center w-full gap-4 p-4">
         <img
           src="https://avatarfiles.alphacoders.com/375/thumb-1920-375953.png"
           alt="avatar"
@@ -71,7 +71,7 @@ const ProfileForm = () => {
               value={value}
               onChange={handleChange}
               readOnly={!isEditable} // Bloquear o desbloquear los inputs
-              className={`border rounded px-2 py-1 focus:outline-none ${
+              className={`border rounded px-2 py-1 focus:outline-hidden ${
                 isEditable
                   ? "border-gray-300 focus:ring-2 focus:ring-blue-500"
                   : "bg-gray-100 border-gray-200"
