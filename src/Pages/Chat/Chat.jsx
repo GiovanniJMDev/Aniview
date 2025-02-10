@@ -56,12 +56,11 @@ const Chat = () => {
       const response = await fetch(`${API_BASE_URL}/api/groq/chat`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json", // Evita preflight innecesario
         },
         credentials: "include",
-        body: JSON.stringify({ prompt: newMessage }),
+        body: JSON.stringify({ prompt: newMessage }), // Convierte el objeto a JSON
       });
-      console.log(response);
 
       const Data = await response.json();
 

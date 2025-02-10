@@ -18,6 +18,7 @@ import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import AuthLayout from "./Components/Layout/AuthLayout";
 import Search from "./Pages/Search/Search";
 import HomeLayout from "./Components/Layout/HomeLayout";
+import Loading from "./Pages/Loading/Loading";
 const App: React.FC = () => {
   return (
     <Router>
@@ -40,7 +41,7 @@ const App: React.FC = () => {
             </Route>
           </Route>
         </Route>
-        {/* <Route path="/search " element={<Search />} /> */}
+        <Route path="/search" element={<Search />} />
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </Router>

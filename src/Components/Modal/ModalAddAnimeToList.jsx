@@ -1,15 +1,25 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import Modal from "./Modal";
+import { useUser } from "../../Context/UserContext"; // Importar el hook useUser
 
 const ModalAddAnime = ({ isOpen, onClose, anime }) => {
+  const { animeLists } = useUser(); // Obtener las listas del usuario desde el contexto
+
+  // Calcular el total de episodios sumando los episodios por temporada
+  const totalEpisodes = anime.episodesPerSeason.reduce(
+    (total, seasonEpisodes) => total + seasonEpisodes,
+    0
+  );
+
+  // Inicializamos el estado con los valores predeterminados
   const [animeDetails, setAnimeDetails] = useState({
     title: anime.title,
     description: anime.description,
     imageUrl: anime.image,
     list: "", // Lista donde el anime será agregado
-    rating: "", // Calificación del anime
-    episode: "", // Capítulo por el que se va
+    rating: 5, // Calificación predeterminada (5)
+    episode: 1, // Capítulo predeterminado (1)
   });
 
   // Función para manejar cambios en los inputs del formulario
@@ -22,17 +32,51 @@ const ModalAddAnime = ({ isOpen, onClose, anime }) => {
   };
 
   // Función para manejar el envío del formulario
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí puedes agregar la lógica para guardar los detalles del anime en la lista
-    console.log("Anime added to list:", animeDetails);
-    onClose(); // Cerrar el modal después de enviar
+    const selectedList = animeLists.find(
+      (list) => list.listType === animeDetails.list
+    );
+
+    if (!selectedList) {
+      console.error("List not found!");
+      return;
+    }
+
+    const animeListId = selectedList.id; // Obtener el animeListId correspondiente
+
+    const data = {
+      animeListId, // ID de la lista donde se añadirá el anime
+      animeId: anime.id, // ID del anime
+    };
+
+    // // Hacer la solicitud HTTP a la API para agregar el anime a la lista
+    // try {
+    //   const response = await fetch(
+    //     "http://localhost:8080/api/anime-list-items",
+    //     {
+    //       method: "POST",
+    //       credentials: "include",
+    //       body: JSON.stringify(data),
+    //     }
+    //   );
+
+    //   if (!response.ok) {
+    //     throw new Error("Failed to add anime to list");
+    //   }
+
+    //   // Si la solicitud fue exitosa, muestra el resultado o cierra el modal
+    //   console.log("Anime successfully added to list!");
+    //   onClose(); // Cerrar el modal después de enviar
+    // } catch (error) {
+    //   console.error("Error adding anime to list:", error.message);
+    // }
   };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <div className=" p-6 rounded-lg ">
-        <h2 className="text-xl font-bold mb-4">
+        <h2 className="text-xl font-bold mb-4 !text-gray-900">
           Add {anime.title} to Your List
         </h2>
         <form onSubmit={handleSubmit}>
@@ -62,11 +106,10 @@ const ModalAddAnime = ({ isOpen, onClose, anime }) => {
               required
             >
               <option value="">Select a list</option>
-              <option value="watching">Watching</option>
-              <option value="completed">Completed</option>
-              <option value="on-hold">On Hold</option>
-              <option value="dropped">Dropped</option>
-              <option value="plan-to-watch">Plan to Watch</option>
+              <option value="WATCHING">Watching</option>
+              <option value="COMPLETED">Completed</option>
+              <option value="DROPPED">Dropped</option>
+              <option value="PLAN_TO_WATCH">Plan to Watch</option>
             </select>
           </div>
 
@@ -97,8 +140,9 @@ const ModalAddAnime = ({ isOpen, onClose, anime }) => {
               value={animeDetails.episode}
               onChange={handleChange}
               className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md"
-              placeholder="Episode you're currently on"
+              placeholder={`Episode you're currently on (1 - ${totalEpisodes})`}
               min="1"
+              max={totalEpisodes}
               required
             />
           </div>
@@ -127,7 +171,13 @@ const ModalAddAnime = ({ isOpen, onClose, anime }) => {
 ModalAddAnime.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  anime: PropTypes.object.isRequired, // Recibimos el objeto anime como prop
+  anime: PropTypes.shape({
+    id: PropTypes.string.isRequired, // Añadir ID del anime
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    episodesPerSeason: PropTypes.arrayOf(PropTypes.number).isRequired,
+  }).isRequired, // Validar la estructura del objeto anime
 };
 
 export default ModalAddAnime;
