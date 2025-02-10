@@ -40,8 +40,8 @@ const App: React.FC = () => {
             </Route>
           </Route>
         </Route>
-        <Route path="/search " element={<Search />} />
-        {/* <Route path="*" element={<Navigate to="/login" />} /> */}
+        {/* <Route path="/search " element={<Search />} /> */}
+        <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </Router>
   );
