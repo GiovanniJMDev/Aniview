@@ -10,4 +10,7 @@ export default defineConfig({
     environment: "happy-dom",
     globals: true, // Esto asegura que puedes usar test(), expect() y vi
   },
+  optimizeDeps: {
+    include: ["react-toastify"],
+  },
 });

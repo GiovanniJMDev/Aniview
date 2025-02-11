@@ -2,6 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import Modal from "./Modal";
 import { useUser } from "../../Context/UserContext"; // Importar el hook useUser
+import ToastedNotification from "../Notification/ToastedNotification"; // Importar el componente de notificación
 
 const ModalAddAnime = ({ isOpen, onClose, anime }) => {
   const { animeLists } = useUser(); // Obtener las listas del usuario desde el contexto
@@ -23,6 +24,8 @@ const ModalAddAnime = ({ isOpen, onClose, anime }) => {
     episode: 1, // Capítulo predeterminado (1)
   });
 
+  const [notification, setNotification] = useState(null); // Para manejar la notificación
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     console.log(`Changing ${name} to`, value);
@@ -38,6 +41,11 @@ const ModalAddAnime = ({ isOpen, onClose, anime }) => {
 
     if (!animeLists || animeLists.length === 0) {
       console.error("animeLists is empty or undefined!");
+      setNotification({
+        type: "error",
+        message: "No lists available to add the anime.",
+        statusCode: 500,
+      });
       return;
     }
 
@@ -49,6 +57,11 @@ const ModalAddAnime = ({ isOpen, onClose, anime }) => {
 
     if (!selectedList) {
       console.error("List not found!");
+      setNotification({
+        type: "error",
+        message: "List not found!",
+        statusCode: 500,
+      });
       return;
     }
 
@@ -66,6 +79,7 @@ const ModalAddAnime = ({ isOpen, onClose, anime }) => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            mode: "same-origin",
           },
           credentials: "include",
           body: JSON.stringify(data),
@@ -78,15 +92,25 @@ const ModalAddAnime = ({ isOpen, onClose, anime }) => {
 
       // Si la solicitud fue exitosa, muestra el resultado o cierra el modal
       console.log("Anime successfully added to list!");
+      setNotification({
+        type: "success",
+        message: "Anime successfully added to your list!",
+        statusCode: 200,
+      });
       onClose(); // Cerrar el modal después de enviar
     } catch (error) {
       console.error("Error adding anime to list:", error.message);
+      setNotification({
+        type: "error",
+        message: error.message,
+        statusCode: 500,
+      });
     }
   };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <div className=" p-6 rounded-lg ">
+      <div className="p-6 rounded-lg">
         <h2 className="text-xl font-bold mb-4 !text-gray-900">
           Add {anime.title} to Your List
         </h2>
@@ -175,6 +199,15 @@ const ModalAddAnime = ({ isOpen, onClose, anime }) => {
           </div>
         </form>
       </div>
+
+      {/* Mostrar la notificación si hay alguna */}
+      {notification && (
+        <ToastedNotification
+          type={notification.type}
+          message={notification.message}
+          statusCode={notification.statusCode}
+        />
+      )}
     </Modal>
   );
 };

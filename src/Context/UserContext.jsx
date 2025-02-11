@@ -16,7 +16,16 @@ export const UserProvider = ({ children }) => {
       setError(null);
 
       try {
-        // Obtener información del usuario
+        // Comprobar si ya existe información del usuario en localStorage
+        const storedUser = localStorage.getItem("user");
+        if (storedUser) {
+          const parsedUser = JSON.parse(storedUser);
+          setUser(parsedUser);
+          await fetchAnimeLists(parsedUser.id); // Obtener las listas del usuario si ya está almacenado
+          return; // No hacemos más solicitudes si ya tenemos un usuario almacenado
+        }
+
+        // Si no está en localStorage, hacer la solicitud
         const userResponse = await fetch("http://localhost:8080/api/users/me", {
           method: "GET",
           credentials: "include",
@@ -33,11 +42,24 @@ export const UserProvider = ({ children }) => {
           throw new Error("El usuario no tiene un ID válido");
         }
 
+        // Almacenar al usuario en localStorage
+        localStorage.setItem("user", JSON.stringify(userData));
         setUser(userData);
 
-        // Obtener listas del usuario solo si el ID es válido
+        // Obtener listas del usuario
+        await fetchAnimeLists(userData.id);
+      } catch (error) {
+        console.error("Error:", error.message);
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    const fetchAnimeLists = async (userId) => {
+      try {
         const listsResponse = await fetch(
-          `http://localhost:8080/api/anime-lists/user/${userData.id}`,
+          `http://localhost:8080/api/anime-lists/user/${userId}`,
           {
             method: "GET",
             credentials: "include",
@@ -59,15 +81,15 @@ export const UserProvider = ({ children }) => {
         console.log("Listas obtenidas:", formattedLists);
         setAnimeLists(formattedLists);
       } catch (error) {
-        console.error("Error:", error.message);
+        console.error("Error al obtener las listas:", error.message);
         setError(error.message);
-      } finally {
-        setLoading(false);
       }
     };
 
     if (!user) {
       fetchUser();
+    } else {
+      setLoading(false); // Si ya hay un usuario almacenado, no cargamos de nuevo
     }
   }, [user]); // Se ejecuta solo si `user` es null
 
