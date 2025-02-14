@@ -21,7 +21,11 @@ import aiChatIcon from "./aiChatIcon";
 import clipIcon from "./clipIcon";
 import eyeIcon from "./eyeIcon";
 import slashEyeIcon from "./slashEyeIcon";
+import micIcon from "./micIcon";
+import squareIcon from "./squareIcon";
 const icons = {
+  micIcon,
+  squareIcon,
   helpIcon,
   slashEyeIcon,
   eyeIcon,

@@ -6,9 +6,9 @@ const ColumnList = ({ lists, openModal }) => {
     <div className="min-w-full w-max grid grid-cols-4 content-stretch h-full">
       {lists.map((list) => (
         <AnimeListColumn
-          key={list.is_list}
-          count={list.animes.length}
-          animes={list.animes}
+          key={list.id}
+          count={list.items.length}
+          animes={list.items}
           openModal={openModal}
         />
       ))}
@@ -17,10 +17,8 @@ const ColumnList = ({ lists, openModal }) => {
 };
 
 ColumnList.propTypes = {
-  lists: PropTypes.shape({
-    map: PropTypes.func,
-  }),
-  openModal: PropTypes.func,
+  lists: PropTypes.array.isRequired,
+  openModal: PropTypes.func.isRequired,
 };
 
 export default ColumnList;

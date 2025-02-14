@@ -1,4 +1,4 @@
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 const RowAnimeListCard = ({ anime, index, openModal }) => {
   return (
     <button
@@ -8,13 +8,13 @@ const RowAnimeListCard = ({ anime, index, openModal }) => {
     >
       <div className="h-fit">
         <img
-          src={anime.image}
-          alt={anime.name}
+          src={anime.animeImageUrl}
+          alt={anime.animeTitle}
           className="w-full sm:w-auto sm:h-4/6 max-h-32 aspect-video rounded-lg bg-center object-cover"
         />
       </div>
       <h3 className="flex px-4 flex-1 text-gray-800 text-3xl text-center font-semibold">
-        {anime.name}
+        {anime.animeTitle}
       </h3>
       <div className="text-gray-800 text-right text-3xl">{anime.rating}</div>
     </button>
@@ -23,12 +23,12 @@ const RowAnimeListCard = ({ anime, index, openModal }) => {
 
 RowAnimeListCard.propTypes = {
   anime: PropTypes.shape({
-    image: PropTypes.any,
-    name: PropTypes.any,
-    rating: PropTypes.any
+    animeImageUrl: PropTypes.any,
+    animeTitle: PropTypes.any,
+    rating: PropTypes.any,
   }),
   index: PropTypes.any,
-  openModal: PropTypes.func
-}
+  openModal: PropTypes.func,
+};
 
 export default RowAnimeListCard;

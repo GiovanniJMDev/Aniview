@@ -17,13 +17,6 @@ export const UserProvider = ({ children }) => {
 
       try {
         // Comprobar si ya existe información del usuario en localStorage
-        const storedUser = localStorage.getItem("user");
-        if (storedUser) {
-          const parsedUser = JSON.parse(storedUser);
-          setUser(parsedUser);
-          await fetchAnimeLists(parsedUser.id); // Obtener las listas del usuario si ya está almacenado
-          return; // No hacemos más solicitudes si ya tenemos un usuario almacenado
-        }
 
         // Si no está en localStorage, hacer la solicitud
         const userResponse = await fetch("http://localhost:8080/api/users/me", {

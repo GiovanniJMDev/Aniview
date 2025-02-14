@@ -41,7 +41,7 @@ const App: React.FC = () => {
             </Route>
           </Route>
         </Route>
-        <Route path="/search" element={<Search />} />
+        {/* <Route path="/search" element={<Loading />} /> */}
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </Router>

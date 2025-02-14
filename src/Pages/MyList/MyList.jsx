@@ -1,19 +1,61 @@
-import MyListData from "../../Data/MyList.json";
 import { useState, useEffect } from "react";
 import ColumnList from "./ColumnList";
 import RowList from "./RowList";
 import icons from "../../assets/icon/index";
 import ModalAnimeList from "../../Components/Modal/ModalAnimeList";
-
+import { useUser } from "../../Context/UserContext";
 const MyList = () => {
-  const { lists } = MyListData;
+  const { user } = useUser(); // Usamos el hook `useUser` para obtener el usuario desde el contexto
+  const [animeLists, setAnimeLists] = useState([]);
+
+  useEffect(() => {
+    const fetchAnimeLists = async () => {
+      if (!user) {
+        // setError("No se pudo obtener el usuario");
+        return;
+      }
+
+      // setLoading(true);
+      // setError(null);
+
+      try {
+        // Hacemos el fetch usando el id del usuario
+        const response = await fetch(
+          `http://localhost:8080/api/anime-lists/user/${user.id}`,
+          {
+            method: "GET",
+            credentials: "include", // Asegúrate de incluir las cookies si son necesarias
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("No se pudieron obtener las listas de anime");
+        }
+
+        const data = await response.json();
+
+        // Puedes formatear los datos si es necesario, o directamente asignarlos
+        setAnimeLists(data);
+      } catch (err) {
+        console.error("Error al obtener las listas:", err);
+        // setError(err.message);
+      } finally {
+        // setLoading(false);
+      }
+    };
+
+    if (user) {
+      fetchAnimeLists(); // Solo se llama si el usuario está disponible
+    }
+  }, [user]); // Dependemos de `user`, se ejecuta cada vez que `user` cambia
+
   const [isGridView, setIsGridView] = useState(() => {
     // Retrieve the view type from localStorage
     const savedView = localStorage.getItem("viewType");
     return savedView ? JSON.parse(savedView) : true; // Default to grid view if not found
   });
   const [selectedList, setSelectedList] = useState(
-    lists.length > 0 ? lists[0] : null
+    animeLists.length > 0 ? animeLists[0] : null
   );
   const [isModalOpen, setModalOpen] = useState(false);
 
@@ -59,10 +101,10 @@ const MyList = () => {
 
         <div className="w-full grow flex flex-col overflow-auto bg-white">
           {isGridView ? (
-            <ColumnList lists={lists} openModal={toggleModal} />
+            <ColumnList lists={animeLists} openModal={toggleModal} />
           ) : (
             <RowList
-              lists={lists}
+              lists={animeLists}
               selectedList={selectedList}
               setSelectedList={setSelectedList}
               openModal={toggleModal}

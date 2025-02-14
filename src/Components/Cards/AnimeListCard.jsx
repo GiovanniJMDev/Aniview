@@ -7,16 +7,19 @@ const AnimeListCard = ({
   return (
     <div
       className="relative border border-black min-w-32 w-full max-w-64 aspect-video bg-cover bg-center text-white"
-      style={{ backgroundImage: `url(${anime.image ? anime.image : image})` }}
+      style={{
+        backgroundImage: `url(${
+          anime.animeImageUrl ? anime.animeImageUrl : image
+        })`,
+      }}
     >
-      {/* Number in the top left corner */}
-      <span className="absolute h-8 text-center top-1 left-1 border-2 border-white bg-black/50 p-1 rounded-sm aspect-square">
+      {/* <span className="absolute h-8 text-center top-1 left-1 border-2 border-white bg-black/50 p-1 rounded-sm aspect-square">
         {anime.rating}
-      </span>
+      </span> */}
 
       {/* Name at the bottom center */}
       <h3 className="absolute bottom-0 w-full text-center left-1/2 transform -translate-x-1/2 bg-black/50 px-2 py-1">
-        {anime.name}
+        {anime.animeTitle}
       </h3>
     </div>
   );
@@ -24,8 +27,8 @@ const AnimeListCard = ({
 
 AnimeListCard.propTypes = {
   anime: PropTypes.shape({
-    image: PropTypes.string,
-    name: PropTypes.string,
+    animeImageUrl: PropTypes.string,
+    animeTitle: PropTypes.string,
     rating: PropTypes.number,
   }),
   image: PropTypes.string,
