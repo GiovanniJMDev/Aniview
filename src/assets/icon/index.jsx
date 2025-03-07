@@ -23,7 +23,9 @@ import eyeIcon from "./eyeIcon";
 import slashEyeIcon from "./slashEyeIcon";
 import micIcon from "./micIcon";
 import squareIcon from "./squareIcon";
+import reportsIcon from "./reportsIcon";
 const icons = {
+  reportsIcon,
   micIcon,
   squareIcon,
   helpIcon,

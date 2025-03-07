@@ -40,5 +40,12 @@
     "icon": "icons.helpIcon",
     "iconType": "fill",
     "link": "https://aniview-docs-lkd9.vercel.app/"
+  },
+  {
+    "label": "Report",
+    "href": "#report",
+    "icon": "icons.reportsIcon",
+    "iconType": "fill",
+    "link": "https://aniview-reports.vercel.app/"
   }
 ]
